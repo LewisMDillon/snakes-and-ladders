@@ -1,0 +1,14 @@
+.box {
+    width: 30px;
+    height: 30px;
+    border: 1px solid;
+    box-shadow: 0 0 0 2px;
+    margin: 0;
+}
+
+#game-container {
+    display: grid;
+    grid-template-columns: repeat(10, auto);
+    width: 320px;
+    margin: auto;
+}
