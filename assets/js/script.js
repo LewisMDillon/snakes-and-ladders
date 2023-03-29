@@ -1,5 +1,5 @@
 function startGame() {
-    
+
 }
 
 
@@ -9,6 +9,7 @@ function rollDice() {
 }
 
 function movePiece() {
+    let playerPosition = playerPosition + diceNum
 
 }
 

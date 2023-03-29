@@ -24,3 +24,22 @@ h1 {
     width: 310px;
     margin: auto;
 }
+
+#piece-one {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background-color: red;
+    position: relative; left:4.5px; top:-26px;
+    border: 1px solid black;
+    display: inline-block;
+}
+
+#piece-two {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: blue;
+  position: absolute;
+  border: 1px solid black;
+}
