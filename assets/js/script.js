@@ -16,6 +16,7 @@ function startGame() {
 
 function rollDice() {
     let diceNum = Math.floor(Math.random() * 6) + 1
+    // let diceNum = 4
     document.getElementById('dice-result').innerText = diceNum
     movePiece(diceNum)
 
@@ -60,8 +61,15 @@ function movePiece(diceNum) {
             pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum
          }   
     }
+    specialCheck(pieceOne)
 }
 
+function specialCheck(pieceOne) {
+    if (pieceOne.style.gridColumnStart == 5 && pieceOne.style.gridRowStart == 10) {
+        console.log('you climbed a ladder')
+        pieceOne.style.gridRowStart = 8
+    }
+}
 
 function resetGame() {
 
