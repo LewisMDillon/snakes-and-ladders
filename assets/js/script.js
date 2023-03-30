@@ -26,8 +26,10 @@ function movePiece(diceNum) {
 
     if (parseInt(pieceOne.style.gridRowStart) === 1 && parseInt(pieceOne.style.gridColumnStart) <=7) {
         console.log('the function ran')
+        if (parseInt(pieceOne.style.gridColumnStart) - diceNum == 1) {
+            pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum
+        }
     }
-
     else if (pieceOne.style.gridRowStart % 2 === 0) {
         pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) + diceNum
         if (pieceOne.style.gridColumnStart > 10) {
@@ -47,14 +49,6 @@ function movePiece(diceNum) {
             pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1
         } 
     }
-    // else if (pieceOne.style.gridRowStart == 8) {
-    //     pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) + diceNum
-    //     if (pieceOne.style.gridColumnStart > 10) {
-    //         pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1
-    //         pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - 10
-    //         pieceOne.style.gridColumnStart = 11 - parseInt(pieceOne.style.gridColumnStart)
-    //     }
-    // }
 }
 
 function resetGame() {
