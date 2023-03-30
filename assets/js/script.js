@@ -23,9 +23,12 @@ function rollDice() {
 
 function movePiece(diceNum) {
     let pieceOne = document.getElementById('piece-one')
-    
 
-    if (pieceOne.style.gridRowStart % 2 === 0) {
+    if (parseInt(pieceOne.style.gridRowStart) === 1 && parseInt(pieceOne.style.gridColumnStart) <=7) {
+        console.log('the function ran')
+    }
+
+    else if (pieceOne.style.gridRowStart % 2 === 0) {
         pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) + diceNum
         if (pieceOne.style.gridColumnStart > 10) {
             pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1
@@ -57,12 +60,3 @@ function movePiece(diceNum) {
 function resetGame() {
 
 }
-
-// whatever is over 10, take that away from 11
-
-// -1 goes to 2
-// -2 goes to 3
-// -3 goes to 4
-// -4 goes to 5
-// -5 goes to 6
-
