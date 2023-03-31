@@ -4,9 +4,6 @@ function pageSetup() {
     document.getElementById('piece-one').style.gridColumnStart = "1";
     document.getElementById('piece-one').style.gridRowStart = "10";
 
-    let diceRoller = document.getElementById('dice-roller')
-    diceRoller.addEventListener('click', rollDice)
-
     let startButton = document.getElementById('start-button')
     startButton.addEventListener('click', gameSetup)
 
@@ -82,13 +79,57 @@ function gameSetup() {
         }
     else {
         console.log('game started successfully')
+        runGame(players)
     }
 
 }
 
-// if (colorOne == colorTwo) {
-//     alert('Please choose different color, You might not know who is who!')
-// }
+function runGame(players) {
+    document.getElementById('dice-container').innerHTML = 
+    `
+    <button id="dice-roller">Roll</button>
+        <div id="dice-result">
+            <p>Dice</p>
+        </div>
+    `
+    let diceRoller = document.getElementById('dice-roller')
+    diceRoller.addEventListener('click', rollDice)
+
+    document.getElementById('form-container').innerHTML = 
+    ``
+    document.getElementById('reset-container').innerHTML = 
+    `<button id="reset-button">Reset Game</button>`
+
+    let resetButton = document.getElementById('reset-button')
+    resetButton.addEventListener('click', resetConfirm)
+
+    function myFunction() {
+        let text;
+        if (confirm("Press a button!") == true) {
+          text = "You pressed OK!";
+        } else {
+          text = "You canceled!";
+        }
+        document.getElementById("demo").innerHTML = text;
+      }
+
+
+
+
+    if (players == 2) {
+        let turn = Math.floor(Math.random() * 2) + 1
+        console.log(`Player ${turn} goes first`)
+    }
+    else {
+        let turn = Math.floor(Math.random() * 2) + 1
+        if (turn == 1) {
+            console.log(`You go first`)
+        }
+        else {
+            console.log('Computer goes first')
+        }
+    }
+}
 
 function rollDice() {
     let diceNum = Math.floor(Math.random() * 6) + 1
@@ -212,6 +253,14 @@ function specialCheck(pieceOne) {
     }
 }
 
-function resetGame() {
+function resetConfirm() {  
+    if (confirm("Reset the game?") == true) {
+        resetGame()
+    } 
+    else {}
+}
 
+function resetGame() {
+    console.log('you reset the game')
+    
 }
