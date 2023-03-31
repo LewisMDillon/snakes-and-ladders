@@ -16,7 +16,7 @@ function startGame() {
 
 function rollDice() {
     let diceNum = Math.floor(Math.random() * 6) + 1
-    // let diceNum = 4
+    // let diceNum = 1
     document.getElementById('dice-result').innerText = diceNum
     movePiece(diceNum)
 
@@ -28,6 +28,10 @@ function movePiece(diceNum) {
     if (parseInt(pieceOne.style.gridRowStart) === 1 && parseInt(pieceOne.style.gridColumnStart) <=7) {
         console.log('winstopper function ran')
         if (parseInt(pieceOne.style.gridColumnStart) - diceNum == 1) {
+            pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum
+            alert('Player 1 Wins!')
+        }
+        else if (parseInt(pieceOne.style.gridColumnStart) - diceNum == 3) {
             pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum
         }
     }
@@ -65,9 +69,70 @@ function movePiece(diceNum) {
 }
 
 function specialCheck(pieceOne) {
-    if (pieceOne.style.gridColumnStart == 5 && pieceOne.style.gridRowStart == 10) {
+    if (pieceOne.style.gridColumnStart == 4 && pieceOne.style.gridRowStart == 10) {
         console.log('you climbed a ladder')
+        pieceOne.style.gridColumnStart = 5
         pieceOne.style.gridRowStart = 8
+    }
+    else if (pieceOne.style.gridColumnStart == 1 && pieceOne.style.gridRowStart == 8) {
+        console.log('you climbed a ladder')
+        pieceOne.style.gridColumnStart = 2
+        pieceOne.style.gridRowStart = 7
+    }
+    else if (pieceOne.style.gridColumnStart == 9 && pieceOne.style.gridRowStart == 8) {
+        console.log('you climbed a ladder')
+        pieceOne.style.gridColumnStart = 7
+        pieceOne.style.gridRowStart = 3
+    }
+    else if (pieceOne.style.gridColumnStart == 10 && pieceOne.style.gridRowStart == 8) {
+        console.log('you slid down a snake')
+        pieceOne.style.gridColumnStart = 7
+        pieceOne.style.gridRowStart = 10
+    }
+    else if (pieceOne.style.gridColumnStart == 3 && pieceOne.style.gridRowStart == 6) {
+        console.log('you climbed a ladder')
+        pieceOne.style.gridColumnStart = 5
+        pieceOne.style.gridRowStart = 3
+    }
+    else if (pieceOne.style.gridColumnStart == 7 && pieceOne.style.gridRowStart == 6) {
+        console.log('you slid down a snake')
+        pieceOne.style.gridColumnStart = 6
+        pieceOne.style.gridRowStart = 9
+    }
+    else if (pieceOne.style.gridColumnStart == 5 && pieceOne.style.gridRowStart == 5) {
+        console.log('you slid down a snake')
+        pieceOne.style.gridColumnStart = 2
+        pieceOne.style.gridRowStart = 9
+    }
+    else if (pieceOne.style.gridColumnStart == 3 && pieceOne.style.gridRowStart == 4) {
+        console.log('you climbed a ladder')
+        pieceOne.style.gridColumnStart = 1
+        pieceOne.style.gridRowStart = 3
+    }
+    else if (pieceOne.style.gridColumnStart == 10 && pieceOne.style.gridRowStart == 3) {
+        console.log('you climbed a ladder')
+        pieceOne.style.gridColumnStart = 9
+        pieceOne.style.gridRowStart = 2
+    }
+    else if (pieceOne.style.gridColumnStart == 8 && pieceOne.style.gridRowStart == 3) {
+        console.log('you slid down a snake')
+        pieceOne.style.gridColumnStart = 10
+        pieceOne.style.gridRowStart = 5
+    }
+    else if (pieceOne.style.gridColumnStart == 2 && pieceOne.style.gridRowStart == 2) {
+        console.log('you slid down a snake')
+        pieceOne.style.gridColumnStart = 2
+        pieceOne.style.gridRowStart = 6
+    }
+    else if (pieceOne.style.gridColumnStart == 9 && pieceOne.style.gridRowStart == 1) {
+        console.log('you slid down a snake')
+        pieceOne.style.gridColumnStart = 6
+        pieceOne.style.gridRowStart = 3
+    }
+    else if (pieceOne.style.gridColumnStart == 3 && pieceOne.style.gridRowStart == 1) {
+        console.log('you slid down a snake')
+        pieceOne.style.gridColumnStart = 6
+        pieceOne.style.gridRowStart = 5
     }
 }
 
