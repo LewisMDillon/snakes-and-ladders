@@ -46,7 +46,7 @@ h1 {
     /* gap: 0 0 0 0; */
     margin: 0px 0 0px 0;
     position: relative;
-    background-image: url(/assets/images/gameboard.avif);
+    background-image: url(assets/images/gameboard.avif);
     background-size: cover;
   }
 
