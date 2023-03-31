@@ -117,7 +117,33 @@
         <!-- <div><img src="assets/images/gameboard.avif" alt=""></div> -->
     </div>
     <div id="info-container">
-        Game info here <br>
+        <div>
+            <form class="form" action=>
+                <div class="pageTitle title">Game Setup</div>
+                <div class="secondaryTitle title"></div>
+                <div id="radio-container">
+                    <div>
+                        <label for="players">How many players?</label>
+                        <select id="players" name="players">
+                            <option id="one-player" value="1">1</option>
+                            <option id="two-player" value="2">2</option>
+                        </select>
+                    </div>
+                    <div id="color-container">
+                        <p>Pick your color!</p>
+                        <label for="color-one">Player One</label>
+                        <select id="color-one" name="color-one">
+                            <option value="red">Red</option>
+                            <option value="blue">Blue</option>
+                            <option value="yellow">Yellow</option>
+                            <option value="green">Green</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+            <div>
+                <button id="start-button">Start Game!</button>
+            </div>
         <button id="dice-roller">Roll</button>
         <div id="dice-result">
             <p>Dice Result Here</p>
