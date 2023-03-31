@@ -62,21 +62,43 @@ function formExtend() {
     console.log('formExtend ran')
 }
 
-function startGame() {
+function gameSetup() {
+    let players = document.getElementById('players').value
+    let colorOne = document.getElementById('color-one').value
+    console.log(`A ${players}-player game`)
+    console.log(`Player one is ${colorOne}`)
+    if (document.getElementById('color-two')) {
+        let colorTwo = document.getElementById('color-two').value
+        console.log(`Player two is ${colorTwo}`)
+
+        let pieceTwo = document.getElementById('piece-two')
+            pieceTwo.style.backgroundColor = colorTwo
+    }
+    let pieceOne = document.getElementById('piece-one')
+    pieceOne.style.backgroundColor = colorOne
+
+    if (document.getElementById('color-two') && colorOne == document.getElementById('color-two')) {
+        alert('Please choose different color, You might not know who is who!')
+        }
+    else {
+        console.log('game started successfully')
+    }
 
 }
 
-   
+// if (colorOne == colorTwo) {
+//     alert('Please choose different color, You might not know who is who!')
+// }
 
 function rollDice() {
     let diceNum = Math.floor(Math.random() * 6) + 1
     // let diceNum = 1
     document.getElementById('dice-result').innerText = diceNum
-    movePiece(diceNum)
+    movePieceOne(diceNum)
 
 }
 
-function movePiece(diceNum) {
+function movePieceOne(diceNum) {
     let pieceOne = document.getElementById('piece-one')
 
     if (parseInt(pieceOne.style.gridRowStart) === 1 && parseInt(pieceOne.style.gridColumnStart) <=7) {
