@@ -6,6 +6,47 @@ function gameSetup() {
     let diceRoller = document.getElementById('dice-roller')
     diceRoller.addEventListener('click', rollDice)
 
+
+function formExtend() {
+    if (document.getElementById('players').value == 2) {
+    document.getElementById('color-container').innerHTML = 
+    `
+        <div id="color-container">
+            <p>Pick your colors!</p>
+            <label for="color-one">Player One</label>
+            <select id="color-one" name="color-one">
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="yellow">Yellow</option>
+                <option value="green">Green</option>
+            </select>
+            <label for="color-two">Player Two</label>
+            <select id="color-two" name="color-two">
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="yellow">Yellow</option>
+                <option value="green">Green</option>
+            </select>
+        </div>
+                        
+    `
+    }
+    else {
+        document.getElementById('color-container').innerHTML = 
+    `
+        <div id="color-container">
+            <p>Pick your color!</p>
+            <label for="color-one">Player One</label>
+            <select id="color-one" name="color-one">
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="yellow">Yellow</option>
+                <option value="green">Green</option>
+            </select>
+        </div>
+    `
+    }
+    console.log('formExtend ran')
 }
 
 function startGame() {
