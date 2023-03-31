@@ -1,11 +1,24 @@
-document.addEventListener("DOMContentLoaded", gameSetup())
+document.addEventListener("DOMContentLoaded", pageSetup())
 
-function gameSetup() {
+function pageSetup() {
     document.getElementById('piece-one').style.gridColumnStart = "1";
     document.getElementById('piece-one').style.gridRowStart = "10";
+
     let diceRoller = document.getElementById('dice-roller')
     diceRoller.addEventListener('click', rollDice)
 
+    let startButton = document.getElementById('start-button')
+    startButton.addEventListener('click', gameSetup)
+
+    let twoPlayer = document.getElementById('players')
+    twoPlayer.addEventListener('change', formExtend)
+
+    console.log('pageSetup ran')    
+}
+
+function testFunction() {
+    console.log('testFunction ran')
+}
 
 function formExtend() {
     if (document.getElementById('players').value == 2) {
