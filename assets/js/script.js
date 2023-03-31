@@ -71,17 +71,21 @@ function gameSetup() {
         let pieceTwo = document.getElementById('piece-two')
             pieceTwo.style.backgroundColor = colorTwo
     }
+    else {}
     let pieceOne = document.getElementById('piece-one')
     pieceOne.style.backgroundColor = colorOne
 
-    if (document.getElementById('color-two') && colorOne == document.getElementById('color-two')) {
+    colorChecker(colorOne)
+}
+
+function colorChecker(colorOne) {
+    if (document.getElementById('color-two') && colorOne === document.getElementById('color-two')) {
         alert('Please choose different color, You might not know who is who!')
         }
     else {
         console.log('game started successfully')
         runGame(players)
     }
-
 }
 
 function runGame(players) {
