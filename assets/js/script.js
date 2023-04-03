@@ -75,18 +75,31 @@ function gameSetup() {
     let pieceOne = document.getElementById('piece-one')
     pieceOne.style.backgroundColor = colorOne
 
-    colorChecker(colorOne)
-}
-
-function colorChecker(colorOne) {
-    if (document.getElementById('color-two') && colorOne === document.getElementById('color-two')) {
-        alert('Please choose different color, You might not know who is who!')
-        }
+    if (players == 2) {
+        console.log('we were routed to the colorChecker function')
+        colorChecker(players)
+    }
     else {
-        console.log('game started successfully')
         runGame(players)
+        console.log('the game started without colorChecker')
     }
 }
+
+function colorChecker() {
+    let colorOne = document.getElementById('color-one').value
+    let colorTwo = document.getElementById('color-two').value
+    console.log(colorOne)
+    console.log(colorTwo)
+    if (colorOne == colorTwo) {
+            alert('Please choose different color, You might not know who is who!')
+            console.log('the colorChecker comparison returned true')
+        }
+    else {
+            console.log('the game started via colorChecker')
+            runGame(players)
+    }
+}
+
 
 function runGame(players) {
     document.getElementById('dice-container').innerHTML = 
