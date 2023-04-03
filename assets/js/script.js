@@ -13,6 +13,9 @@ function pageSetup() {
     let twoPlayer = document.getElementById('players')
     twoPlayer.addEventListener('change', formExtend)
 
+    let testButton = document.getElementById('test-button')
+    testButton.addEventListener('click', getPoint)
+
     console.log('pageSetup ran')    
 }
 
@@ -255,7 +258,11 @@ function runGame(players) {
              }   
         }
         updatePieceOneSmooth()
-        specialCheckOne(pieceOne)
+        setTimeout(function(){
+            specialCheckOne(pieceOne)
+        }, 500);
+
+        
     }
     
     function specialCheckOne(pieceOne) {
@@ -324,7 +331,7 @@ function runGame(players) {
             pieceOne.style.gridColumnStart = 6
             pieceOne.style.gridRowStart = 5
         }
-        
+        updatePieceOneSmooth()
         switchTurn()
     }
 
@@ -451,17 +458,29 @@ function runGame(players) {
 function updatePieceOneSmooth() {
     let pieceOneSmooth = document.getElementById('piece-one-smooth')
     let element = document.getElementById("piece-one");
+    let leftPosition = element.offsetLeft;
+    let topPosition = element.offsetTop
+
+    let leftPositionCorrected = leftPosition - 0
+    let topPositionCorrected = topPosition - 0
+
+    pieceOneSmooth.style.left = `${leftPositionCorrected}px`
+    pieceOneSmooth.style.top = `${topPositionCorrected}px`
+}
+
+function updatePieceTwoSmooth() {
+    let pieceTwoSmooth = document.getElementById('piece-two-smooth')
+    let element = document.getElementById("piece-two");
     let leftPosition = element.getBoundingClientRect().left;
-    console.log(leftPosition)
     let topPosition = element.getBoundingClientRect().top;
 
     let leftPositionCorrected = leftPosition - 14
     let topPositionCorrected = topPosition - 297
+    
     console.log("Element X (relative to viewport): " + leftPosition);
     console.log("Element Y (relative to viewport): " + topPosition);
     pieceOneSmooth.style.left = `${leftPositionCorrected}px`
     pieceOneSmooth.style.top = `${topPositionCorrected}px`
-
 }
 
 function resetConfirm() {  
@@ -504,6 +523,9 @@ function resetGame() {
     document.getElementById('dice-container').innerHTML = ``
     document.getElementById('reset-container').innerHTML = ``
     pageSetup()
-    
 }
+
+
+   
+    
 

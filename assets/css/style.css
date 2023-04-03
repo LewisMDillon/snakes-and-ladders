@@ -50,12 +50,12 @@ h1 {
   } */
 
 #piece-one {
-    width: 20px;
-    height: 20px;
+    width: 0px;
+    height: 0px;
     margin: 0;
     border-radius: 20px;
     background-color: red;
-    border: 1px solid black;
+    border: 0px solid black;
     position: absolute;
     left: 4.5px;
     top: 4.5px;
@@ -73,11 +73,9 @@ h1 {
   border: 1px solid black;
   position: absolute;
   left: 4.5px;
-  top: 4.5px;
+  top: 275px;
   z-index: 50;
   transition: all 0.75s;
-  grid-row-start: 10;
-  grid-column-start: 1;
 }
 
 #piece-one:hover {
