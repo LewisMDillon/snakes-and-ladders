@@ -157,7 +157,6 @@ function runGame(players) {
         if (turn == 1) {
             turn = turn + 1
         }
-
         else {
             turn = turn - 1
         }
@@ -403,5 +402,36 @@ function resetConfirm() {
 
 function resetGame() {
     console.log('you reset the game')
+    document.getElementById('form-container').innerHTML =
+    ` <form class="form" action=>
+                <div class="pageTitle title">Game Setup</div>
+                <div class="secondaryTitle title"></div>
+                <div id="radio-container">
+                    <div>
+                        <label for="players">How many players?</label>
+                        <select id="players" name="players">
+                            <option id="one-player" value="1">1</option>
+                            <option id="two-player" value="2">2</option>
+                        </select>
+                    </div>
+                    <div id="color-container">
+                        <p>Pick your color!</p>
+                        <label for="color-one">Player One</label>
+                        <select id="color-one" name="color-one">
+                            <option value="red">Red</option>
+                            <option value="blue">Blue</option>
+                            <option value="yellow">Yellow</option>
+                            <option value="green">Green</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+            <div>
+                <button id="start-button">Start Game!</button>
+            </div>
+    `
+    document.getElementById('dice-container').innerHTML = ``
+    document.getElementById('reset-container').innerHTML = ``
+    pageSetup()
     
 }
