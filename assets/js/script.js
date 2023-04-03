@@ -138,6 +138,12 @@ function runGame(players) {
 
     if (players == 2) {
         document.getElementById('game-messages').innerText = (`Player ${turn} goes first`)
+        if (turn == 1) {
+            document.getElementById('game-messages').style.color = document.getElementById('piece-one').style.backgroundColor
+        }
+        else {
+            document.getElementById('game-messages').style.color = document.getElementById('piece-two').style.backgroundColor
+        }
     }
     else {
         if (turn == 1) {
