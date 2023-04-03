@@ -168,7 +168,6 @@ function runGame(players) {
         // let diceNum = 1
         document.getElementById('dice-result').innerText = diceNum
         if (players == 2) {
-            console.log('there are 2 plyurs')
             if (turn == 1) {
                 movePieceOne(diceNum)
             }
@@ -255,6 +254,7 @@ function runGame(players) {
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum
              }   
         }
+        updatePieceOneSmooth()
         specialCheckOne(pieceOne)
     }
     
@@ -324,6 +324,7 @@ function runGame(players) {
             pieceOne.style.gridColumnStart = 6
             pieceOne.style.gridRowStart = 5
         }
+        
         switchTurn()
     }
 
@@ -447,7 +448,21 @@ function runGame(players) {
     }
 }
 
+function updatePieceOneSmooth() {
+    let pieceOneSmooth = document.getElementById('piece-one-smooth')
+    let element = document.getElementById("piece-one");
+    let leftPosition = element.getBoundingClientRect().left;
+    console.log(leftPosition)
+    let topPosition = element.getBoundingClientRect().top;
 
+    let leftPositionCorrected = leftPosition - 14
+    let topPositionCorrected = topPosition - 297
+    console.log("Element X (relative to viewport): " + leftPosition);
+    console.log("Element Y (relative to viewport): " + topPosition);
+    pieceOneSmooth.style.left = `${leftPositionCorrected}px`
+    pieceOneSmooth.style.top = `${topPositionCorrected}px`
+
+}
 
 function resetConfirm() {  
     if (confirm("Reset the game?") == true) {
@@ -491,3 +506,4 @@ function resetGame() {
     pageSetup()
     
 }
+
