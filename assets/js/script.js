@@ -107,7 +107,10 @@ function runGame(players) {
     `
     <button id="dice-roller">Roll</button>
         <div id="dice-result">
-            <p>Dice</p>
+            <p></p>
+        </div>
+        <div id="result-two">
+            <p></p>
         </div>
     `
     let diceRoller = document.getElementById('dice-roller')
@@ -143,12 +146,26 @@ function runGame(players) {
         let diceNum = Math.floor(Math.random() * 6) + 1
         // let diceNum = 1
         document.getElementById('dice-result').innerText = diceNum
-        if (turn == 1) {
-            movePieceOne(diceNum)
+        if (players == 2) {
+            console.log('there are 2 plyurs')
+            if (turn == 1) {
+                movePieceOne(diceNum)
+            }
+            else {
+                movePieceTwo(diceNum)
+            }
         }
         else {
-            movePieceTwo(diceNum)
+            if (turn == 1) {
+                movePieceOne(diceNum)
+                diceNum = Math.floor(Math.random() * 6) + 1
+                setTimeout(function(){
+                    movePieceTwo(diceNum)
+                    document.getElementById('result-two').innerText = `The computer rolled a ${diceNum}`
+                }, 500);
+            }
         }
+        
         
         
     }
