@@ -142,6 +142,7 @@ function runGame(players) {
     else {
         if (turn == 1) {
             document.getElementById('game-messages').innerText = (`You go first!`)
+            document.getElementById('game-messages').style.color = document.getElementById('piece-one').style.backgroundColor
         }
         else {
             document.getElementById('game-messages').innerText = ('Computer goes first')
