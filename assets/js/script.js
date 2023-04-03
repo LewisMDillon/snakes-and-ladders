@@ -187,7 +187,7 @@ function runGame(players) {
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum
                 alert('Player 1 Wins!')
             }
-            else if (parseInt(pieceOne.style.gridColumnStart) - diceNum == 3) {
+            else if (parseInt(pieceOne.style.gridColumnStart) - diceNum > 1) {
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum
             }
         }
@@ -301,7 +301,7 @@ function runGame(players) {
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum
                 alert('Player 2 Wins!')
             }
-            else if (parseInt(pieceTwo.style.gridColumnStart) - diceNum == 3) {
+            else if (parseInt(pieceTwo.style.gridColumnStart) - diceNum > 1) {
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum
             }
         }
