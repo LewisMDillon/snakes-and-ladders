@@ -4,6 +4,9 @@ function pageSetup() {
     document.getElementById('piece-one').style.gridColumnStart = "1";
     document.getElementById('piece-one').style.gridRowStart = "10";
 
+    document.getElementById('piece-two').style.gridColumnStart = "1";
+    document.getElementById('piece-two').style.gridRowStart = "10";
+
     let startButton = document.getElementById('start-button')
     startButton.addEventListener('click', gameSetup)
 
@@ -88,8 +91,6 @@ function gameSetup() {
 function colorChecker(players) {
     let colorOne = document.getElementById('color-one').value
     let colorTwo = document.getElementById('color-two').value
-    console.log(colorOne)
-    console.log(colorTwo)
     if (colorOne == colorTwo) {
             alert('Please choose different color, You might not know who is who!')
             console.log('the colorChecker comparison returned true')
@@ -142,12 +143,17 @@ function runGame(players) {
         let diceNum = Math.floor(Math.random() * 6) + 1
         // let diceNum = 1
         document.getElementById('dice-result').innerText = diceNum
-        movePieceOne(diceNum)
+        if (turn == 1) {
+            movePieceOne(diceNum)
+        }
+        else {
+            movePieceTwo(diceNum)
+        }
+        
+        
     }
 
     function switchTurn() {
-        console.log(`It was this player turn: ${turn}`)
-        
         if (turn == 1) {
             turn = turn + 1
         }
@@ -155,13 +161,10 @@ function runGame(players) {
         else {
             turn = turn - 1
         }
-       
-        console.log(`Now it is this player turn: ${turn}`)
     }
     
     function movePieceOne(diceNum) {
         let pieceOne = document.getElementById('piece-one')
-    
         if (parseInt(pieceOne.style.gridRowStart) === 1 && parseInt(pieceOne.style.gridColumnStart) <=7) {
             console.log('winstopper function ran')
             if (parseInt(pieceOne.style.gridColumnStart) - diceNum == 1) {
@@ -202,10 +205,10 @@ function runGame(players) {
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum
              }   
         }
-        specialCheck(pieceOne)
+        specialCheckOne(pieceOne)
     }
     
-    function specialCheck(pieceOne) {
+    function specialCheckOne(pieceOne) {
         if (pieceOne.style.gridColumnStart == 4 && pieceOne.style.gridRowStart == 10) {
             console.log('you climbed a ladder')
             pieceOne.style.gridColumnStart = 5
@@ -270,6 +273,120 @@ function runGame(players) {
             console.log('you slid down a snake')
             pieceOne.style.gridColumnStart = 6
             pieceOne.style.gridRowStart = 5
+        }
+        switchTurn()
+    }
+
+    function movePieceTwo(diceNum) {
+        let pieceTwo = document.getElementById('piece-two')
+        if (parseInt(pieceTwo.style.gridRowStart) === 1 && parseInt(pieceTwo.style.gridColumnStart) <=7) {
+            console.log('winstopper function ran')
+            if (parseInt(pieceTwo.style.gridColumnStart) - diceNum == 1) {
+                pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum
+                alert('Player 2 Wins!')
+            }
+            else if (parseInt(pieceTwo.style.gridColumnStart) - diceNum == 3) {
+                pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum
+            }
+        }
+        else if (pieceTwo.style.gridRowStart % 2 === 0) {
+            pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) + diceNum
+            if (pieceTwo.style.gridColumnStart > 10) {
+                pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1
+                pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - 10
+                pieceTwo.style.gridColumnStart = 11 - parseInt(pieceTwo.style.gridColumnStart)
+                console.log('even carryover function ran')
+            }
+        }
+        else if (pieceTwo.style.gridRowStart % 2 != 0) {
+            if (parseInt(pieceTwo.style.gridColumnStart) - diceNum < 0) {
+                pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum
+                pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1
+                pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) + 10
+                pieceTwo.style.gridColumnStart = 11 - parseInt(pieceTwo.style.gridColumnStart)
+                console.log('odd carryover function ran')        
+            }
+            else if (pieceTwo.style.gridColumnStart == 1 && diceNum == 1) {
+                pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1
+                console.log('dice 1 function ran')
+            }
+            else if (pieceTwo.style.gridColumnStart - diceNum == 0) {
+                pieceTwo.style.gridColumnStart = 1
+                pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1
+                console.log('zero function ran')
+            }
+             else {
+                pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum
+             }   
+        }
+        specialCheckTwo(pieceTwo)
+    }
+
+    function specialCheckTwo(pieceTwo) {
+        if (pieceTwo.style.gridColumnStart == 4 && pieceTwo.style.gridRowStart == 10) {
+            console.log('you climbed a ladder')
+            pieceTwo.style.gridColumnStart = 5
+            pieceTwo.style.gridRowStart = 8
+        }
+        else if (pieceTwo.style.gridColumnStart == 1 && pieceTwo.style.gridRowStart == 8) {
+            console.log('you climbed a ladder')
+            pieceTwo.style.gridColumnStart = 2
+            pieceTwo.style.gridRowStart = 7
+        }
+        else if (pieceTwo.style.gridColumnStart == 9 && pieceTwo.style.gridRowStart == 8) {
+            console.log('you climbed a ladder')
+            pieceTwo.style.gridColumnStart = 7
+            pieceTwo.style.gridRowStart = 3
+        }
+        else if (pieceTwo.style.gridColumnStart == 10 && pieceTwo.style.gridRowStart == 8) {
+            console.log('you slid down a snake')
+            pieceTwo.style.gridColumnStart = 7
+            pieceTwo.style.gridRowStart = 10
+        }
+        else if (pieceTwo.style.gridColumnStart == 3 && pieceTwo.style.gridRowStart == 6) {
+            console.log('you climbed a ladder')
+            pieceTwo.style.gridColumnStart = 5
+            pieceTwo.style.gridRowStart = 3
+        }
+        else if (pieceTwo.style.gridColumnStart == 7 && pieceTwo.style.gridRowStart == 6) {
+            console.log('you slid down a snake')
+            pieceTwo.style.gridColumnStart = 6
+            pieceTwo.style.gridRowStart = 9
+        }
+        else if (pieceTwo.style.gridColumnStart == 5 && pieceTwo.style.gridRowStart == 5) {
+            console.log('you slid down a snake')
+            pieceTwo.style.gridColumnStart = 2
+            pieceTwo.style.gridRowStart = 9
+        }
+        else if (pieceTwo.style.gridColumnStart == 3 && pieceTwo.style.gridRowStart == 4) {
+            console.log('you climbed a ladder')
+            pieceTwo.style.gridColumnStart = 1
+            pieceTwo.style.gridRowStart = 3
+        }
+        else if (pieceTwo.style.gridColumnStart == 10 && pieceTwo.style.gridRowStart == 3) {
+            console.log('you climbed a ladder')
+            pieceTwo.style.gridColumnStart = 9
+            pieceTwo.style.gridRowStart = 2
+        }
+        else if (pieceTwo.style.gridColumnStart == 8 && pieceTwo.style.gridRowStart == 3) {
+            console.log('you slid down a snake')
+            pieceTwo.style.gridColumnStart = 10
+            pieceTwo.style.gridRowStart = 5
+        }
+        else if (pieceTwo.style.gridColumnStart == 2 && pieceTwo.style.gridRowStart == 2) {
+            console.log('you slid down a snake')
+            pieceTwo.style.gridColumnStart = 2
+            pieceTwo.style.gridRowStart = 6
+        }
+        else if (pieceTwo.style.gridColumnStart == 9 && pieceTwo.style.gridRowStart == 1) {
+            console.log('you slid down a snake')
+            pieceTwo.style.gridColumnStart = 6
+            pieceTwo.style.gridRowStart = 3
+        }
+        else if (pieceTwo.style.gridColumnStart == 3 && pieceTwo.style.gridRowStart == 1) {
+            console.log('you slid down a snake')
+            pieceTwo.style.gridColumnStart = 6
+            pieceTwo.style.gridRowStart = 5
         }
         switchTurn()
     }
