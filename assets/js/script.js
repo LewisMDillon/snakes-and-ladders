@@ -14,7 +14,6 @@ function pageSetup() {
     twoPlayer.addEventListener('change', formExtend)
 
     let testButton = document.getElementById('test-button')
-    testButton.addEventListener('click', getPoint)
 
     console.log('pageSetup ran')    
 }
