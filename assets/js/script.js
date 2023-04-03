@@ -137,6 +137,11 @@ function runGame(players) {
         }
         else {
             console.log('Computer goes first')
+            diceNum = Math.floor(Math.random() * 6) + 1
+                setTimeout(function(){
+                    movePieceTwo(diceNum)
+                    document.getElementById('result-two').innerText = `The computer rolled a ${diceNum}`
+                }, 500);
         }
     }
 
