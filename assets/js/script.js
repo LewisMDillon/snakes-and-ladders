@@ -83,6 +83,14 @@ function gameSetup() {
         colorChecker(players)
     }
     else {
+        let computerPiece = document.getElementById('piece-two')
+        computerPiece.style.backgroundColor = 'grey'
+        document.getElementById('piece-two').innerHTML = 
+        `
+        <span class="material-symbols-outlined">
+        smart_toy
+        </span>
+        `
         runGame(players)
         console.log('the game started without colorChecker')
     }
@@ -129,14 +137,15 @@ function runGame(players) {
     console.log(`the value of the players variable is: ${players}`)
 
     if (players == 2) {
-        console.log(`Player ${turn} goes first`)
+        document.getElementById('game-messages').innerText = (`Player ${turn} goes first`)
     }
     else {
         if (turn == 1) {
-            console.log(`You go first`)
+            document.getElementById('game-messages').innerText = (`You go first!`)
         }
         else {
-            console.log('Computer goes first')
+            document.getElementById('game-messages').innerText = ('Computer goes first')
+            document.getElementById('game-messages').style.color = document.getElementById('piece-two').style.backgroundColor
             diceNum = Math.floor(Math.random() * 6) + 1
                 setTimeout(function(){
                     movePieceTwo(diceNum)
@@ -178,9 +187,22 @@ function runGame(players) {
     function switchTurn() {
         if (turn == 1) {
             turn = turn + 1
+            if (players == 2) {
+                document.getElementById('game-messages').innerText = `Player ${turn}'s Turn`
+                document.getElementById('game-messages').style.color = document.getElementById('piece-two').style.backgroundColor
+                
+
+            }
+            else {
+                document.getElementById('game-messages').innerText = `Computer's Turn`
+                document.getElementById('game-messages').style.color = 'grey'
+            }
+            
         }
         else {
             turn = turn - 1
+            document.getElementById('game-messages').innerText = `Player ${turn}'s Turn`
+            document.getElementById('game-messages').style.color = document.getElementById('piece-one').style.backgroundColor
         }
     }
     
@@ -304,7 +326,12 @@ function runGame(players) {
             console.log('winstopper function ran')
             if (parseInt(pieceTwo.style.gridColumnStart) - diceNum == 1) {
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum
-                alert('Player 2 Wins!')
+                if (players == 2) {
+                    alert('Player 2 Wins!')
+                }
+                else {
+                    alert('Computer Wins')
+                }
             }
             else if (parseInt(pieceTwo.style.gridColumnStart) - diceNum > 1) {
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum
