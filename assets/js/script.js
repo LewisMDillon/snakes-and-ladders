@@ -85,7 +85,7 @@ function gameSetup() {
     }
 }
 
-function colorChecker() {
+function colorChecker(players) {
     let colorOne = document.getElementById('color-one').value
     let colorTwo = document.getElementById('color-two').value
     console.log(colorOne)
@@ -122,6 +122,8 @@ function runGame(players) {
 
     let turn = Math.floor(Math.random() * 2) + 1
     
+    console.log(`the value of the players variable is: ${players}`)
+
     if (players == 2) {
         console.log(`Player ${turn} goes first`)
     }
