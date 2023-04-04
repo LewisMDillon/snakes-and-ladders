@@ -95,7 +95,7 @@ function gameSetup() {
         computerPiece.style.backgroundColor = 'grey'
         let pieceTwoSmooth = document.getElementById('piece-two-smooth')
         pieceTwoSmooth.style.backgroundColor = 'grey'
-        document.getElementById('robot-icon').style.fontSize = '24px'
+        document.getElementById('robot-icon').style.fontSize = '22px'
         runGame(players)
         console.log('the game started without colorChecker')
     }
@@ -116,16 +116,21 @@ function colorChecker(players) {
 
 
 function runGame(players) {
-    document.getElementById('dice-container').innerHTML = 
+    document.getElementById('roll-container').innerHTML = 
     `
     <button id="dice-roller">Roll</button>
-        <div id="dice-result">
+    `
+
+    document.getElementById('dice-result-container').innerHTML =
+    `
+    <div id="result-one">
             <p></p>
         </div>
         <div id="result-two">
             <p></p>
         </div>
     `
+
     let diceRoller = document.getElementById('dice-roller')
     diceRoller.addEventListener('click', rollDice)
 
@@ -171,28 +176,68 @@ function runGame(players) {
     function rollDice() {
         let diceNum = Math.floor(Math.random() * 6) + 1
         // let diceNum = 1
-        document.getElementById('dice-result').innerText = diceNum
-        if (players == 2) {
-            if (turn == 1) {
-                movePieceOne(diceNum)
+        document.getElementById('result-one').innerText = diceNum
+
+        let dice = document.querySelector('.dice');
+        
+        dice.style.animation = 'rolling 2.5s';
+        
+        setTimeout(() => {
+        
+            switch (diceNum) {
+                case 1:
+                    dice.style.transform = 'rotateX(0deg) rotateY(0deg)';
+                    break;
+    
+                case 6:
+                    dice.style.transform = 'rotateX(180deg) rotateY(0deg)';
+                    break;
+        
+                case 2:
+                    dice.style.transform = 'rotateX(-90deg) rotateY(0deg)';
+                        break;
+        
+                case 5:
+                    dice.style.transform = 'rotateX(90deg) rotateY(0deg)';
+                    break;
+        
+                case 3:
+                    dice.style.transform = 'rotateX(0deg) rotateY(90deg)';
+                    break;
+        
+                case 4:
+                    dice.style.transform = 'rotateX(0deg) rotateY(-90deg)';
+                    break;
+        
+                default:
+                    break;
+                }
+        
+                dice.style.animation = 'none';
+        
+        }, 1050);
+        
+        setTimeout(function(){
+            if (players == 2) {
+                if (turn == 1) {
+                    movePieceOne(diceNum)
+                }
+                else {
+                    movePieceTwo(diceNum)
+                }
             }
             else {
-                movePieceTwo(diceNum)
+                if (turn == 1) {
+                    movePieceOne(diceNum)
+                    diceNum = Math.floor(Math.random() * 6) + 1
+
+                    setTimeout(function(){
+                        movePieceTwo(diceNum)
+                        document.getElementById('result-two').innerText = `The computer rolled a ${diceNum}`
+                    }, 1500);
+                }
             }
-        }
-        else {
-            if (turn == 1) {
-                movePieceOne(diceNum)
-                diceNum = Math.floor(Math.random() * 6) + 1
-                setTimeout(function(){
-                    movePieceTwo(diceNum)
-                    document.getElementById('result-two').innerText = `The computer rolled a ${diceNum}`
-                }, 500);
-            }
-        }
-        
-        
-        
+        }, 1500);  
     }
 
     function switchTurn() {
@@ -530,15 +575,11 @@ function resetGame() {
                 <button id="start-button">Start Game!</button>
             </div>
     `
-    document.getElementById('dice-container').innerHTML = ``
+    document.getElementById('roll-container').innerHTML = ``
     document.getElementById('reset-container').innerHTML = ``
 
     pageSetup()
     updatePieceOneSmooth()
     updatePieceTwoSmooth()
 }
-
-
-   
-    
 
