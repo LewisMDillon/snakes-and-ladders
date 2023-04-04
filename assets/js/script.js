@@ -9,11 +9,12 @@ function pageSetup() {
 
     let startButton = document.getElementById('start-button')
     startButton.addEventListener('click', gameSetup)
-
+    
     let twoPlayer = document.getElementById('players')
     twoPlayer.addEventListener('change', formExtend)
 
     let testButton = document.getElementById('test-button')
+
 
     console.log('pageSetup ran')    
 }
@@ -142,6 +143,7 @@ function runGame(players) {
     `
 
     let diceRoller = document.getElementById('dice-roller')
+ 
     diceRoller.addEventListener('click', rollDice)
 
     document.getElementById('form-container').innerHTML = 
@@ -186,7 +188,7 @@ function runGame(players) {
     function rollDice() {
         let diceNum = Math.floor(Math.random() * 6) + 1
         // let diceNum = 1
-        
+        disableButton()
 
         let dice = document.querySelector('.dice');
         
@@ -256,6 +258,7 @@ function runGame(players) {
             if (players == 2) {
                 document.getElementById('game-messages').innerText = `Player ${turn}'s Turn`
                 document.getElementById('game-messages').style.color = document.getElementById('piece-two').style.backgroundColor
+                enableButton()
                 
 
             }
@@ -269,7 +272,9 @@ function runGame(players) {
             turn = turn - 1
             document.getElementById('game-messages').innerText = `Player ${turn}'s Turn`
             document.getElementById('game-messages').style.color = document.getElementById('piece-one').style.backgroundColor
+            enableButton()
         }
+        
     }
     
     function movePieceOne(diceNum) {
@@ -548,6 +553,10 @@ function updatePieceTwoSmooth() {
     pieceTwoSmooth.style.top = `${topPositionCorrected}px`
 }
 
+function clearMessage() {
+    document.getElementById('dice-result').innerHTML = ``
+}
+
 function resetConfirm() {  
     if (confirm("Reset the game?") == true) {
         resetGame()
@@ -589,11 +598,31 @@ function resetGame() {
     document.getElementById('dice-container').innerHTML = ``
     document.getElementById('reset-container').innerHTML = ``
     document.getElementById('game-messages').innerHTML = ``
-    document.getElementById('dice-result-container').innerHTML = ``
+    document.getElementById('result-two').innerText = ``
     document.getElementById('robot-icon').style.fontSize = '0px'
 
     pageSetup()
     updatePieceOneSmooth()
     updatePieceTwoSmooth()
+}
+
+
+//button disable
+
+function disableButton(){
+    document.getElementById("dice-roller").disabled = true;    
+}
+
+function enableButton(){
+    document.getElementById("dice-roller").disabled = false;    
+}
+
+
+function disableButtonTimer(){
+    document.getElementById("dice-roller").disabled = true;
+    setTimeout(function() {
+        document.getElementById("dice-roller").disabled = false;
+    }, 2800);
+    
 }
 
