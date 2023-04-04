@@ -95,12 +95,7 @@ function gameSetup() {
         computerPiece.style.backgroundColor = 'grey'
         let pieceTwoSmooth = document.getElementById('piece-two-smooth')
         pieceTwoSmooth.style.backgroundColor = 'grey'
-        document.getElementById('piece-two-smooth').innerHTML = 
-        `
-        <span class="material-symbols-outlined">
-        smart_toy
-        </span>
-        `
+        document.getElementById('robot-icon').style.fontSize = '24px'
         runGame(players)
         console.log('the game started without colorChecker')
     }
@@ -537,7 +532,10 @@ function resetGame() {
     `
     document.getElementById('dice-container').innerHTML = ``
     document.getElementById('reset-container').innerHTML = ``
+
     pageSetup()
+    updatePieceOneSmooth()
+    updatePieceTwoSmooth()
 }
 
 
