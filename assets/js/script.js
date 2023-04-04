@@ -120,7 +120,17 @@ function runGame(players) {
     `
     <button id="dice-roller">Roll</button>
     `
-
+    document.getElementById('dice-container').innerHTML =
+    `
+    <div class="dice">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face right"></div>
+        <div class="face left"></div>
+    </div>
+    `
     document.getElementById('dice-result-container').innerHTML =
     `
     <div id="result-one">
@@ -176,7 +186,7 @@ function runGame(players) {
     function rollDice() {
         let diceNum = Math.floor(Math.random() * 6) + 1
         // let diceNum = 1
-        document.getElementById('result-one').innerText = diceNum
+        
 
         let dice = document.querySelector('.dice');
         
@@ -576,7 +586,11 @@ function resetGame() {
             </div>
     `
     document.getElementById('roll-container').innerHTML = ``
+    document.getElementById('dice-container').innerHTML = ``
     document.getElementById('reset-container').innerHTML = ``
+    document.getElementById('game-messages').innerHTML = ``
+    document.getElementById('dice-result-container').innerHTML = ``
+    document.getElementById('robot-icon').style.fontSize = '0px'
 
     pageSetup()
     updatePieceOneSmooth()
