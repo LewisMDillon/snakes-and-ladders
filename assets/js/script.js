@@ -220,7 +220,9 @@ function runGame(players) {
             console.log('winstopper function ran')
             if (parseInt(pieceOne.style.gridColumnStart) - diceNum == 1) {
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum
-                alert('Player 1 Wins!')
+                setTimeout(function(){
+                    alert('Player 1 Wins!')
+                }, 700);
             }
             else if (parseInt(pieceOne.style.gridColumnStart) - diceNum > 1) {
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum
@@ -341,10 +343,14 @@ function runGame(players) {
             if (parseInt(pieceTwo.style.gridColumnStart) - diceNum == 1) {
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum
                 if (players == 2) {
-                    alert('Player 2 Wins!')
+                    setTimeout(function(){
+                        alert('Player 2 Wins!')
+                    }, 700);
                 }
                 else {
-                    alert('Computer Wins')
+                    setTimeout(function(){
+                        alert('Computer Wins')
+                    }, 700);
                 }
             }
             else if (parseInt(pieceTwo.style.gridColumnStart) - diceNum > 1) {
@@ -381,7 +387,10 @@ function runGame(players) {
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum
              }   
         }
-        specialCheckTwo(pieceTwo)
+        updatePieceTwoSmooth()
+        setTimeout(function(){
+            specialCheckTwo(pieceTwo)
+        }, 500);
     }
 
     function specialCheckTwo(pieceTwo) {
