@@ -75,10 +75,16 @@ function gameSetup() {
 
         let pieceTwo = document.getElementById('piece-two')
             pieceTwo.style.backgroundColor = colorTwo
+
+        let pieceTwoSmooth = document.getElementById('piece-two-smooth')
+        pieceTwoSmooth.style.backgroundColor = colorTwo
     }
     else {}
     let pieceOne = document.getElementById('piece-one')
     pieceOne.style.backgroundColor = colorOne
+
+    let pieceOneSmooth = document.getElementById('piece-one-smooth')
+    pieceOneSmooth.style.backgroundColor = colorOne
 
     if (players == 2) {
         console.log('we were routed to the colorChecker function')
@@ -87,7 +93,9 @@ function gameSetup() {
     else {
         let computerPiece = document.getElementById('piece-two')
         computerPiece.style.backgroundColor = 'grey'
-        document.getElementById('piece-two').innerHTML = 
+        let pieceTwoSmooth = document.getElementById('piece-two-smooth')
+        pieceTwoSmooth.style.backgroundColor = 'grey'
+        document.getElementById('piece-two-smooth').innerHTML = 
         `
         <span class="material-symbols-outlined">
         smart_toy
@@ -459,6 +467,7 @@ function runGame(players) {
             pieceTwo.style.gridColumnStart = 6
             pieceTwo.style.gridRowStart = 5
         }
+        updatePieceTwoSmooth()
         switchTurn()
     }
 }
@@ -479,16 +488,14 @@ function updatePieceOneSmooth() {
 function updatePieceTwoSmooth() {
     let pieceTwoSmooth = document.getElementById('piece-two-smooth')
     let element = document.getElementById("piece-two");
-    let leftPosition = element.getBoundingClientRect().left;
-    let topPosition = element.getBoundingClientRect().top;
+    let leftPosition = element.offsetLeft;
+    let topPosition = element.offsetTop
 
-    let leftPositionCorrected = leftPosition - 14
-    let topPositionCorrected = topPosition - 297
-    
-    console.log("Element X (relative to viewport): " + leftPosition);
-    console.log("Element Y (relative to viewport): " + topPosition);
-    pieceOneSmooth.style.left = `${leftPositionCorrected}px`
-    pieceOneSmooth.style.top = `${topPositionCorrected}px`
+    let leftPositionCorrected = leftPosition - 0
+    let topPositionCorrected = topPosition - 0
+
+    pieceTwoSmooth.style.left = `${leftPositionCorrected}px`
+    pieceTwoSmooth.style.top = `${topPositionCorrected}px`
 }
 
 function resetConfirm() {  
