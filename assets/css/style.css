@@ -20,6 +20,7 @@ body {
     font-family: 'PT Sans', sans-serif;
     color: #3d999a;
     font-weight: 550;
+    font-size: 2rem;
 }
 
 #full-container {
@@ -62,9 +63,35 @@ body {
   padding: 20px;
 }
 
+form select {
+  font-size: 1.5rem;
+  color: #3d999a;
+  border: 1px solid black;
+}
+
+select option[value='red'] {
+  color: red;
+}
+
+select option[value='blue'] {
+  color: blue;
+}
+
+select option[value='yellow'] {
+  color: yellow;
+}
+
+select option[value='green'] {
+  color: green;
+}
+
 #start-button {
   padding: 10px;
-  margin: 10px;
+  margin: 20px;
+  font-family: 'PT Sans';
+  font-size: 1.5rem;
+  padding: 15px;
+  border-radius: 8px;
 }
 
 #reset-container {
@@ -349,4 +376,11 @@ body {
 
 #dice-roller:hover:enabled {
   background-color: #327e80;
+}
+
+#reset-button {
+  font-family: 'PT Sans';
+  font-size: 1.5rem;
+  padding: 15px;
+  border-radius: 8px;
 }
