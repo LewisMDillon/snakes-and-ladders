@@ -174,6 +174,7 @@ function runGame(players) {
         }
         else {
             document.getElementById('game-messages').innerText = ('Computer goes first')
+            disableButton()
             document.getElementById('game-messages').style.color = document.getElementById('piece-two').style.backgroundColor
             diceNum = Math.floor(Math.random() * 6) + 1
                 setTimeout(function(){
@@ -265,14 +266,23 @@ function runGame(players) {
             else {
                 document.getElementById('game-messages').innerText = `Computer's Turn`
                 document.getElementById('game-messages').style.color = 'grey'
+                
             }
             
         }
         else {
             turn = turn - 1
-            document.getElementById('game-messages').innerText = `Player ${turn}'s Turn`
-            document.getElementById('game-messages').style.color = document.getElementById('piece-one').style.backgroundColor
-            enableButton()
+            if (players == 2) {
+                document.getElementById('game-messages').innerText = `Player ${turn}'s Turn`
+                document.getElementById('game-messages').style.color = document.getElementById('piece-one').style.backgroundColor
+                enableButton()
+            }
+            else {
+                document.getElementById('game-messages').innerText = `Your Turn!`
+                document.getElementById('game-messages').style.color = document.getElementById('piece-one').style.backgroundColor
+                enableButton()
+            }
+            
         }
         
     }
