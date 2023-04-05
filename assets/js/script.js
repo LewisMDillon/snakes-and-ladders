@@ -39,11 +39,12 @@ function muteToggle() {
     let snakeSound = document.getElementById('snake-sound')
     let winSound = document.getElementById('win-sound')
     if (backgroundMusic.muted != true) {
-        backgroundMusic.muted = true;
-        rollSound.muted = true;
-        ladderSound.muted = true;
-        snakeSound.muted = true;
-        winSound.muted = true;
+            backgroundMusic.muted = true;
+            rollSound.muted = true;
+            ladderSound.muted = true;
+            snakeSound.muted = true;
+            winSound.muted = true;
+            document.getElementById('mute-button').innerHTML = `<i class="fa-solid fa-volume-xmark"></i>`
     }
     else {
         backgroundMusic.muted = false;
@@ -51,6 +52,7 @@ function muteToggle() {
         ladderSound.muted = false;
         snakeSound.muted = false;
         winSound.muted = false;
+        document.getElementById('mute-button').innerHTML = `<i class="fa-solid fa-volume-high"></i>`
     }
     console.log('muteToggle ran')
 }

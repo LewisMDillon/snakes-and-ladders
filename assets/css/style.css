@@ -88,10 +88,28 @@ select option[value='green'] {
 #reset-container {
   display: flex;
   justify-content: center;
+  padding-left: 86px;
 }
 
 #reset-button {
   padding: 10px;
+}
+
+#reset-mute-container {
+  display: flex;
+  justify-content: center;
+}
+
+#mute-container {
+  padding-left: 40px;
+}
+
+#mute-button {
+  font-size: 2rem;
+  color: #3d999a;
+  background-color: white;
+  min-width: 50px;
+  padding: 5px;
 }
 
 #game-messages {
