@@ -150,6 +150,8 @@ function runGame(players) {
 
     document.getElementById('form-container').innerHTML = 
     ``
+    document.getElementById('form-container').style.padding = 0
+
     document.getElementById('reset-container').innerHTML = 
     `<button id="reset-button">Reset Game</button>`
 
@@ -173,14 +175,17 @@ function runGame(players) {
             document.getElementById('game-messages').style.color = document.getElementById('piece-one').style.backgroundColor
         }
         else {
-            document.getElementById('game-messages').innerText = ('Computer goes first')
-            disableButtons()
-            document.getElementById('game-messages').style.color = document.getElementById('piece-two').style.backgroundColor
-            diceNum = Math.floor(Math.random() * 6) + 1
-                setTimeout(function(){
-                    movePieceTwo(diceNum)
-                    document.getElementById('result-two').innerText = `The computer rolled a ${diceNum}`
-                }, 500);
+            if (gameRunning === true) {
+                document.getElementById('game-messages').innerText = ('Computer goes first')
+                disableButtons()
+                document.getElementById('game-messages').style.color = document.getElementById('piece-two').style.backgroundColor
+                diceNum = Math.floor(Math.random() * 6) + 1
+                    setTimeout(function(){ 
+                        movePieceTwo(diceNum)
+                         document.getElementById('result-two').innerText = `The computer rolled a ${diceNum}`
+                    
+                    }, 500);
+            }
         }
     console.log('runGame ran')
     console.log('the gameRunning variable is ' + gameRunning)
@@ -247,8 +252,10 @@ function runGame(players) {
                     diceNum = Math.floor(Math.random() * 6) + 1
 
                     setTimeout(function(){
-                        movePieceTwo(diceNum)
-                        document.getElementById('result-two').innerText = `The computer rolled a ${diceNum}`
+                        if (gameRunning === true) {
+                            movePieceTwo(diceNum)
+                            document.getElementById('result-two').innerText = `The computer rolled a ${diceNum}`
+                        }
                     }, 1500);
                 }
             }
@@ -256,7 +263,7 @@ function runGame(players) {
     }
 
     function switchTurn() {
-        if (gameRunning = true) {
+        if (gameRunning === true) {
             if (turn == 1) {
                 turn = turn + 1
                 if (players == 2) {
@@ -296,9 +303,16 @@ function runGame(players) {
             console.log('winstopper function ran')
             if (parseInt(pieceOne.style.gridColumnStart) - diceNum == 1) {
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum
+                gameRunning = false
                 setTimeout(function(){
-                    alert('Player 1 Wins!')
-                    resetGame()
+                    if (players == 2) {
+                        alert('Player 1 Wins!')
+                        resetGame()
+                    }
+                    else {
+                        alert('You Win!')
+                        resetGame()
+                    }
                 }, 700);
                 
                 
@@ -412,7 +426,10 @@ function runGame(players) {
             pieceOne.style.gridRowStart = 5
         }
         updatePieceOneSmooth()
+
+        if (gameRunning === true) {
         switchTurn()
+        }
     }
 
     function movePieceTwo(diceNum) {
@@ -422,16 +439,19 @@ function runGame(players) {
             if (parseInt(pieceTwo.style.gridColumnStart) - diceNum == 1) {
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum
                 if (players == 2) {
+                    gameRunning = false
                     setTimeout(function(){
                         alert('Player 2 Wins!')
                     }, 700);
                     resetGame()
                 }
                 else {
+                    gameRunning = false
                     setTimeout(function(){
                         alert('Computer Wins')
+                        resetGame()
                     }, 700);
-                    resetGame()
+                    
                 }
             }
             else if (parseInt(pieceTwo.style.gridColumnStart) - diceNum > 1) {
@@ -588,8 +608,7 @@ function resetGame() {
     console.log(gameRunning)
     document.getElementById('form-container').innerHTML =
     ` <form class="form" action=>
-                <div class="pageTitle title">Game Setup</div>
-                <div class="secondaryTitle title"></div>
+                <div id="form-title">Game Setup</div>
                 <div id="radio-container">
                     <div>
                         <label for="players">How many players?</label>
@@ -620,6 +639,9 @@ function resetGame() {
     document.getElementById('game-messages').innerHTML = ``
     document.getElementById('result-two').innerText = ``
     document.getElementById('robot-icon').style.fontSize = '0px'
+    setTimeout(function() {
+        document.getElementById('result-two').innerText = ``
+    }, 2000);
 
     pageSetup()
     updatePieceOneSmooth()
@@ -630,18 +652,15 @@ function resetGame() {
 //button disable
 
 function disableButtons(){
-    if (gameRunning = true) {
-        document.getElementById("dice-roller").disabled = true;
-        document.getElementById("reset-button").disabled = true;
-    }    
+    
+    document.getElementById("dice-roller").disabled = true;
+    document.getElementById("reset-button").disabled = true; 
 }
 
 function enableButtons(){
-    if (gameRunning = true) {
+    
         document.getElementById("dice-roller").disabled = false;
         document.getElementById("reset-button").disabled = false;
-    }
-        
 }
 
 

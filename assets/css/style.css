@@ -1,66 +1,66 @@
 * {
-    margin: 0;
-    padding: 0;
-  }
+  margin: 0;
+  padding: 0;
+}
 
-  @import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap');
 
 
 h1 {
-    font-size: 2rem;
-    text-align: center;
-    color: var(--blue);
-    font-family: 'Yanone Kaffeesatz', sans-serif;
-    letter-spacing: 0.05rem;
-    color: #3d999a;
-    margin: 5px;
+  font-size: 2.5rem;
+  text-align: center;
+  color: var(--blue);
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  letter-spacing: 0.05rem;
+  color: #3d999a;
+  margin: 15px 0 10px 0;
 }
 
 body {
-    font-family: 'PT Sans', sans-serif;
-    color: #3d999a;
-    font-weight: 550;
-    font-size: 2rem;
+  font-family: 'PT Sans', sans-serif;
+  color: #3d999a;
+  font-weight: 550;
+  font-size: 2rem;
 }
 
 #full-container {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
-/* #info-container {
-    width: 300px;
-} */
-    
 .box {
-    width: 30px;
-    height: 30px;
-    color: rgba(0, 0, 0, 0);
-    /* border: 0.5px solid; */
-    /* box-shadow: 0 0 0 0.5px; */
-    /* margin: 0; */
-    line-height: 30px;
-    text-align: center;
-    position: relative;
-    
+  width: 30px;
+  height: 30px;
+  color: rgba(0, 0, 0, 0);
+  /* border: 0.5px solid; */
+  /* box-shadow: 0 0 0 0.5px; */
+  /* margin: 0; */
+  line-height: 30px;
+  text-align: center;
+  position: relative;
+
 }
 
 #game-container {
-    display: grid;
-    width: 300px;
-    grid-template-columns: repeat(10, 1fr);
-    /* gap: 0 0 0 0; */
-    margin: 0px 0 0px 0;
-    position: relative;
+  display: grid;
+  width: 300px;
+  grid-template-columns: repeat(10, 1fr);
+  /* gap: 0 0 0 0; */
+  margin: 0px 0 0px 0;
+  position: relative;
   background-image: url(../images/gameboard2.png);
-    background-size: cover;
-  }
+  background-size: cover;
+}
 
 #form-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+}
+
+#form-title {
+  text-align: center;
+  padding-top: 10px;
 }
 
 form select {
@@ -109,18 +109,18 @@ select option[value='green'] {
 }
 
 #piece-one {
-    width: 0px;
-    height: 0px;
-    margin: 0;
-    border-radius: 20px;
-    background-color: red;
-    border: 2px solid black;
-    position: absolute;
-    left: 4.5px;
-    top: 4.5px;
-    z-index: 50;
-    grid-row-start: 10;
-    grid-column-start: 1;
+  width: 0px;
+  height: 0px;
+  margin: 0;
+  border-radius: 20px;
+  background-color: red;
+  border: 0px solid black;
+  position: absolute;
+  left: 4.5px;
+  top: 4.5px;
+  z-index: 50;
+  grid-row-start: 10;
+  grid-column-start: 1;
 }
 
 #piece-one-smooth {
@@ -168,10 +168,10 @@ select option[value='green'] {
 
 .material-symbols-outlined {
   font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 20
+    'FILL'0,
+    'wght'400,
+    'GRAD'0,
+    'opsz'20
 }
 
 #robot-icon {
@@ -193,14 +193,6 @@ select option[value='green'] {
   flex-direction: column;
   align-items: center;
   padding: 5px;
-}
-
-#dice-roller {
-  font-family: 'PT Sans';
-  font-size: 2rem;
-  padding: 20px;
-  margin: 0 25px 0 0;
-  border-radius: 8px;
 }
 
 /* dice stuff */
@@ -249,7 +241,7 @@ select option[value='green'] {
 
 @keyframes rolling {
   100% {
-      transform: rotateX(1500deg) rotateY(1500deg);
+    transform: rotateX(1500deg) rotateY(1500deg);
   }
 }
 
@@ -260,9 +252,7 @@ select option[value='green'] {
   border-radius: 20px;
   border: 5px solid #f6f3f0;
   transform-style: preserve-3d;
-  background: linear-gradient(
-      145deg, #dddbd8, #fff
-  );
+  background: linear-gradient(145deg, #dddbd8, #fff);
 }
 
 .face::before {
@@ -320,10 +310,10 @@ select option[value='green'] {
 .back::after {
   margin: -35px 0 0 -30px;
   box-shadow: 40px 0,
-              0 25px,
-              40px 25px,
-              0 50px,
-              40px 50px;
+    0 25px,
+    40px 25px,
+    0 50px,
+    40px 50px;
 }
 
 .top::after {
@@ -334,22 +324,22 @@ select option[value='green'] {
 .bottom::after {
   margin: -36px 0 0 -36px;
   box-shadow: 26px 26px,
-              52px 52px,
-              52px 0,
-              0 52px;
+    52px 52px,
+    52px 0,
+    0 52px;
 }
 
 .right::after {
   margin: -30px 0 0 -30px;
   box-shadow: 40px 0,
-  0 40px,
-  40px 40px;
+    0 40px,
+    40px 40px;
 }
 
 .left::after {
   margin: -35px 0 0 -35px;
   box-shadow: 25px 25px,
-              50px 50px;
+    50px 50px;
 }
 
 /*
@@ -357,8 +347,13 @@ select option[value='green'] {
 */
 
 #dice-roller {
+  font-family: 'PT Sans';
+  font-size: 2rem;
   color: whitesmoke;
   background-color: #3d999a;
+  padding: 20px;
+  margin: 0 25px 0 0;
+  border-radius: 8px;
 }
 
 #dice-roller:active:enabled {
@@ -371,7 +366,7 @@ select option[value='green'] {
   background-color: #86a1a1;
   transform: scale(1);
   box-shadow: 0 0 0 0 white
-} 
+}
 
 #dice-roller:hover:enabled {
   background-color: #327e80;
@@ -379,7 +374,14 @@ select option[value='green'] {
 
 #reset-button {
   font-family: 'PT Sans';
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  color: whitesmoke;
+  background-color: #3d999a;
   padding: 15px;
   border-radius: 8px;
+}
+
+#reset-button:active:enabled {
+  transform: scale(0.98);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
 }
