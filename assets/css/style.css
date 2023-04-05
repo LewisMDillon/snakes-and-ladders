@@ -169,8 +169,8 @@ select option[value='green'] {
   position: absolute;
   left: -1.6px;
   top: -3px;
-  font-size: 0px;
-  color: black;
+  font-size: 22px;
+  color: transparent;
 }
 
 #game-messages {
@@ -458,5 +458,9 @@ select option[value='green'] {
     height: 35px;
     left: 6.5px;
     top: 459px;
+  }
+
+  #robot-icon {
+    font-size: 36px;
   }
 }

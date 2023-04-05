@@ -109,7 +109,7 @@ function gameSetup() {
         computerPiece.style.backgroundColor = 'grey'
         let pieceTwoSmooth = document.getElementById('piece-two-smooth')
         pieceTwoSmooth.style.backgroundColor = 'grey'
-        document.getElementById('robot-icon').style.fontSize = '22px'
+        document.getElementById('robot-icon').style.color = 'black'
         runGame(players)
         console.log('the game started without colorChecker')
     }
