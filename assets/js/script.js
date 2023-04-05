@@ -16,7 +16,7 @@ function pageSetup() {
     let testButton = document.getElementById('test-button')
 
 
-    console.log('pageSetup ran')    
+    console.log('pageSetup ran') 
 }
 
 function testFunction() {
@@ -117,6 +117,8 @@ function colorChecker(players) {
 
 
 function runGame(players) {
+    let gameRunning = true
+
     document.getElementById('roll-container').innerHTML = 
     `
     <button id="dice-roller">Roll</button>
@@ -155,8 +157,6 @@ function runGame(players) {
     resetButton.addEventListener('click', resetConfirm)
 
     let turn = Math.floor(Math.random() * 2) + 1
-    
-    console.log(`the value of the players variable is: ${players}`)
 
     if (players == 2) {
         document.getElementById('game-messages').innerText = (`Player ${turn} goes first`)
@@ -174,7 +174,7 @@ function runGame(players) {
         }
         else {
             document.getElementById('game-messages').innerText = ('Computer goes first')
-            disableButton()
+            disableButtons()
             document.getElementById('game-messages').style.color = document.getElementById('piece-two').style.backgroundColor
             diceNum = Math.floor(Math.random() * 6) + 1
                 setTimeout(function(){
@@ -182,6 +182,8 @@ function runGame(players) {
                     document.getElementById('result-two').innerText = `The computer rolled a ${diceNum}`
                 }, 500);
         }
+    console.log('runGame ran')
+    console.log('the gameRunning variable is ' + gameRunning)
     }
 
 
@@ -189,7 +191,7 @@ function runGame(players) {
     function rollDice() {
         let diceNum = Math.floor(Math.random() * 6) + 1
         // let diceNum = 1
-        disableButton()
+        disableButtons()
 
         let dice = document.querySelector('.dice');
         
@@ -254,37 +256,38 @@ function runGame(players) {
     }
 
     function switchTurn() {
-        if (turn == 1) {
-            turn = turn + 1
-            if (players == 2) {
-                document.getElementById('game-messages').innerText = `Player ${turn}'s Turn`
-                document.getElementById('game-messages').style.color = document.getElementById('piece-two').style.backgroundColor
-                enableButton()
-                
+        if (gameRunning = true) {
+            if (turn == 1) {
+                turn = turn + 1
+                if (players == 2) {
+                    document.getElementById('game-messages').innerText = `Player ${turn}'s Turn`
+                    document.getElementById('game-messages').style.color = document.getElementById('piece-two').style.backgroundColor
+                    enableButtons()
+                    
 
-            }
-            else {
-                document.getElementById('game-messages').innerText = `Computer's Turn`
-                document.getElementById('game-messages').style.color = 'grey'
+                }
+                else {
+                    document.getElementById('game-messages').innerText = `Computer's Turn`
+                    document.getElementById('game-messages').style.color = 'grey'
+                    
+                }
                 
             }
-            
-        }
-        else {
-            turn = turn - 1
-            if (players == 2) {
-                document.getElementById('game-messages').innerText = `Player ${turn}'s Turn`
-                document.getElementById('game-messages').style.color = document.getElementById('piece-one').style.backgroundColor
-                enableButton()
-            }
             else {
-                document.getElementById('game-messages').innerText = `Your Turn!`
-                document.getElementById('game-messages').style.color = document.getElementById('piece-one').style.backgroundColor
-                enableButton()
+                turn = turn - 1
+                if (players == 2) {
+                    document.getElementById('game-messages').innerText = `Player ${turn}'s Turn`
+                    document.getElementById('game-messages').style.color = document.getElementById('piece-one').style.backgroundColor
+                    enableButtons()
+                }
+                else {
+                    document.getElementById('game-messages').innerText = `Your Turn!`
+                    document.getElementById('game-messages').style.color = document.getElementById('piece-one').style.backgroundColor
+                    enableButtons()
+                }
+                
             }
-            
         }
-        
     }
     
     function movePieceOne(diceNum) {
@@ -295,7 +298,10 @@ function runGame(players) {
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum
                 setTimeout(function(){
                     alert('Player 1 Wins!')
+                    resetGame()
                 }, 700);
+                
+                
             }
             else if (parseInt(pieceOne.style.gridColumnStart) - diceNum > 1) {
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum
@@ -419,11 +425,13 @@ function runGame(players) {
                     setTimeout(function(){
                         alert('Player 2 Wins!')
                     }, 700);
+                    resetGame()
                 }
                 else {
                     setTimeout(function(){
                         alert('Computer Wins')
                     }, 700);
+                    resetGame()
                 }
             }
             else if (parseInt(pieceTwo.style.gridColumnStart) - diceNum > 1) {
@@ -575,7 +583,9 @@ function resetConfirm() {
 }
 
 function resetGame() {
+    gameRunning = false
     console.log('you reset the game')
+    console.log(gameRunning)
     document.getElementById('form-container').innerHTML =
     ` <form class="form" action=>
                 <div class="pageTitle title">Game Setup</div>
@@ -619,12 +629,19 @@ function resetGame() {
 
 //button disable
 
-function disableButton(){
-    document.getElementById("dice-roller").disabled = true;    
+function disableButtons(){
+    if (gameRunning = true) {
+        document.getElementById("dice-roller").disabled = true;
+        document.getElementById("reset-button").disabled = true;
+    }    
 }
 
-function enableButton(){
-    document.getElementById("dice-roller").disabled = false;    
+function enableButtons(){
+    if (gameRunning = true) {
+        document.getElementById("dice-roller").disabled = false;
+        document.getElementById("reset-button").disabled = false;
+    }
+        
 }
 
 

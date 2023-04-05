@@ -114,7 +114,7 @@ select option[value='green'] {
     margin: 0;
     border-radius: 20px;
     background-color: red;
-    border: 0px solid black;
+    border: 2px solid black;
     position: absolute;
     left: 4.5px;
     top: 4.5px;
