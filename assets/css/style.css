@@ -77,8 +77,8 @@ select option[value='blue'] {
   color: blue;
 }
 
-select option[value='yellow'] {
-  color: yellow;
+select option[value='purple'] {
+  color: purple;
 }
 
 select option[value='green'] {

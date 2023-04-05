@@ -33,14 +33,14 @@ function formExtend() {
             <select id="color-one" name="color-one">
                 <option value="red">Red</option>
                 <option value="blue">Blue</option>
-                <option value="yellow">Yellow</option>
+                <option value="purple">Purple</option>
                 <option value="green">Green</option>
             </select>
             <label for="color-two">Player Two</label>
             <select id="color-two" name="color-two">
                 <option value="red">Red</option>
                 <option value="blue">Blue</option>
-                <option value="yellow">Yellow</option>
+                <option value="purple">Purple</option>
                 <option value="green">Green</option>
             </select>
         </div>
@@ -56,7 +56,7 @@ function formExtend() {
             <select id="color-one" name="color-one">
                 <option value="red">Red</option>
                 <option value="blue">Blue</option>
-                <option value="yellow">Yellow</option>
+                <option value="purple">Purple</option>
                 <option value="green">Green</option>
             </select>
         </div>
@@ -604,7 +604,7 @@ function resetGame() {
                         <select id="color-one" name="color-one">
                             <option value="red">Red</option>
                             <option value="blue">Blue</option>
-                            <option value="yellow">Yellow</option>
+                            <option value="purple">Purple</option>
                             <option value="green">Green</option>
                         </select>
                     </div>
