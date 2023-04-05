@@ -13,7 +13,7 @@ h1 {
   font-family: 'Yanone Kaffeesatz', sans-serif;
   letter-spacing: 0.05rem;
   color: #3d999a;
-  margin: 15px 0 10px 0;
+  margin: 10px 0 10px 0;
 }
 
 body {
@@ -56,6 +56,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 1.5rem;
 }
 
 #form-title {
@@ -64,7 +65,7 @@ body {
 }
 
 form select {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: #3d999a;
   border: 1px solid black;
 }
@@ -83,15 +84,6 @@ select option[value='purple'] {
 
 select option[value='green'] {
   color: green;
-}
-
-#start-button {
-  padding: 10px;
-  margin: 20px;
-  font-family: 'PT Sans';
-  font-size: 1.5rem;
-  padding: 15px;
-  border-radius: 8px;
 }
 
 #reset-container {
@@ -185,6 +177,7 @@ select option[value='green'] {
 #game-messages {
   color: red;
   font-size: 1.5rem;
+  padding: 10px 0 0 0;
 }
 
 #roll-container {
@@ -384,4 +377,35 @@ select option[value='green'] {
 #reset-button:active:enabled {
   transform: scale(0.98);
   box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
+#reset-button:disabled {
+  color: white;
+  background-color: #86a1a1;
+  transform: scale(1);
+  box-shadow: 0 0 0 0 white
+}
+
+#reset-button:hover:enabled {
+  background-color: #327e80;
+}
+
+#start-button {
+  padding: 10px;
+  margin: 20px;
+  font-family: 'PT Sans';
+  font-size: 1.5rem;
+  color: whitesmoke;
+  background-color: #3d999a;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+#start-button:active {
+  transform: scale(0.98);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
+#start-button:hover {
+  background-color: #327e80;
 }

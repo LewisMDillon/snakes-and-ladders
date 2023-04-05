@@ -36,6 +36,7 @@ function formExtend() {
                 <option value="purple">Purple</option>
                 <option value="green">Green</option>
             </select>
+            <br>
             <label for="color-two">Player Two</label>
             <select id="color-two" name="color-two">
                 <option value="red">Red</option>
