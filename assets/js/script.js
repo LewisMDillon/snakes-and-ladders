@@ -19,6 +19,8 @@ function pageSetup() {
 
     let testButton = document.getElementById('test-button')
 
+    let muteButton = document.getElementById('mute-button')
+    muteButton.addEventListener('click', muteToggle)
 
     console.log('pageSetup ran') 
 }
@@ -28,7 +30,29 @@ function audioPlay() {
     if (backgroundMusic.paused){ //check audio is playing
         backgroundMusic.play();
        }
-        
+}
+
+function muteToggle() {
+    let backgroundMusic = document.getElementById('background-music');
+    let rollSound = document.getElementById('roll-sound')
+    let ladderSound = document.getElementById('ladder-sound')
+    let snakeSound = document.getElementById('snake-sound')
+    let winSound = document.getElementById('win-sound')
+    if (backgroundMusic.muted != true) {
+        backgroundMusic.muted = true;
+        rollSound.muted = true;
+        ladderSound.muted = true;
+        snakeSound.muted = true;
+        winSound.muted = true;
+    }
+    else {
+        backgroundMusic.muted = false;
+        rollSound.muted = false;
+        ladderSound.muted = false;
+        snakeSound.muted = false;
+        winSound.muted = false;
+    }
+    console.log('muteToggle ran')
 }
 
 function testFunction() {
