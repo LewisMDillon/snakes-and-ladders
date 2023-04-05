@@ -8,8 +8,12 @@ function pageSetup() {
     document.getElementById('piece-two').style.gridRowStart = "10";
 
     let startButton = document.getElementById('start-button')
-    startButton.addEventListener('click', gameSetup)
     
+    startButton.addEventListener('click',() => {    
+        gameSetup();
+        audioPlay();    
+   });
+
     let twoPlayer = document.getElementById('players')
     twoPlayer.addEventListener('change', formExtend)
 
@@ -17,6 +21,14 @@ function pageSetup() {
 
 
     console.log('pageSetup ran') 
+}
+
+function audioPlay() {
+    let backgroundMusic = document.getElementById('background-music');
+    if (backgroundMusic.paused){ //check audio is playing
+        backgroundMusic.play();
+       }
+        
 }
 
 function testFunction() {
@@ -159,6 +171,12 @@ function runGame(players) {
     let resetButton = document.getElementById('reset-button')
     resetButton.addEventListener('click', resetConfirm)
 
+    // sound effects
+    let rollSound = document.getElementById('roll-sound')
+    let ladderSound = document.getElementById('ladder-sound')
+    let snakeSound = document.getElementById('snake-sound')
+    let winSound = document.getElementById('win-sound')
+
     let turn = Math.floor(Math.random() * 2) + 1
 
     if (players == 2) {
@@ -195,6 +213,10 @@ function runGame(players) {
 
 
     function rollDice() {
+
+        
+        rollSound.play();
+
         let diceNum = Math.floor(Math.random() * 6) + 1
         // let diceNum = 1
         disableButtons()
@@ -304,6 +326,7 @@ function runGame(players) {
             console.log('winstopper function ran')
             if (parseInt(pieceOne.style.gridColumnStart) - diceNum == 1) {
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum
+                winSound.play();
                 gameRunning = false
                 setTimeout(function(){
                     if (players == 2) {
@@ -361,68 +384,82 @@ function runGame(players) {
     }
     
     function specialCheckOne(pieceOne) {
+        
         if (pieceOne.style.gridColumnStart == 4 && pieceOne.style.gridRowStart == 10) {
             console.log('you climbed a ladder')
+            ladderSound.play();
             pieceOne.style.gridColumnStart = 5
             pieceOne.style.gridRowStart = 8
         }
         else if (pieceOne.style.gridColumnStart == 1 && pieceOne.style.gridRowStart == 8) {
             console.log('you climbed a ladder')
+            ladderSound.play();
             pieceOne.style.gridColumnStart = 2
             pieceOne.style.gridRowStart = 7
         }
         else if (pieceOne.style.gridColumnStart == 9 && pieceOne.style.gridRowStart == 8) {
             console.log('you climbed a ladder')
+            ladderSound.play();
             pieceOne.style.gridColumnStart = 7
             pieceOne.style.gridRowStart = 3
         }
         else if (pieceOne.style.gridColumnStart == 10 && pieceOne.style.gridRowStart == 8) {
             console.log('you slid down a snake')
+            snakeSound.play();
             pieceOne.style.gridColumnStart = 7
             pieceOne.style.gridRowStart = 10
         }
         else if (pieceOne.style.gridColumnStart == 3 && pieceOne.style.gridRowStart == 6) {
             console.log('you climbed a ladder')
+            ladderSound.play();
             pieceOne.style.gridColumnStart = 5
             pieceOne.style.gridRowStart = 3
         }
         else if (pieceOne.style.gridColumnStart == 7 && pieceOne.style.gridRowStart == 6) {
             console.log('you slid down a snake')
+            snakeSound.play();
             pieceOne.style.gridColumnStart = 6
             pieceOne.style.gridRowStart = 9
         }
         else if (pieceOne.style.gridColumnStart == 5 && pieceOne.style.gridRowStart == 5) {
             console.log('you slid down a snake')
+            snakeSound.play();
             pieceOne.style.gridColumnStart = 2
             pieceOne.style.gridRowStart = 9
         }
         else if (pieceOne.style.gridColumnStart == 3 && pieceOne.style.gridRowStart == 4) {
             console.log('you climbed a ladder')
+            ladderSound.play();
             pieceOne.style.gridColumnStart = 1
             pieceOne.style.gridRowStart = 3
         }
         else if (pieceOne.style.gridColumnStart == 10 && pieceOne.style.gridRowStart == 3) {
             console.log('you climbed a ladder')
+            ladderSound.play();
             pieceOne.style.gridColumnStart = 9
             pieceOne.style.gridRowStart = 2
         }
         else if (pieceOne.style.gridColumnStart == 8 && pieceOne.style.gridRowStart == 3) {
             console.log('you slid down a snake')
+            snakeSound.play();
             pieceOne.style.gridColumnStart = 10
             pieceOne.style.gridRowStart = 5
         }
         else if (pieceOne.style.gridColumnStart == 2 && pieceOne.style.gridRowStart == 2) {
             console.log('you slid down a snake')
+            snakeSound.play();
             pieceOne.style.gridColumnStart = 2
             pieceOne.style.gridRowStart = 6
         }
         else if (pieceOne.style.gridColumnStart == 9 && pieceOne.style.gridRowStart == 1) {
             console.log('you slid down a snake')
+            snakeSound.play();
             pieceOne.style.gridColumnStart = 6
             pieceOne.style.gridRowStart = 3
         }
         else if (pieceOne.style.gridColumnStart == 3 && pieceOne.style.gridRowStart == 1) {
             console.log('you slid down a snake')
+            snakeSound.play();
             pieceOne.style.gridColumnStart = 6
             pieceOne.style.gridRowStart = 5
         }
@@ -440,11 +477,12 @@ function runGame(players) {
             if (parseInt(pieceTwo.style.gridColumnStart) - diceNum == 1) {
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum
                 if (players == 2) {
+                    winSound.play();
                     gameRunning = false
                     setTimeout(function(){
                         alert('Player 2 Wins!')
+                        resetGame()
                     }, 700);
-                    resetGame()
                 }
                 else {
                     gameRunning = false
@@ -496,68 +534,82 @@ function runGame(players) {
     }
 
     function specialCheckTwo(pieceTwo) {
+
         if (pieceTwo.style.gridColumnStart == 4 && pieceTwo.style.gridRowStart == 10) {
             console.log('you climbed a ladder')
+            ladderSound.play();
             pieceTwo.style.gridColumnStart = 5
             pieceTwo.style.gridRowStart = 8
         }
         else if (pieceTwo.style.gridColumnStart == 1 && pieceTwo.style.gridRowStart == 8) {
             console.log('you climbed a ladder')
+            ladderSound.play();
             pieceTwo.style.gridColumnStart = 2
             pieceTwo.style.gridRowStart = 7
         }
         else if (pieceTwo.style.gridColumnStart == 9 && pieceTwo.style.gridRowStart == 8) {
             console.log('you climbed a ladder')
+            ladderSound.play();
             pieceTwo.style.gridColumnStart = 7
             pieceTwo.style.gridRowStart = 3
         }
         else if (pieceTwo.style.gridColumnStart == 10 && pieceTwo.style.gridRowStart == 8) {
             console.log('you slid down a snake')
+            snakeSound.play();
             pieceTwo.style.gridColumnStart = 7
             pieceTwo.style.gridRowStart = 10
         }
         else if (pieceTwo.style.gridColumnStart == 3 && pieceTwo.style.gridRowStart == 6) {
             console.log('you climbed a ladder')
+            ladderSound.play();
             pieceTwo.style.gridColumnStart = 5
             pieceTwo.style.gridRowStart = 3
         }
         else if (pieceTwo.style.gridColumnStart == 7 && pieceTwo.style.gridRowStart == 6) {
             console.log('you slid down a snake')
+            snakeSound.play();
             pieceTwo.style.gridColumnStart = 6
             pieceTwo.style.gridRowStart = 9
         }
         else if (pieceTwo.style.gridColumnStart == 5 && pieceTwo.style.gridRowStart == 5) {
             console.log('you slid down a snake')
+            snakeSound.play();
             pieceTwo.style.gridColumnStart = 2
             pieceTwo.style.gridRowStart = 9
         }
         else if (pieceTwo.style.gridColumnStart == 3 && pieceTwo.style.gridRowStart == 4) {
             console.log('you climbed a ladder')
+            ladderSound.play();
             pieceTwo.style.gridColumnStart = 1
             pieceTwo.style.gridRowStart = 3
         }
         else if (pieceTwo.style.gridColumnStart == 10 && pieceTwo.style.gridRowStart == 3) {
             console.log('you climbed a ladder')
+            ladderSound.play();
             pieceTwo.style.gridColumnStart = 9
             pieceTwo.style.gridRowStart = 2
         }
         else if (pieceTwo.style.gridColumnStart == 8 && pieceTwo.style.gridRowStart == 3) {
             console.log('you slid down a snake')
+            snakeSound.play();
             pieceTwo.style.gridColumnStart = 10
             pieceTwo.style.gridRowStart = 5
         }
         else if (pieceTwo.style.gridColumnStart == 2 && pieceTwo.style.gridRowStart == 2) {
             console.log('you slid down a snake')
+            snakeSound.play();
             pieceTwo.style.gridColumnStart = 2
             pieceTwo.style.gridRowStart = 6
         }
         else if (pieceTwo.style.gridColumnStart == 9 && pieceTwo.style.gridRowStart == 1) {
             console.log('you slid down a snake')
+            snakeSound.play();
             pieceTwo.style.gridColumnStart = 6
             pieceTwo.style.gridRowStart = 3
         }
         else if (pieceTwo.style.gridColumnStart == 3 && pieceTwo.style.gridRowStart == 1) {
             console.log('you slid down a snake')
+            snakeSound.play();
             pieceTwo.style.gridColumnStart = 6
             pieceTwo.style.gridRowStart = 5
         }
