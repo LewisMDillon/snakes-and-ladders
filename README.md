@@ -103,63 +103,78 @@ IMPORTANT: Remember to always include a screenshot of each individual feature!
 
 - **Game Board**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    - This is the main game area of the site. player pieces advance up the numbered squares to reach the finish square. This provides the surface for the player pieces, as well as depictions of where the snake and ladder squares are.
 
 ![screenshot](documentation/feature01.png)
 
 - **Game Setup Form**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    - This form allows the user to customize the game to their liking. A user can choose whether to play a 1-player game against a computer opponent or a 2-player game with another user. Users can also select the colour of their player piece. The form automatically changes based on whether the user selects 1 or 2 players, helping to avoid unnecessary confusion. The Start Game button provides the user with a very clear and definitive way of beginning the game.
 
 ![screenshot](documentation/feature02.png)
 
 - **Dice Roller**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    - This is the mechanism used by the user to advance their piece up the board. Once the game begins, these elements take the place of the setup form to keep all of the elements tidy and compact. A large 'Roll' button makes it easy for the user to use this feature. A rolling die image next to the button simulates the rolling of a die before displaying the result of the user's roll. This helps to add realism and satisfaction to the ordinary random number generation going on in the background. The roll button is disabled while the dice animation is playing, and also while the computer is taking their turn, avoiding risk of multiple or accidental clicks.
 
 ![screenshot](documentation/feature03.png)
 
 - **Player Pieces**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    - The player pieces are large and contrasting against the gameboard, as well as their colour being customisable, allowing the user to quickly see where on the gameboard their piece is.
+    Smooth transitions were used to help the user to follow the piece along the board as it moves, as well as providing realism to the movement of the pieces. The pieces visibly climb up the ladders and slide down the snakes on the board, again hlping the user to easily visualise what is happening on the gameboard.
 
-![screenshot](documentation/feature03.png)
+![screenshot](documentation/feature04.png)
 
 - **Computer Piece**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    - The computer piece functions in the same way as the player pieces, but is colored a robotic grey. A robotic face icon is also added to the piece to further clarify this piece's identity to the user.
 
-![screenshot](documentation/feature03.png)
+![screenshot](documentation/feature05.png)
+
+- **1-Player Game**
+
+    - A computer opponent is implemented in order to allow the user to play the game on their own. The computer player takes its turn automatically, without dice roll animations, in order for the user to quickly return to playing their turn.
+
+![screenshot](documentation/feature06.png)
+
+- **2-Player Game**
+
+    - Users can also choose to play a 2-player game via the setup form. The site will allow the users to choose their individual colors and, upon starting the game, will randomly select one or the other to take their turn first. The game will then alternate turns between the two users.
+
+![screenshot](documentation/feature07.png)
+
+- **Color Check**
+
+    - When a 2-player game is started, the site will perform a check to see if the players have selected the same coloured player piece. If so, the site will alert the users to this fact and ask them to pick different colours, to avoid confusion while playing. 
+
+![screenshot](documentation/feature08.png)
 
 - **Reset Game Button**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    - This button allows the user to reset the game back to its original state. The user is prompted to confirm this action, to avoid accidental clicks. The pieces' location is reset to the first square on the gameboard and the setup form is once again presented to the user to setup another game if they should choose. The button is disabled during turns to avoid potential bugs caused by resetting the game while pieces are moving.
 
-![screenshot](documentation/feature03.png)
+![screenshot](documentation/feature09.png)
 
 - **Game Messages**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    - Game messages are presented to the user to provide information and reduce potential confusion. The user will see messages informing them of the current turn, with a color matching that player's piece. If a user is playing against a computer opponent, the computer's automatically generated dice rolls will also be displayed, to help the user to visualise the computer opponent's turn, but without having to watch the computer go through their own dice roll animation.
 
-![screenshot](documentation/feature03.png)
+![screenshot](documentation/feature10.png)
 
 - **Background Music**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
-
-![screenshot](documentation/feature03.png)
+    - Background music begins automatically wheen the user starts the game. Music was not chosen to begin autoplaying on first loading of the site as this can be disabled by certain browsers. The music is easygoing and not too loud, to provide a simple background accompaniment which enhances the experience of playing the game.
 
 - **Audio Effects**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
-
-![screenshot](documentation/feature03.png)
+    - The dice roller produces a real dice shaking and rolling sound to further increase the satisfaction and realism of using the dice roll element. When a piece climbs a ladder, a pleasant, rising style sound effect is played to draw the user's attention to the ladder function as well as to provide a sense of satisfaction at having landed on the ladder square. When a piece slides down a snake, a less pleasant, falling style sound effect is played.
 
 - **Audio Mute Button**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    - This button allows the user to mute and unmute all audio from the site. Users can easily press the button at any time during all stages of the game to mute it the audio, or turn it back on. Recognisable volume and mute icons are displayed to the user, allowing them to see what state the audio mute setting is, even without using the audio itself. 
 
-![screenshot](documentation/feature03.png)
+![screenshot](documentation/feature13.png)
 
 ⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
 
