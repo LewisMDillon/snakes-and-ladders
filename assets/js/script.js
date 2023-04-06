@@ -1,3 +1,5 @@
+/* jshint esversion: 11 */
+
 document.addEventListener("DOMContentLoaded", pageSetup())
 
 function pageSetup() {
@@ -8,28 +10,24 @@ function pageSetup() {
     document.getElementById('piece-two').style.gridRowStart = "10";
 
     let startButton = document.getElementById('start-button')
-    
-    startButton.addEventListener('click',() => {    
+
+    startButton.addEventListener('click', () => {
         gameSetup();
-        audioPlay();    
-   });
+        audioPlay();
+    });
 
     let twoPlayer = document.getElementById('players')
     twoPlayer.addEventListener('change', formExtend)
 
-    let testButton = document.getElementById('test-button')
-
     let muteButton = document.getElementById('mute-button')
     muteButton.addEventListener('click', muteToggle)
-
-    console.log('pageSetup ran') 
 }
 
 function audioPlay() {
     let backgroundMusic = document.getElementById('background-music');
-    if (backgroundMusic.paused){ //check audio is playing
+    if (backgroundMusic.paused) { //check audio is playing
         backgroundMusic.play();
-       }
+    }
 }
 
 function muteToggle() {
@@ -39,14 +37,13 @@ function muteToggle() {
     let snakeSound = document.getElementById('snake-sound')
     let winSound = document.getElementById('win-sound')
     if (backgroundMusic.muted != true) {
-            backgroundMusic.muted = true;
-            rollSound.muted = true;
-            ladderSound.muted = true;
-            snakeSound.muted = true;
-            winSound.muted = true;
-            document.getElementById('mute-button').innerHTML = `<i class="fa-solid fa-volume-xmark"></i>`
-    }
-    else {
+        backgroundMusic.muted = true;
+        rollSound.muted = true;
+        ladderSound.muted = true;
+        snakeSound.muted = true;
+        winSound.muted = true;
+        document.getElementById('mute-button').innerHTML = `<i class="fa-solid fa-volume-xmark"></i>`
+    } else {
         backgroundMusic.muted = false;
         rollSound.muted = false;
         ladderSound.muted = false;
@@ -54,17 +51,12 @@ function muteToggle() {
         winSound.muted = false;
         document.getElementById('mute-button').innerHTML = `<i class="fa-solid fa-volume-high"></i>`
     }
-    console.log('muteToggle ran')
-}
-
-function testFunction() {
-    console.log('testFunction ran')
 }
 
 function formExtend() {
     if (document.getElementById('players').value == 2) {
-    document.getElementById('color-container').innerHTML = 
-    `
+        document.getElementById('color-container').innerHTML =
+            `
         <div id="color-container">
             <p>Pick your colors!</p>
             <label for="color-one">Player One</label>
@@ -85,10 +77,9 @@ function formExtend() {
         </div>
                         
     `
-    }
-    else {
-        document.getElementById('color-container').innerHTML = 
-    `
+    } else {
+        document.getElementById('color-container').innerHTML =
+            `
         <div id="color-container">
             <p>Pick your color!</p>
             <label for="color-one">Player One</label>
@@ -101,25 +92,20 @@ function formExtend() {
         </div>
     `
     }
-    console.log('formExtend ran')
 }
 
 function gameSetup() {
     let players = document.getElementById('players').value
     let colorOne = document.getElementById('color-one').value
-    console.log(`A ${players}-player game`)
-    console.log(`Player one is ${colorOne}`)
     if (document.getElementById('color-two')) {
         let colorTwo = document.getElementById('color-two').value
-        console.log(`Player two is ${colorTwo}`)
 
         let pieceTwo = document.getElementById('piece-two')
-            pieceTwo.style.backgroundColor = colorTwo
+        pieceTwo.style.backgroundColor = colorTwo
 
         let pieceTwoSmooth = document.getElementById('piece-two-smooth')
         pieceTwoSmooth.style.backgroundColor = colorTwo
-    }
-    else {}
+    } else {}
     let pieceOne = document.getElementById('piece-one')
     pieceOne.style.backgroundColor = colorOne
 
@@ -127,17 +113,14 @@ function gameSetup() {
     pieceOneSmooth.style.backgroundColor = colorOne
 
     if (players == 2) {
-        console.log('we were routed to the colorChecker function')
         colorChecker(players)
-    }
-    else {
+    } else {
         let computerPiece = document.getElementById('piece-two')
         computerPiece.style.backgroundColor = 'grey'
         let pieceTwoSmooth = document.getElementById('piece-two-smooth')
         pieceTwoSmooth.style.backgroundColor = 'grey'
         document.getElementById('robot-icon').style.color = 'black'
         runGame(players)
-        console.log('the game started without colorChecker')
     }
 }
 
@@ -145,12 +128,9 @@ function colorChecker(players) {
     let colorOne = document.getElementById('color-one').value
     let colorTwo = document.getElementById('color-two').value
     if (colorOne == colorTwo) {
-            alert('Please choose different color, You might not know who is who!')
-            console.log('the colorChecker comparison returned true')
-        }
-    else {
-            console.log('the game started via colorChecker')
-            runGame(players)
+        alert('Please choose different color, You might not know who is who!')
+    } else {
+        runGame(players)
     }
 }
 
@@ -158,12 +138,12 @@ function colorChecker(players) {
 function runGame(players) {
     let gameRunning = true
 
-    document.getElementById('roll-container').innerHTML = 
-    `
+    document.getElementById('roll-container').innerHTML =
+        `
     <button id="dice-roller">Roll</button>
     `
     document.getElementById('dice-container').innerHTML =
-    `
+        `
     <div class="dice">
         <div class="face front"></div>
         <div class="face back"></div>
@@ -174,7 +154,7 @@ function runGame(players) {
     </div>
     `
     document.getElementById('dice-result-container').innerHTML =
-    `
+        `
     <div id="result-one">
             <p></p>
         </div>
@@ -184,17 +164,17 @@ function runGame(players) {
     `
 
     let diceRoller = document.getElementById('dice-roller')
- 
+
     diceRoller.addEventListener('click', rollDice)
 
-    document.getElementById('form-container').innerHTML = 
-    ``
+    document.getElementById('form-container').innerHTML =
+        ``
     document.getElementById('form-container').style.padding = 0
 
     let backgroundMusic = document.getElementById('background-music');
     if (backgroundMusic.muted != true) {
-    document.getElementById('reset-mute-container').innerHTML = 
-        `
+        document.getElementById('reset-mute-container').innerHTML =
+            `
         <div id="reset-container">
             <button id="reset-button">Reset Game</button>
         </div>
@@ -202,17 +182,16 @@ function runGame(players) {
             <button id="mute-button"><i class="fa-solid fa-volume-high"></i></button>
         </div>
         `
-    }
-    else {
-        document.getElementById('reset-mute-container').innerHTML = 
-        `
+    } else {
+        document.getElementById('reset-mute-container').innerHTML =
+            `
         <div id="reset-container">
             <button id="reset-button">Reset Game</button>
         </div>
         <div id="mute-container">
             <button id="mute-button"><i class="fa-solid fa-volume-xmark"></i></button>
         </div>
-        ` 
+        `
     }
 
     let resetButton = document.getElementById('reset-button')
@@ -233,38 +212,33 @@ function runGame(players) {
         document.getElementById('game-messages').innerText = (`Player ${turn} goes first`)
         if (turn == 1) {
             document.getElementById('game-messages').style.color = document.getElementById('piece-one').style.backgroundColor
-        }
-        else {
+        } else {
             document.getElementById('game-messages').style.color = document.getElementById('piece-two').style.backgroundColor
         }
-    }
-    else {
+    } else {
         if (turn == 1) {
             document.getElementById('game-messages').innerText = (`You go first!`)
             document.getElementById('game-messages').style.color = document.getElementById('piece-one').style.backgroundColor
-        }
-        else {
+        } else {
             if (gameRunning === true) {
                 document.getElementById('game-messages').innerText = ('Computer goes first')
                 disableButtons()
                 document.getElementById('game-messages').style.color = document.getElementById('piece-two').style.backgroundColor
                 diceNum = Math.floor(Math.random() * 6) + 1
-                    setTimeout(function(){ 
-                        movePieceTwo(diceNum)
-                         document.getElementById('result-two').innerText = `The computer rolled a ${diceNum}`
-                    
-                    }, 500);
+                setTimeout(function () {
+                    movePieceTwo(diceNum)
+                    document.getElementById('result-two').innerText = `The computer rolled a ${diceNum}`
+
+                }, 500);
             }
         }
-    console.log('runGame ran')
-    console.log('the gameRunning variable is ' + gameRunning)
     }
 
 
 
     function rollDice() {
 
-        
+
         rollSound.play();
 
         let diceNum = Math.floor(Math.random() * 6) + 1
@@ -272,59 +246,57 @@ function runGame(players) {
         disableButtons()
 
         let dice = document.querySelector('.dice');
-        
+
         dice.style.animation = 'rolling 2.5s';
-        
+
         setTimeout(() => {
-        
+
             switch (diceNum) {
                 case 1:
                     dice.style.transform = 'rotateX(0deg) rotateY(0deg)';
                     break;
-    
+
                 case 6:
                     dice.style.transform = 'rotateX(180deg) rotateY(0deg)';
                     break;
-        
+
                 case 2:
                     dice.style.transform = 'rotateX(-90deg) rotateY(0deg)';
-                        break;
-        
+                    break;
+
                 case 5:
                     dice.style.transform = 'rotateX(90deg) rotateY(0deg)';
                     break;
-        
+
                 case 3:
                     dice.style.transform = 'rotateX(0deg) rotateY(90deg)';
                     break;
-        
+
                 case 4:
                     dice.style.transform = 'rotateX(0deg) rotateY(-90deg)';
                     break;
-        
+
                 default:
                     break;
-                }
-        
-                dice.style.animation = 'none';
-        
+            }
+
+            dice.style.animation = 'none';
+
         }, 1050);
-        
-        setTimeout(function(){
+
+        setTimeout(function () {
             if (players == 2) {
                 if (turn == 1) {
                     movePieceOne(diceNum)
-                }
-                else {
+                } else {
                     movePieceTwo(diceNum)
                 }
-            }
-            else {
+            } else {
                 if (turn == 1) {
                     movePieceOne(diceNum)
                     diceNum = Math.floor(Math.random() * 6) + 1
 
-                    setTimeout(function(){
+                    setTimeout(function () {
                         if (gameRunning === true) {
                             movePieceTwo(diceNum)
                             document.getElementById('result-two').innerText = `The computer rolled a ${diceNum}`
@@ -332,7 +304,7 @@ function runGame(players) {
                     }, 1500);
                 }
             }
-        }, 1500);  
+        }, 1500);
     }
 
     function switchTurn() {
@@ -343,172 +315,132 @@ function runGame(players) {
                     document.getElementById('game-messages').innerText = `Player ${turn}'s Turn`
                     document.getElementById('game-messages').style.color = document.getElementById('piece-two').style.backgroundColor
                     enableButtons()
-                    
 
-                }
-                else {
+
+                } else {
                     document.getElementById('game-messages').innerText = `Computer's Turn`
                     document.getElementById('game-messages').style.color = 'grey'
-                    
+
                 }
-                
-            }
-            else {
+
+            } else {
                 turn = turn - 1
                 if (players == 2) {
                     document.getElementById('game-messages').innerText = `Player ${turn}'s Turn`
                     document.getElementById('game-messages').style.color = document.getElementById('piece-one').style.backgroundColor
                     enableButtons()
-                }
-                else {
+                } else {
                     document.getElementById('game-messages').innerText = `Your Turn!`
                     document.getElementById('game-messages').style.color = document.getElementById('piece-one').style.backgroundColor
                     enableButtons()
                 }
-                
+
             }
         }
     }
-    
+
     function movePieceOne(diceNum) {
         let pieceOne = document.getElementById('piece-one')
-        if (parseInt(pieceOne.style.gridRowStart) === 1 && parseInt(pieceOne.style.gridColumnStart) <=7) {
-            console.log('winstopper function ran')
+        if (parseInt(pieceOne.style.gridRowStart) === 1 && parseInt(pieceOne.style.gridColumnStart) <= 7) {
             if (parseInt(pieceOne.style.gridColumnStart) - diceNum == 1) {
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum
                 winSound.play();
                 gameRunning = false
-                setTimeout(function(){
+                setTimeout(function () {
                     if (players == 2) {
                         alert('Player 1 Wins!')
                         resetGame()
-                    }
-                    else {
+                    } else {
                         alert('You Win!')
                         resetGame()
                     }
                 }, 700);
-                
-                
-            }
-            else if (parseInt(pieceOne.style.gridColumnStart) - diceNum > 1) {
+
+
+            } else if (parseInt(pieceOne.style.gridColumnStart) - diceNum > 1) {
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum
             }
-        }
-        else if (pieceOne.style.gridRowStart % 2 === 0) {
+        } else if (pieceOne.style.gridRowStart % 2 === 0) {
             pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) + diceNum
             if (pieceOne.style.gridColumnStart > 10) {
                 pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - 10
                 pieceOne.style.gridColumnStart = 11 - parseInt(pieceOne.style.gridColumnStart)
-                console.log('even carryover function ran')
             }
-        }
-        else if (pieceOne.style.gridRowStart % 2 != 0) {
+        } else if (pieceOne.style.gridRowStart % 2 != 0) {
             if (parseInt(pieceOne.style.gridColumnStart) - diceNum < 0) {
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum
                 pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) + 10
                 pieceOne.style.gridColumnStart = 11 - parseInt(pieceOne.style.gridColumnStart)
-                console.log('odd carryover function ran')        
-            }
-            else if (pieceOne.style.gridColumnStart == 1 && diceNum == 1) {
+            } else if (pieceOne.style.gridColumnStart == 1 && diceNum == 1) {
                 pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1
-                console.log('dice 1 function ran')
-            }
-            else if (pieceOne.style.gridColumnStart - diceNum == 0) {
+            } else if (pieceOne.style.gridColumnStart - diceNum == 0) {
                 pieceOne.style.gridColumnStart = 1
                 pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1
-                console.log('zero function ran')
-            }
-             else {
+            } else {
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum
-             }   
+            }
         }
         updatePieceOneSmooth()
-        setTimeout(function(){
+        setTimeout(function () {
             specialCheckOne(pieceOne)
         }, 500);
 
-        
+
     }
-    
+
     function specialCheckOne(pieceOne) {
-        
+
         if (pieceOne.style.gridColumnStart == 4 && pieceOne.style.gridRowStart == 10) {
-            console.log('you climbed a ladder')
             ladderSound.play();
             pieceOne.style.gridColumnStart = 5
             pieceOne.style.gridRowStart = 8
-        }
-        else if (pieceOne.style.gridColumnStart == 1 && pieceOne.style.gridRowStart == 8) {
-            console.log('you climbed a ladder')
+        } else if (pieceOne.style.gridColumnStart == 1 && pieceOne.style.gridRowStart == 8) {
             ladderSound.play();
             pieceOne.style.gridColumnStart = 2
             pieceOne.style.gridRowStart = 7
-        }
-        else if (pieceOne.style.gridColumnStart == 9 && pieceOne.style.gridRowStart == 8) {
-            console.log('you climbed a ladder')
+        } else if (pieceOne.style.gridColumnStart == 9 && pieceOne.style.gridRowStart == 8) {
             ladderSound.play();
             pieceOne.style.gridColumnStart = 7
             pieceOne.style.gridRowStart = 3
-        }
-        else if (pieceOne.style.gridColumnStart == 10 && pieceOne.style.gridRowStart == 8) {
-            console.log('you slid down a snake')
+        } else if (pieceOne.style.gridColumnStart == 10 && pieceOne.style.gridRowStart == 8) {
             snakeSound.play();
             pieceOne.style.gridColumnStart = 7
             pieceOne.style.gridRowStart = 10
-        }
-        else if (pieceOne.style.gridColumnStart == 3 && pieceOne.style.gridRowStart == 6) {
-            console.log('you climbed a ladder')
+        } else if (pieceOne.style.gridColumnStart == 3 && pieceOne.style.gridRowStart == 6) {
             ladderSound.play();
             pieceOne.style.gridColumnStart = 5
             pieceOne.style.gridRowStart = 3
-        }
-        else if (pieceOne.style.gridColumnStart == 7 && pieceOne.style.gridRowStart == 6) {
-            console.log('you slid down a snake')
+        } else if (pieceOne.style.gridColumnStart == 7 && pieceOne.style.gridRowStart == 6) {
             snakeSound.play();
             pieceOne.style.gridColumnStart = 6
             pieceOne.style.gridRowStart = 9
-        }
-        else if (pieceOne.style.gridColumnStart == 5 && pieceOne.style.gridRowStart == 5) {
-            console.log('you slid down a snake')
+        } else if (pieceOne.style.gridColumnStart == 5 && pieceOne.style.gridRowStart == 5) {
             snakeSound.play();
             pieceOne.style.gridColumnStart = 2
             pieceOne.style.gridRowStart = 9
-        }
-        else if (pieceOne.style.gridColumnStart == 3 && pieceOne.style.gridRowStart == 4) {
-            console.log('you climbed a ladder')
+        } else if (pieceOne.style.gridColumnStart == 3 && pieceOne.style.gridRowStart == 4) {
             ladderSound.play();
             pieceOne.style.gridColumnStart = 1
             pieceOne.style.gridRowStart = 3
-        }
-        else if (pieceOne.style.gridColumnStart == 10 && pieceOne.style.gridRowStart == 3) {
-            console.log('you climbed a ladder')
+        } else if (pieceOne.style.gridColumnStart == 10 && pieceOne.style.gridRowStart == 3) {
             ladderSound.play();
             pieceOne.style.gridColumnStart = 9
             pieceOne.style.gridRowStart = 2
-        }
-        else if (pieceOne.style.gridColumnStart == 8 && pieceOne.style.gridRowStart == 3) {
-            console.log('you slid down a snake')
+        } else if (pieceOne.style.gridColumnStart == 8 && pieceOne.style.gridRowStart == 3) {
             snakeSound.play();
             pieceOne.style.gridColumnStart = 10
             pieceOne.style.gridRowStart = 5
-        }
-        else if (pieceOne.style.gridColumnStart == 2 && pieceOne.style.gridRowStart == 2) {
-            console.log('you slid down a snake')
+        } else if (pieceOne.style.gridColumnStart == 2 && pieceOne.style.gridRowStart == 2) {
             snakeSound.play();
             pieceOne.style.gridColumnStart = 2
             pieceOne.style.gridRowStart = 6
-        }
-        else if (pieceOne.style.gridColumnStart == 9 && pieceOne.style.gridRowStart == 1) {
-            console.log('you slid down a snake')
+        } else if (pieceOne.style.gridColumnStart == 9 && pieceOne.style.gridRowStart == 1) {
             snakeSound.play();
             pieceOne.style.gridColumnStart = 6
             pieceOne.style.gridRowStart = 3
-        }
-        else if (pieceOne.style.gridColumnStart == 3 && pieceOne.style.gridRowStart == 1) {
-            console.log('you slid down a snake')
+        } else if (pieceOne.style.gridColumnStart == 3 && pieceOne.style.gridRowStart == 1) {
             snakeSound.play();
             pieceOne.style.gridColumnStart = 6
             pieceOne.style.gridRowStart = 5
@@ -516,69 +448,57 @@ function runGame(players) {
         updatePieceOneSmooth()
 
         if (gameRunning === true) {
-        switchTurn()
+            switchTurn()
         }
     }
 
     function movePieceTwo(diceNum) {
         let pieceTwo = document.getElementById('piece-two')
-        if (parseInt(pieceTwo.style.gridRowStart) === 1 && parseInt(pieceTwo.style.gridColumnStart) <=7) {
-            console.log('winstopper function ran')
+        if (parseInt(pieceTwo.style.gridRowStart) === 1 && parseInt(pieceTwo.style.gridColumnStart) <= 7) {
             if (parseInt(pieceTwo.style.gridColumnStart) - diceNum == 1) {
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum
                 if (players == 2) {
                     winSound.play();
                     gameRunning = false
-                    setTimeout(function(){
+                    setTimeout(function () {
                         alert('Player 2 Wins!')
                         resetGame()
                     }, 700);
-                }
-                else {
+                } else {
                     gameRunning = false
-                    setTimeout(function(){
+                    setTimeout(function () {
                         alert('Computer Wins')
                         resetGame()
                     }, 700);
-                    
+
                 }
-            }
-            else if (parseInt(pieceTwo.style.gridColumnStart) - diceNum > 1) {
+            } else if (parseInt(pieceTwo.style.gridColumnStart) - diceNum > 1) {
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum
             }
-        }
-        else if (pieceTwo.style.gridRowStart % 2 === 0) {
+        } else if (pieceTwo.style.gridRowStart % 2 === 0) {
             pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) + diceNum
             if (pieceTwo.style.gridColumnStart > 10) {
                 pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - 10
                 pieceTwo.style.gridColumnStart = 11 - parseInt(pieceTwo.style.gridColumnStart)
-                console.log('even carryover function ran')
             }
-        }
-        else if (pieceTwo.style.gridRowStart % 2 != 0) {
+        } else if (pieceTwo.style.gridRowStart % 2 != 0) {
             if (parseInt(pieceTwo.style.gridColumnStart) - diceNum < 0) {
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum
                 pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) + 10
                 pieceTwo.style.gridColumnStart = 11 - parseInt(pieceTwo.style.gridColumnStart)
-                console.log('odd carryover function ran')        
-            }
-            else if (pieceTwo.style.gridColumnStart == 1 && diceNum == 1) {
+            } else if (pieceTwo.style.gridColumnStart == 1 && diceNum == 1) {
                 pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1
-                console.log('dice 1 function ran')
-            }
-            else if (pieceTwo.style.gridColumnStart - diceNum == 0) {
+            } else if (pieceTwo.style.gridColumnStart - diceNum == 0) {
                 pieceTwo.style.gridColumnStart = 1
                 pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1
-                console.log('zero function ran')
-            }
-             else {
+            } else {
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum
-             }   
+            }
         }
         updatePieceTwoSmooth()
-        setTimeout(function(){
+        setTimeout(function () {
             specialCheckTwo(pieceTwo)
         }, 500);
     }
@@ -586,79 +506,54 @@ function runGame(players) {
     function specialCheckTwo(pieceTwo) {
 
         if (pieceTwo.style.gridColumnStart == 4 && pieceTwo.style.gridRowStart == 10) {
-            console.log('you climbed a ladder')
             ladderSound.play();
             pieceTwo.style.gridColumnStart = 5
             pieceTwo.style.gridRowStart = 8
-        }
-        else if (pieceTwo.style.gridColumnStart == 1 && pieceTwo.style.gridRowStart == 8) {
-            console.log('you climbed a ladder')
+        } else if (pieceTwo.style.gridColumnStart == 1 && pieceTwo.style.gridRowStart == 8) {
             ladderSound.play();
             pieceTwo.style.gridColumnStart = 2
             pieceTwo.style.gridRowStart = 7
-        }
-        else if (pieceTwo.style.gridColumnStart == 9 && pieceTwo.style.gridRowStart == 8) {
-            console.log('you climbed a ladder')
+        } else if (pieceTwo.style.gridColumnStart == 9 && pieceTwo.style.gridRowStart == 8) {
             ladderSound.play();
             pieceTwo.style.gridColumnStart = 7
             pieceTwo.style.gridRowStart = 3
-        }
-        else if (pieceTwo.style.gridColumnStart == 10 && pieceTwo.style.gridRowStart == 8) {
-            console.log('you slid down a snake')
+        } else if (pieceTwo.style.gridColumnStart == 10 && pieceTwo.style.gridRowStart == 8) {
             snakeSound.play();
             pieceTwo.style.gridColumnStart = 7
             pieceTwo.style.gridRowStart = 10
-        }
-        else if (pieceTwo.style.gridColumnStart == 3 && pieceTwo.style.gridRowStart == 6) {
-            console.log('you climbed a ladder')
+        } else if (pieceTwo.style.gridColumnStart == 3 && pieceTwo.style.gridRowStart == 6) {
             ladderSound.play();
             pieceTwo.style.gridColumnStart = 5
             pieceTwo.style.gridRowStart = 3
-        }
-        else if (pieceTwo.style.gridColumnStart == 7 && pieceTwo.style.gridRowStart == 6) {
-            console.log('you slid down a snake')
+        } else if (pieceTwo.style.gridColumnStart == 7 && pieceTwo.style.gridRowStart == 6) {
             snakeSound.play();
             pieceTwo.style.gridColumnStart = 6
             pieceTwo.style.gridRowStart = 9
-        }
-        else if (pieceTwo.style.gridColumnStart == 5 && pieceTwo.style.gridRowStart == 5) {
-            console.log('you slid down a snake')
+        } else if (pieceTwo.style.gridColumnStart == 5 && pieceTwo.style.gridRowStart == 5) {
             snakeSound.play();
             pieceTwo.style.gridColumnStart = 2
             pieceTwo.style.gridRowStart = 9
-        }
-        else if (pieceTwo.style.gridColumnStart == 3 && pieceTwo.style.gridRowStart == 4) {
-            console.log('you climbed a ladder')
+        } else if (pieceTwo.style.gridColumnStart == 3 && pieceTwo.style.gridRowStart == 4) {
             ladderSound.play();
             pieceTwo.style.gridColumnStart = 1
             pieceTwo.style.gridRowStart = 3
-        }
-        else if (pieceTwo.style.gridColumnStart == 10 && pieceTwo.style.gridRowStart == 3) {
-            console.log('you climbed a ladder')
+        } else if (pieceTwo.style.gridColumnStart == 10 && pieceTwo.style.gridRowStart == 3) {
             ladderSound.play();
             pieceTwo.style.gridColumnStart = 9
             pieceTwo.style.gridRowStart = 2
-        }
-        else if (pieceTwo.style.gridColumnStart == 8 && pieceTwo.style.gridRowStart == 3) {
-            console.log('you slid down a snake')
+        } else if (pieceTwo.style.gridColumnStart == 8 && pieceTwo.style.gridRowStart == 3) {
             snakeSound.play();
             pieceTwo.style.gridColumnStart = 10
             pieceTwo.style.gridRowStart = 5
-        }
-        else if (pieceTwo.style.gridColumnStart == 2 && pieceTwo.style.gridRowStart == 2) {
-            console.log('you slid down a snake')
+        } else if (pieceTwo.style.gridColumnStart == 2 && pieceTwo.style.gridRowStart == 2) {
             snakeSound.play();
             pieceTwo.style.gridColumnStart = 2
             pieceTwo.style.gridRowStart = 6
-        }
-        else if (pieceTwo.style.gridColumnStart == 9 && pieceTwo.style.gridRowStart == 1) {
-            console.log('you slid down a snake')
+        } else if (pieceTwo.style.gridColumnStart == 9 && pieceTwo.style.gridRowStart == 1) {
             snakeSound.play();
             pieceTwo.style.gridColumnStart = 6
             pieceTwo.style.gridRowStart = 3
-        }
-        else if (pieceTwo.style.gridColumnStart == 3 && pieceTwo.style.gridRowStart == 1) {
-            console.log('you slid down a snake')
+        } else if (pieceTwo.style.gridColumnStart == 3 && pieceTwo.style.gridRowStart == 1) {
             snakeSound.play();
             pieceTwo.style.gridColumnStart = 6
             pieceTwo.style.gridRowStart = 5
@@ -694,26 +589,19 @@ function updatePieceTwoSmooth() {
     pieceTwoSmooth.style.top = `${topPositionCorrected}px`
 }
 
-function clearMessage() {
-    document.getElementById('dice-result').innerHTML = ``
-}
-
-function resetConfirm() {  
+function resetConfirm() {
     if (confirm("Reset the game?") == true) {
         resetGame()
-    } 
-    else {}
+    } else {}
 }
 
 function resetGame() {
     gameRunning = false
-    console.log('you reset the game')
-    console.log(gameRunning)
 
     let backgroundMusic = document.getElementById('background-music');
     if (backgroundMusic.muted != true) {
-    document.getElementById('form-container').innerHTML =
-    ` <form class="form" action=>
+        document.getElementById('form-container').innerHTML =
+            ` <form class="form" action=>
                 <div id="form-title">Game Setup</div>
                 <div id="radio-container">
                     <div>
@@ -744,10 +632,9 @@ function resetGame() {
                 </div>
             </div>
     `
-    }
-    else {
+    } else {
         document.getElementById('form-container').innerHTML =
-        ` <form class="form" action=>
+            ` <form class="form" action=>
                 <div id="form-title">Game Setup</div>
                 <div id="radio-container">
                     <div>
@@ -777,7 +664,7 @@ function resetGame() {
                     <button id="mute-button"><i class="fa-solid fa-volume-xmark"></i></button>
                 </div>
             </div>
-    `  
+    `
     }
 
     document.getElementById('roll-container').innerHTML = ``
@@ -786,7 +673,7 @@ function resetGame() {
     document.getElementById('game-messages').innerHTML = ``
     document.getElementById('result-two').innerText = ``
     document.getElementById('robot-icon').style.color = 'transparent'
-    setTimeout(function() {
+    setTimeout(function () {
         document.getElementById('result-two').innerText = ``
     }, 2000);
 
@@ -798,24 +685,14 @@ function resetGame() {
 
 //button disable
 
-function disableButtons(){
-    
+function disableButtons() {
+
     document.getElementById("dice-roller").disabled = true;
-    document.getElementById("reset-button").disabled = true; 
+    document.getElementById("reset-button").disabled = true;
 }
 
-function enableButtons(){
-    
-        document.getElementById("dice-roller").disabled = false;
-        document.getElementById("reset-button").disabled = false;
+function enableButtons() {
+
+    document.getElementById("dice-roller").disabled = false;
+    document.getElementById("reset-button").disabled = false;
 }
-
-
-function disableButtonTimer(){
-    document.getElementById("dice-roller").disabled = true;
-    setTimeout(function() {
-        document.getElementById("dice-roller").disabled = false;
-    }, 2800);
-    
-}
-
