@@ -785,7 +785,7 @@ function resetGame() {
     document.getElementById('reset-mute-container').innerHTML = ``
     document.getElementById('game-messages').innerHTML = ``
     document.getElementById('result-two').innerText = ``
-    document.getElementById('robot-icon').style.fontSize = '0px'
+    document.getElementById('robot-icon').style.color = 'transparent'
     setTimeout(function() {
         document.getElementById('result-two').innerText = ``
     }, 2000);
