@@ -1,15 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap');
+
 * {
   margin: 0;
   padding: 0;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap');
-
-
 h1 {
   font-size: 1.5em;
   text-align: center;
-  color: var(--blue);
   font-family: 'Yanone Kaffeesatz', sans-serif;
   letter-spacing: 0.05rem;
   color: #3d999a;
