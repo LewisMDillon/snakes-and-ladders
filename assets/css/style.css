@@ -7,7 +7,7 @@
 
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 1.5em;
   text-align: center;
   color: var(--blue);
   font-family: 'Yanone Kaffeesatz', sans-serif;
@@ -20,7 +20,7 @@ body {
   font-family: 'PT Sans', sans-serif;
   color: #3d999a;
   font-weight: 550;
-  font-size: 2rem;
+  font-size: 1.5em;
 }
 
 #full-container {
@@ -430,13 +430,13 @@ select option[value='green'] {
 
 @media only screen and (min-width: 850px) {
   .box {
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
   }
 
   #game-container {
-    width: 500px;
+    width: 450px;
   }
 
   #game-and-info {
@@ -465,20 +465,20 @@ select option[value='green'] {
   }
 
   #piece-one-smooth {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     left: 6.5px;
-    top: 459px;
+    top: 413px;
   }
 
   #piece-two-smooth {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     left: 6.5px;
-    top: 459px;
+    top: 413px;
   }
 
   #robot-icon {
-    font-size: 36px;
+    font-size: 31px;
   }
 }
