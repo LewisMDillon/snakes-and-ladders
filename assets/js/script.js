@@ -191,11 +191,35 @@ function runGame(players) {
     ``
     document.getElementById('form-container').style.padding = 0
 
-    document.getElementById('reset-container').innerHTML = 
-    `<button id="reset-button">Reset Game</button>`
+    let backgroundMusic = document.getElementById('background-music');
+    if (backgroundMusic.muted != true) {
+    document.getElementById('reset-mute-container').innerHTML = 
+        `
+        <div id="reset-container">
+            <button id="reset-button">Reset Game</button>
+        </div>
+        <div id="mute-container">
+            <button id="mute-button"><i class="fa-solid fa-volume-high"></i></button>
+        </div>
+        `
+    }
+    else {
+        document.getElementById('reset-mute-container').innerHTML = 
+        `
+        <div id="reset-container">
+            <button id="reset-button">Reset Game</button>
+        </div>
+        <div id="mute-container">
+            <button id="mute-button"><i class="fa-solid fa-volume-xmark"></i></button>
+        </div>
+        ` 
+    }
 
     let resetButton = document.getElementById('reset-button')
     resetButton.addEventListener('click', resetConfirm)
+
+    let muteButton = document.getElementById('mute-button')
+    muteButton.addEventListener('click', muteToggle)
 
     // sound effects
     let rollSound = document.getElementById('roll-sound')
@@ -685,6 +709,9 @@ function resetGame() {
     gameRunning = false
     console.log('you reset the game')
     console.log(gameRunning)
+
+    let backgroundMusic = document.getElementById('background-music');
+    if (backgroundMusic.muted != true) {
     document.getElementById('form-container').innerHTML =
     ` <form class="form" action=>
                 <div id="form-title">Game Setup</div>
@@ -708,13 +735,54 @@ function resetGame() {
                     </div>
                 </div>
             </form>
-            <div>
-                <button id="start-button">Start Game!</button>
+            <div id="start-mute-container">
+                <div id="start-container">
+                    <button id="start-button">Start Game!</button>
+                </div>
+                <div id="mute-container">
+                    <button id="mute-button"><i class="fa-solid fa-volume-high"></i></button>
+                </div>
             </div>
     `
+    }
+    else {
+        document.getElementById('form-container').innerHTML =
+        ` <form class="form" action=>
+                <div id="form-title">Game Setup</div>
+                <div id="radio-container">
+                    <div>
+                        <label for="players">How many players?</label>
+                        <select id="players" name="players">
+                            <option id="one-player" value="1">1</option>
+                            <option id="two-player" value="2">2</option>
+                        </select>
+                    </div>
+                    <div id="color-container">
+                        <p>Pick your color!</p>
+                        <label for="color-one">Player One</label>
+                        <select id="color-one" name="color-one">
+                            <option value="red">Red</option>
+                            <option value="blue">Blue</option>
+                            <option value="purple">Purple</option>
+                            <option value="green">Green</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+            <div id="start-mute-container">
+                <div id="start-container">
+                    <button id="start-button">Start Game!</button>
+                </div>
+                <div id="mute-container">
+                    <button id="mute-button"><i class="fa-solid fa-volume-xmark"></i></button>
+                </div>
+            </div>
+    `  
+    }
+
     document.getElementById('roll-container').innerHTML = ``
     document.getElementById('dice-container').innerHTML = ``
-    document.getElementById('reset-container').innerHTML = ``
+    document.getElementById('reset-mute-container').innerHTML = ``
     document.getElementById('game-messages').innerHTML = ``
     document.getElementById('result-two').innerText = ``
     document.getElementById('robot-icon').style.fontSize = '0px'
