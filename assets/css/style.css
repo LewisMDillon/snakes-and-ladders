@@ -549,4 +549,8 @@ select option[value='green'] {
   #robot-icon {
     font-size: 46px;
   }
+
+  #result-two {
+    font-size: 1.3rem;
+  }
 }

@@ -247,6 +247,8 @@ function runGame(players) {
 
         dice.style.animation = 'rolling 2.5s';
 
+        document.getElementById('result-two').innerText = ``
+
         setTimeout(() => {
 
             switch (diceNum) {
