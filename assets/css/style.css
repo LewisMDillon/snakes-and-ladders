@@ -130,7 +130,7 @@ select option[value='green'] {
   margin: 0;
   border-radius: 20px;
   background-color: red;
-  border: 20px solid black;
+  border: 0px solid black;
   position: absolute;
   left: 4.5px;
   top: 4.5px;
@@ -194,7 +194,7 @@ select option[value='green'] {
   position: absolute;
   left: -1.6px;
   top: -3px;
-  font-size: 22px;
+  font-size: 21px;
   color: transparent;
 }
 
@@ -435,7 +435,7 @@ select option[value='green'] {
   background-color: #327e80;
 }
 
-@media only screen and (min-width: 850px) {
+@media only screen and (min-width: 600px) {
   .box {
     width: 45px;
     height: 45px;
@@ -444,6 +444,46 @@ select option[value='green'] {
 
   #game-container {
     width: 450px;
+  }
+
+  #piece-one {
+    left: 6.5px;
+    top: 6.5px;
+  }
+
+  #piece-one-smooth {
+    width: 30px;
+    height: 30px;
+    left: 6.5px;
+    top: 413px;
+  }
+
+  #piece-two {
+    left: 6.5px;
+    top: 6.5px;
+  }
+
+  #piece-two-smooth {
+    width: 30px;
+    height: 30px;
+    left: 6.5px;
+    top: 413px;
+  }
+
+  #robot-icon {
+    font-size: 31px;
+  }
+}
+
+@media only screen and (min-width: 1020px) {
+  .box {
+    width: 65px;
+    height: 65px;
+    line-height: 65px;
+  }
+
+  #game-container {
+    width: 650px;
   }
 
   #game-and-info {
@@ -480,21 +520,33 @@ select option[value='green'] {
     margin-top: 50px;
   }
 
+  #piece-one  {
+    left: 9.5px;
+    top: 9.5px;
+  }
+
   #piece-one-smooth {
-    width: 30px;
-    height: 30px;
-    left: 6.5px;
-    top: 413px;
+    width: 45px;
+    height: 45px;
+    left: 9.5px;
+    top: 595px;
+    border-radius: 50px;
+  }
+
+  #piece-two {
+    left: 9.5px;
+    top: 9.5px;
   }
 
   #piece-two-smooth {
-    width: 30px;
-    height: 30px;
-    left: 6.5px;
-    top: 413px;
+    width: 45px;
+    height: 45px;
+    left: 9.5px;
+    top: 595px;
+    border-radius: 50px;
   }
 
   #robot-icon {
-    font-size: 31px;
+    font-size: 46px;
   }
 }
