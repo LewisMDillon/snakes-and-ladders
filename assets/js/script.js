@@ -137,7 +137,6 @@ function colorChecker(players) {
 
 function runGame(players) {
     let gameRunning = true
-
     document.getElementById('roll-container').innerHTML =
         `
     <button id="dice-roller">Roll</button>
@@ -237,7 +236,6 @@ function runGame(players) {
 
 
     function rollDice() {
-
 
         rollSound.play();
 
@@ -340,6 +338,7 @@ function runGame(players) {
     }
 
     function movePieceOne(diceNum) {
+        console.log('movepieceOne ran')
         let pieceOne = document.getElementById('piece-one')
         if (parseInt(pieceOne.style.gridRowStart) === 1 && parseInt(pieceOne.style.gridColumnStart) <= 7) {
             if (parseInt(pieceOne.style.gridColumnStart) - diceNum == 1) {
@@ -361,37 +360,97 @@ function runGame(players) {
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum
             }
         } else if (pieceOne.style.gridRowStart % 2 === 0) {
+            let PositionEvenOne = pieceOne.style.gridColumnStart
+            let magicNumEvenOne = 11 - PositionEvenOne
             pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) + diceNum
             if (pieceOne.style.gridColumnStart > 10) {
                 pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - 10
                 pieceOne.style.gridColumnStart = 11 - parseInt(pieceOne.style.gridColumnStart)
+                console.log(PositionEvenOne)
+                console.log(magicNumEvenOne)
+                let modifierEvenOne = diceNum - magicNumEvenOne
+                console.log(modifierEvenOne)
+                pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) + modifierEvenOne
+    
+                setTimeout(function () {
+                    pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) + 1
+                    updatePieceOneSmooth()
+                    console.log('first update ran')
+                }, 0);
+
+                setTimeout(function () {
+                    pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1
+                    updatePieceOneSmooth()
+                    console.log('second update ran')
+                }, 400);
+
+                setTimeout(function () {
+                    pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - modifierEvenOne
+                    updatePieceOneSmooth()
+                    console.log('third update ran')
+                }, 700);
             }
+            
         } else if (pieceOne.style.gridRowStart % 2 != 0) {
+            let positionOddOne = pieceOne.style.gridColumnStart
             if (parseInt(pieceOne.style.gridColumnStart) - diceNum < 0) {
+                console.log(positionOddOne)
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum
                 pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) + 10
                 pieceOne.style.gridColumnStart = 11 - parseInt(pieceOne.style.gridColumnStart)
+                let modifierOddOne = diceNum - positionOddOne
+                pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - modifierOddOne
+
+                setTimeout(function () {
+                    pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) + 1
+                    updatePieceOneSmooth()
+                    console.log('first update ran')
+                }, 0);
+
+                setTimeout(function () {
+                    pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1
+                    updatePieceOneSmooth()
+                    console.log('second update ran')
+                }, 400);
+
+                setTimeout(function () {
+                    pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) + modifierOddOne
+                    updatePieceOneSmooth()
+                    console.log('third update ran')
+                }, 700);
+
+
             } else if (pieceOne.style.gridColumnStart == 1 && diceNum == 1) {
                 pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1
             } else if (pieceOne.style.gridColumnStart - diceNum == 0) {
-                pieceOne.style.gridColumnStart = 1
-                pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1
+
+                setTimeout(function () {
+                    pieceOne.style.gridColumnStart = 1
+                    updatePieceOneSmooth()
+                    console.log('first update ran')
+                }, 0);
+
+                setTimeout(function () {
+                    pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1
+                    updatePieceOneSmooth()
+                    console.log('second update ran')
+                }, 400);   
             } else {
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum
             }
         }
+
         updatePieceOneSmooth()
         setTimeout(function () {
             specialCheckOne(pieceOne)
-        }, 500);
-
+        }, 1000);
 
     }
 
     function specialCheckOne(pieceOne) {
-
+        console.log('special check One ran')
         if (pieceOne.style.gridColumnStart == 4 && pieceOne.style.gridRowStart == 10) {
             ladderSound.play();
             pieceOne.style.gridColumnStart = 5
@@ -476,31 +535,94 @@ function runGame(players) {
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum
             }
         } else if (pieceTwo.style.gridRowStart % 2 === 0) {
+            let PositionEvenTwo = pieceTwo.style.gridColumnStart
+            let magicNumEvenTwo = 11 - PositionEvenTwo
             pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) + diceNum
             if (pieceTwo.style.gridColumnStart > 10) {
                 pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - 10
                 pieceTwo.style.gridColumnStart = 11 - parseInt(pieceTwo.style.gridColumnStart)
+                console.log(PositionEvenTwo)
+                console.log(magicNumEvenTwo)
+                let modifierEvenTwo = diceNum - magicNumEvenTwo
+                console.log(modifierEvenTwo)
+                pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) + modifierEvenTwo
+    
+                setTimeout(function () {
+                    pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) + 1
+                    updatePieceTwoSmooth()
+                    console.log('first update ran')
+                }, 0);
+
+                setTimeout(function () {
+                    pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1
+                    updatePieceTwoSmooth()
+                    console.log('second update ran')
+                }, 400);
+
+                setTimeout(function () {
+                    pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - modifierEvenTwo
+                    updatePieceTwoSmooth()
+                    console.log('third update ran')
+                }, 700);
             }
+
+
+
         } else if (pieceTwo.style.gridRowStart % 2 != 0) {
+            let positionOddTwo = pieceTwo.style.gridColumnStart
             if (parseInt(pieceTwo.style.gridColumnStart) - diceNum < 0) {
+                console.log(positionOddTwo)
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum
                 pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) + 10
                 pieceTwo.style.gridColumnStart = 11 - parseInt(pieceTwo.style.gridColumnStart)
+                let modifierOddTwo = diceNum - positionOddTwo
+                pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - modifierOddTwo
+
+                setTimeout(function () {
+                    pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) + 1
+                    updatePieceTwoSmooth()
+                    console.log('first update ran')
+                }, 0);
+
+                setTimeout(function () {
+                    pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1
+                    updatePieceTwoSmooth()
+                    console.log('second update ran')
+                }, 400);
+
+                setTimeout(function () {
+                    pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) + modifierOddTwo
+                    updatePieceTwoSmooth()
+                    console.log('third update ran')
+                }, 700);
+
+
             } else if (pieceTwo.style.gridColumnStart == 1 && diceNum == 1) {
                 pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1
             } else if (pieceTwo.style.gridColumnStart - diceNum == 0) {
-                pieceTwo.style.gridColumnStart = 1
-                pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1
+
+                setTimeout(function () {
+                    pieceTwo.style.gridColumnStart = 1
+                    updatePieceTwoSmooth()
+                    console.log('first update ran')
+                }, 0);
+
+                setTimeout(function () {
+                    pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1
+                    updatePieceTwoSmooth()
+                    console.log('second update ran')
+                }, 400);   
             } else {
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum
             }
         }
+
         updatePieceTwoSmooth()
         setTimeout(function () {
             specialCheckTwo(pieceTwo)
-        }, 500);
+        }, 1000);
     }
 
     function specialCheckTwo(pieceTwo) {
