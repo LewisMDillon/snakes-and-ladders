@@ -484,9 +484,9 @@ ol {
 }
 
 #rules-button {
-  margin: 10px 206px 10px 0px;
+  margin: 7px 206px 0px 0px;
   font-family: 'PT Sans';
-  font-size: 1rem;
+  font-size: 0.75rem;
   color: whitesmoke;
   background-color: #3d999a;
   padding: 3px 5px;

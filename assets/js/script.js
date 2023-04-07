@@ -21,6 +21,14 @@ function pageSetup() {
 
     let muteButton = document.getElementById('mute-button')
     muteButton.addEventListener('click', muteToggle)
+
+    let rulesButton = document.getElementById('rules-button')
+    rulesButton.addEventListener('click', modalPopup)
+}
+
+function modalPopup() {
+    let rulesPopup = document.getElementById("how-to-play");
+    rulesPopup.style.display = "block"
 }
 
 function audioPlay() {
@@ -137,6 +145,9 @@ function colorChecker(players) {
 
 function runGame(players) {
     let gameRunning = true
+
+    document.getElementById('rules-button-container').innerHTML = ``
+
     document.getElementById('roll-container').innerHTML =
         `
     <button id="dice-roller">Roll</button>
@@ -735,6 +746,7 @@ function resetGame() {
 
     let backgroundMusic = document.getElementById('background-music');
     if (backgroundMusic.muted != true) {
+        document.getElementById('rules-button-container').innerHTML = `<button id="rules-button">How To Play</button>`
         document.getElementById('form-container').innerHTML =
             ` <form class="form" action=>
                 <div id="form-title">Game Setup</div>
@@ -768,6 +780,7 @@ function resetGame() {
             </div>
     `
     } else {
+        document.getElementById('rules-button-container').innerHTML = `<button id="rules-button">How To Play</button>`
         document.getElementById('form-container').innerHTML =
             ` <form class="form" action=>
                 <div id="form-title">Game Setup</div>
@@ -846,6 +859,7 @@ var span = document.getElementsByClassName("close")[0];
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
   modal.style.display = "block";
+  console.log('button clicked')
 }
 
 // When the user clicks on <span> (x), close the modal
