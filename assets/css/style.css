@@ -477,6 +477,21 @@ ol {
   text-decoration: none;
   cursor: pointer;
 }
+
+#rules-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+#rules-button {
+  margin: 10px 206px 10px 0px;
+  font-family: 'PT Sans';
+  font-size: 1rem;
+  color: whitesmoke;
+  background-color: #3d999a;
+  padding: 3px 5px;
+  border-radius: 4px;
+}
 /* end of modal */
 
 @media only screen and (min-width: 600px) {

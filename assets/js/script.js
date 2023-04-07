@@ -835,10 +835,10 @@ function enableButtons() {
 // modal stuff
 
 // Get the modal
-var modal = document.getElementById("myModal");
+var modal = document.getElementById("how-to-play");
 
 // Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+var btn = document.getElementById("rules-button");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
