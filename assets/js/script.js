@@ -226,7 +226,13 @@ function runGame(players) {
                 diceNum = Math.floor(Math.random() * 6) + 1
                 setTimeout(function () {
                     movePieceTwo(diceNum)
-                    document.getElementById('result-two').innerText = `The computer rolled a ${diceNum}`
+                    if (diceNum == 1) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-one"></i>`}
+                    else if (diceNum == 2) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-two"></i>`}
+                    else if (diceNum == 3) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-three"></i>`}
+                    else if (diceNum == 4) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-four"></i>`}
+                    else if (diceNum == 5) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-five"></i>`}
+                    else if (diceNum == 6) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-six"></i>`}
+                    
 
                 }, 500);
             }
@@ -299,7 +305,12 @@ function runGame(players) {
                     setTimeout(function () {
                         if (gameRunning === true) {
                             movePieceTwo(diceNum)
-                            document.getElementById('result-two').innerText = `The computer rolled a ${diceNum}`
+                            if (diceNum == 1) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-one"></i>`}
+                            else if (diceNum == 2) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-two"></i>`}
+                            else if (diceNum == 3) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-three"></i>`}
+                            else if (diceNum == 4) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-four"></i>`}
+                            else if (diceNum == 5) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-five"></i>`}
+                            else if (diceNum == 6) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-six"></i>`}
                         }
                     }, 1500);
                 }
