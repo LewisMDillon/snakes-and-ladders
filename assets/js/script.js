@@ -23,27 +23,49 @@ function pageSetup() {
     muteButton.addEventListener('click', muteToggle)
 
     let rulesButton = document.getElementById('rules-button')
-    rulesButton.addEventListener('click', modalPopup)
+    rulesButton.addEventListener('click', rulesPopup)
 }
 
-function modalPopup() {
-    let rulesPopup = document.getElementById("rules-container");
-    rulesPopup.style.display = "block"
-    modalClose(rulesPopup)
+function rulesPopup() {
+    let rulesModal = document.getElementById("rules-container");
+    rulesModal.style.display = "block"
+    rulesClose(rulesModal)
 }
 
-function modalClose(rulesPopup) {
+function rulesClose(rulesModal) {
     let closeButton = document.getElementsByClassName("close")[0];
 
     // When the user clicks on <span> (x), close the modal
     closeButton.onclick = function() {
-    rulesPopup.style.display = "none";
+    rulesModal.style.display = "none";
   }
   
   // When the user clicks anywhere outside of the modal, close it
      window.onclick = function(event) {
-    if (event.target == rulesPopup) {
-      rulesPopup.style.display = "none";
+    if (event.target == rulesModal) {
+      rulesModal.style.display = "none";
+    }
+  }
+}
+
+function colorPopup() {
+    let colorModal = document.getElementById("color-alert-container");
+    colorModal.style.display = "block"
+    colorClose(colorModal)
+}
+
+function colorClose(colorModal) {
+    let closeButton = document.getElementsByClassName("close")[1];
+
+    // When the user clicks on <span> (x), close the modal
+    closeButton.onclick = function() {
+    colorModal.style.display = "none";
+  }
+  
+  // When the user clicks anywhere outside of the modal, close it
+     window.onclick = function(event) {
+    if (event.target == colorModal) {
+      colorModal.style.display = "none";
     }
   }
 }
@@ -153,7 +175,8 @@ function colorChecker(players) {
     let colorOne = document.getElementById('color-one').value
     let colorTwo = document.getElementById('color-two').value
     if (colorOne == colorTwo) {
-        alert('Please choose different color, You might not know who is who!')
+        // alert('Please choose different color, You might not know who is who!')
+        colorPopup()
     } else {
         runGame(players)
     }

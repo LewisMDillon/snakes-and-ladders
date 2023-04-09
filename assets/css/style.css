@@ -451,13 +451,23 @@ select option[value='green'] {
 }
 
 /* Modal Content */
-.rules-content {
+#rules-content {
   background-color: #fefefe;
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
   font-size: 1.2rem;
+}
+
+#color-alert-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
 ol {
