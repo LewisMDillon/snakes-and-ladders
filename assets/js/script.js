@@ -40,7 +40,7 @@ function rulesPopup() {
 }
 
 function rulesClose(rulesModal) {
-    let closeButton = document.getElementsByClassName("close")[0];
+    let closeButton = document.getElementById("rules-closer")
 
     closeButton.onclick = function() {
     rulesModal.style.display = "none";
@@ -60,7 +60,7 @@ function colorPopup() {
 }
 
 function colorClose(colorModal) {
-    let closeButton = document.getElementsByClassName("close")[1];
+    let closeButton = document.getElementById("color-closer")
 
     closeButton.onclick = function() {
     colorModal.style.display = "none";
@@ -79,7 +79,7 @@ function resetPopup() {
 }
 
 function resetClose(resetModal) {
-    let closeButton = document.getElementsByClassName("close")[2];
+    let closeButton = document.getElementById("reset-closer");
     let cancelButton = document.getElementById('reset-cancel')
 
     closeButton.onclick = function() {
@@ -98,6 +98,73 @@ function resetClose(resetModal) {
 function resetConfirmClose () {
     let resetModal = document.getElementById("reset-alert-container");
     resetModal.style.display = "none";
+}
+
+function winAlertYou () {
+    let winModal = document.getElementById("win-alert-container");
+    winModal.style.display = "block"
+    winModal.innerHTML = 
+    `
+        <div id="win-alert-content">
+            <span id="win-closer" class="close">&times;</span>
+            <h2>You Win!</h2>
+        </div>
+    `
+    winClose(winModal)
+}
+
+function winAlertOne () {
+    let winModal = document.getElementById("win-alert-container");
+    winModal.style.display = "block"
+    winModal.innerHTML = 
+    `
+        <div id="win-alert-content">
+            <span id="win-closer" class="close">&times;</span>
+            <h2>Player One Wins!</h2>
+        </div>
+    `
+    winClose(winModal)
+}
+
+function winAlertTwo () {
+    let winModal = document.getElementById("win-alert-container");
+    winModal.style.display = "block"
+    winModal.innerHTML = 
+    `
+        <div id="win-alert-content">
+            <span id="win-closer" class="close">&times;</span>
+            <h2>Player Two Wins!</h2>
+        </div>
+    `
+    winClose(winModal)
+}
+
+function winAlertBot () {
+    let winModal = document.getElementById("win-alert-container");
+    winModal.style.display = "block"
+    winModal.innerHTML = 
+    `
+        <div id="win-alert-content">
+            <span id="win-closer" class="close">&times;</span>
+            <h2>Computer Wins</h2>
+        </div>
+    `
+    winClose(winModal)
+}
+
+function winClose(winModal) {
+    let closeButton = document.getElementById("win-closer");
+
+    closeButton.onclick = function() {
+    winModal.style.display = "none";
+    resetGame()
+  }
+     window.onclick = function(event) {
+    if (event.target == winModal) {
+      winModal.style.display = "none";
+      resetGame()
+    }
+  }
 }
 
 function audioPlay() {
@@ -205,7 +272,6 @@ function colorChecker(players) {
     let colorOne = document.getElementById('color-one').value
     let colorTwo = document.getElementById('color-two').value
     if (colorOne == colorTwo) {
-        // alert('Please choose different color, You might not know who is who!')
         colorPopup()
     } else {
         runGame(players)
@@ -441,11 +507,11 @@ function runGame(players) {
                 gameRunning = false
                 setTimeout(function () {
                     if (players == 2) {
-                        alert('Player 1 Wins!')
-                        resetGame()
+                        winAlertOne()
+                        // resetGame()
                     } else {
-                        alert('You Win!')
-                        resetGame()
+                        winAlertYou()
+                        // resetGame()
                     }
                 }, 700);
 
@@ -614,14 +680,14 @@ function runGame(players) {
                     winSound.play();
                     gameRunning = false
                     setTimeout(function () {
-                        alert('Player 2 Wins!')
-                        resetGame()
+                        winAlertTwo
+                        // resetGame()
                     }, 700);
                 } else {
                     gameRunning = false
                     setTimeout(function () {
-                        alert('Computer Wins')
-                        resetGame()
+                        winAlertBot
+                        // resetGame()
                     }, 700);
 
                 }
