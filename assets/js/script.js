@@ -107,7 +107,16 @@ function winAlertYou () {
     `
         <div id="win-alert-content">
             <span id="win-closer" class="close">&times;</span>
-            <h2>You Win!</h2>
+            <h2 class="bounce">
+                <span>Y</span>
+                <span>o</span>
+                <span>u</span>
+                <span class="space">-</span>
+                <span>W</span>
+                <span>i</span>
+                <span>n</span>
+                <span>!</span>
+            </h2>
         </div>
     `
     winClose(winModal)
@@ -120,7 +129,24 @@ function winAlertOne () {
     `
         <div id="win-alert-content">
             <span id="win-closer" class="close">&times;</span>
-            <h2>Player One Wins!</h2>
+            <h2 class="bounce">
+                <span>P</span>
+                <span>l</span>
+                <span>a</span>
+                <span>y</span>
+                <span>e</span>
+                <span>r</span>
+                <span class="space">O</span>
+                <span>O</span>
+                <span>n</span>
+                <span>e</span>
+                <span class="space">O</span>
+                <span>W</span>
+                <span>i</span>
+                <span>n</span>
+                <span>s</span>
+                <span>!</span>
+            </h2>
         </div>
     `
     winClose(winModal)
@@ -133,7 +159,24 @@ function winAlertTwo () {
     `
         <div id="win-alert-content">
             <span id="win-closer" class="close">&times;</span>
-            <h2>Player Two Wins!</h2>
+            <h2 class="bounce">
+                <span>P</span>
+                <span>l</span>
+                <span>a</span>
+                <span>y</span>
+                <span>e</span>
+                <span>r</span>
+                <span class="space">O</span>
+                <span>T</span>
+                <span>w</span>
+                <span>o</span>
+                <span class="space">O</span>
+                <span>W</span>
+                <span>i</span>
+                <span>n</span>
+                <span>s</span>
+                <span>!</span>
+            </h2>
         </div>
     `
     winClose(winModal)
@@ -146,7 +189,15 @@ function winAlertBot () {
     `
         <div id="win-alert-content">
             <span id="win-closer" class="close">&times;</span>
-            <h2>Computer Wins</h2>
+            <h2 id="computer-win-message">
+            <span class="material-symbols-outlined botface">
+                        smart_toy
+                    </span>
+             Computer Wins 
+            <span class="material-symbols-outlined botface">
+                        smart_toy
+                    </span>
+            </h2>
         </div>
     `
     winClose(winModal)
@@ -392,8 +443,8 @@ function runGame(players) {
 
         rollSound.play();
 
-        let diceNum = Math.floor(Math.random() * 6) + 1
-        // let diceNum = 1
+        // let diceNum = Math.floor(Math.random() * 6) + 1
+        let diceNum = 3
         disableButtons()
 
         let dice = document.querySelector('.dice');
@@ -680,13 +731,13 @@ function runGame(players) {
                     winSound.play();
                     gameRunning = false
                     setTimeout(function () {
-                        winAlertTwo
+                        winAlertTwo()
                         // resetGame()
                     }, 700);
                 } else {
                     gameRunning = false
                     setTimeout(function () {
-                        winAlertBot
+                        winAlertBot()
                         // resetGame()
                     }, 700);
 
