@@ -443,8 +443,8 @@ function runGame(players) {
 
         rollSound.play();
 
-        // let diceNum = Math.floor(Math.random() * 6) + 1
-        let diceNum = 3
+        let diceNum = Math.floor(Math.random() * 6) + 1
+        // let diceNum = 3
         disableButtons()
 
         let dice = document.querySelector('.dice');
