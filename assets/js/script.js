@@ -24,6 +24,13 @@ function pageSetup() {
 
     let rulesButton = document.getElementById('rules-button')
     rulesButton.addEventListener('click', rulesPopup)
+
+    let resetConfirm = document.getElementById('reset-confirm')
+    resetConfirm.addEventListener('click', () => {
+        resetGame()
+        resetConfirmClose()
+    });
+
 }
 
 function rulesPopup() {
@@ -35,12 +42,10 @@ function rulesPopup() {
 function rulesClose(rulesModal) {
     let closeButton = document.getElementsByClassName("close")[0];
 
-    // When the user clicks on <span> (x), close the modal
     closeButton.onclick = function() {
     rulesModal.style.display = "none";
   }
   
-  // When the user clicks anywhere outside of the modal, close it
      window.onclick = function(event) {
     if (event.target == rulesModal) {
       rulesModal.style.display = "none";
@@ -57,17 +62,42 @@ function colorPopup() {
 function colorClose(colorModal) {
     let closeButton = document.getElementsByClassName("close")[1];
 
-    // When the user clicks on <span> (x), close the modal
     closeButton.onclick = function() {
     colorModal.style.display = "none";
   }
-  
-  // When the user clicks anywhere outside of the modal, close it
      window.onclick = function(event) {
     if (event.target == colorModal) {
       colorModal.style.display = "none";
     }
   }
+}
+
+function resetPopup() {
+    let resetModal = document.getElementById("reset-alert-container");
+    resetModal.style.display = "block"
+    resetClose(resetModal)
+}
+
+function resetClose(resetModal) {
+    let closeButton = document.getElementsByClassName("close")[2];
+    let cancelButton = document.getElementById('reset-cancel')
+
+    closeButton.onclick = function() {
+    resetModal.style.display = "none";
+  }
+    cancelButton.onclick = function() {
+    resetModal.style.display = "none";
+  }
+     window.onclick = function(event) {
+    if (event.target == resetModal) {
+        resetModal.style.display = "none";
+    }
+  }
+}
+
+function resetConfirmClose () {
+    let resetModal = document.getElementById("reset-alert-container");
+    resetModal.style.display = "none";
 }
 
 function audioPlay() {
@@ -245,7 +275,7 @@ function runGame(players) {
     }
 
     let resetButton = document.getElementById('reset-button')
-    resetButton.addEventListener('click', resetConfirm)
+    resetButton.addEventListener('click', resetPopup)
 
     let muteButton = document.getElementById('mute-button')
     muteButton.addEventListener('click', muteToggle)
@@ -775,11 +805,11 @@ function updatePieceTwoSmooth() {
     pieceTwoSmooth.style.top = `${topPositionCorrected}px`
 }
 
-function resetConfirm() {
-    if (confirm("Reset the game?") == true) {
-        resetGame()
-    } else {}
-}
+// function resetConfirm() {
+//     if (confirm("Reset the game?") == true) {
+//         resetGame()
+//     } else {}
+// }
 
 function resetGame() {
     gameRunning = false

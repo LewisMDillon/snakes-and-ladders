@@ -470,6 +470,45 @@ select option[value='green'] {
   text-align: center;
 }
 
+#reset-alert-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 72%;
+  min-width: 270px;
+  max-width: 500px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+#reset-alert-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+#reset-confirm {
+  font-family: 'PT Sans';
+  font-size: 1.2rem;
+  color: whitesmoke;
+  background-color: #3d999a;
+  min-width: 90px;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 30px;
+}
+
+#reset-cancel {
+  font-family: 'PT Sans';
+  font-size: 1.2rem;
+  color: whitesmoke;
+  background-color: #3d999a;
+  min-width: 90px;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 30px;
+}
+
 ol {
   padding: 20px;
 }
