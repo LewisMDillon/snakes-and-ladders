@@ -440,7 +440,7 @@ select option[value='green'] {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 51; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  padding-top: 75px; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -451,12 +451,13 @@ select option[value='green'] {
 }
 
 /* Modal Content */
-.modal-content {
+.rules-content {
   background-color: #fefefe;
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+  font-size: 1.2rem;
 }
 
 ol {
@@ -484,7 +485,7 @@ ol {
 }
 
 #rules-button {
-  margin: 7px 206px 0px 0px;
+  margin: 7px 227px 0px 0px;
   font-family: 'PT Sans';
   font-size: 0.75rem;
   color: whitesmoke;
@@ -503,6 +504,10 @@ ol {
 
   #game-container {
     width: 450px;
+  }
+
+  #rules-button {
+    margin: 7px 377px 0px 0px;
   }
 
   #piece-one {
@@ -556,6 +561,10 @@ ol {
     justify-content: center;
     padding: 0 0 0 50px;
     min-width: 270px;
+  }
+
+  #rules-button {
+    margin: 7px 170px 30px 0px;
   }
 
   #form-container {
