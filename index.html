@@ -18,10 +18,15 @@
 </head>
 
 <body>
+    <!-- main page title -->
     <h1>Snakes and Ladders</h1>
     <div id="game-and-info">
         <div id="full-container">
+
+            <!-- container for game board -->
             <div id="game-container">
+
+                <!-- 100 boxes making up 10 x 10 game grid -->
                 <div class="box">100</div>
                 <div class="box">99</div>
                 <div class="box">98</div>
@@ -122,23 +127,27 @@
                 <div class="box">8</div>
                 <div class="box">9</div>
                 <div class="box">10</div>
+
+                <!-- real player pieces - invisible -->
                 <div id="piece-one"></div>
                 <div id="piece-two"></div>
+
+                <!-- pseudo, smooth-moving player pieces - visible-->
                 <div id="piece-one-smooth"></div>
                 <div id="piece-two-smooth"><span class="material-symbols-outlined" id="robot-icon">
                         smart_toy
                     </span></div>
             </div>
-            <!-- <div><img src="assets/images/gameboard.avif" alt=""></div> -->
         </div>
         <div id="info-container">
             <div>
                 <div id="rules-button-container">
-                    <!-- Trigger/Open The Modal -->
+                
+                <!-- How to play button - opens modal -->
                 <button id="rules-button">How To Play</button>
                 </div>
 
-                <!-- The Modal -->
+                <!-- modal container -->
                 <div id="rules-container" class="modal">
 
                     <!-- Modal content -->
@@ -165,9 +174,11 @@
                     </div>
 
                 </div>
+
+                <!-- color modal container -->
                 <div id="color-alert-container" class="modal">
 
-                    <!-- Modal content -->
+                    <!-- modal content -->
                     <div id="color-alert-content">
                         <span id="color-closer" class="close">&times;</span>
                         <h2>Please choose a different color,</h2>
@@ -177,9 +188,11 @@
                     </div>
 
                 </div>
+
+                <!-- reset modal container -->
                 <div id="reset-alert-container" class="modal">
 
-                    <!-- Modal content -->
+                    <!-- modal content -->
                     <div id="reset-alert-content">
                         <span id="reset-closer" class="close">&times;</span>
                         <h2>Reset the game?</h2>
@@ -191,9 +204,11 @@
                     </div>
 
                 </div>
+
+                <!-- win alert modal container -->
                 <div id="win-alert-container" class="modal bouncy">
 
-                    <!-- Modal content -->
+                    <!-- modal content -->
                     <div id="win-alert-content">
                         <span id="win-closer" class="close">&times;</span>
                         <h2>Victory!</h2>
@@ -202,6 +217,8 @@
                 </div>
 
             </div>
+
+            <!-- container for form and setup elements -->
             <div id="form-container">
                 <form class="form">
                     <div id="form-title">Game Setup</div>
@@ -225,18 +242,26 @@
                         </div>
                     </div>
                 </form>
+
+                <!-- start button container -->
                 <div id="start-mute-container">
                     <div id="start-container">
                         <button id="start-button">Start Game!</button>
                     </div>
                     <div id="mute-container">
+
+                        <!-- mute/unmute button -->
                         <button id="mute-button"><i class="fa-solid fa-volume-high"></i></button>
                     </div>
                 </div>
             </div>
+
+            <!-- empty message container - innerHTML written by JS functions ingame -->
             <div id="game-messages">
 
             </div>
+
+            <!-- empty dice-roller container - innerHTML written by JS functions ingame -->
             <div id="dice-full-container">
                 <div id="roll-container">
 
@@ -245,43 +270,54 @@
 
                 </div>
             </div>
+
+            <!-- empty dice message container - innerHTML written by JS functions ingame -->
             <div id="dice-result-container">
 
             </div>
+
+            <!-- empty reset container - innerHTML written by JS functions ingame -->
             <div id="reset-mute-container">
 
             </div>
         </div>
     </div>
 
+    <!-- audio elements -->
+    <!-- background music -->
     <audio id="background-music" loop>
         <source src="assets/audio/background.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
+    <!-- dice roll sound -->
     <audio id="roll-sound">
         <source src="assets/audio/diceroll.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
+    <!-- climb ladder sound -->
     <audio id="ladder-sound">
         <source src="assets/audio/ladder.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
+    <!-- slide down snake sound -->
     <audio id="snake-sound">
         <source src="assets/audio/snake.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
+    <!-- game win sound -->
     <audio id="win-sound">
         <source src="assets/audio/win.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
+    <!-- fontawesome script -->
     <script src="https://kit.fontawesome.com/f514539dfd.js" crossorigin="anonymous"></script>
 
-
+    <!-- link to main javascript file -->
     <script src="assets/js/script.js"></script>
 </body>
 
