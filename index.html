@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A fun site for all ages to play interactive game Snakes and Ladders">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -144,7 +145,7 @@
                 <div id="rules-button-container">
                 
                 <!-- How to play button - opens modal -->
-                <button id="rules-button">How To Play</button>
+                <button id="rules-button" aria-label="How To Play Button">How To Play</button>
                 </div>
 
                 <!-- modal container -->
@@ -197,8 +198,8 @@
                         <span id="reset-closer" class="close">&times;</span>
                         <h2>Reset the game?</h2>
                         <div id="reset-alert-buttons">
-                            <button id="reset-confirm">Reset</button>
-                            <button id="reset-cancel">Cancel</button>
+                            <button id="reset-confirm" aria-label="Confirm Button">Reset</button>
+                            <button id="reset-cancel" aria-label="Cancel Button">Cancel</button>
                         </div>
             
                     </div>
@@ -246,12 +247,12 @@
                 <!-- start button container -->
                 <div id="start-mute-container">
                     <div id="start-container">
-                        <button id="start-button">Start Game!</button>
+                        <button id="start-button" aria-label="Start The Game Button">Start Game!</button>
                     </div>
                     <div id="mute-container">
 
                         <!-- mute/unmute button -->
-                        <button id="mute-button"><i class="fa-solid fa-volume-high"></i></button>
+                        <button id="mute-button" aria-label="Mute Audio Button"><i class="fa-solid fa-volume-high"></i></button>
                     </div>
                 </div>
             </div>
