@@ -660,29 +660,23 @@ function runGame(players) {
                 pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - 10
                 pieceOne.style.gridColumnStart = 11 - parseInt(pieceOne.style.gridColumnStart)
-                console.log(PositionEvenOne)
-                console.log(magicNumEvenOne)
                 let modifierEvenOne = diceNum - magicNumEvenOne
-                console.log(modifierEvenOne)
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) + modifierEvenOne
                 
                 // moves piece smoothly around corners
                 setTimeout(function () {
                     pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) + 1
                     updatePieceOneSmooth()
-                    console.log('first update ran')
                 }, 0);
 
                 setTimeout(function () {
                     pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1
                     updatePieceOneSmooth()
-                    console.log('second update ran')
                 }, 400);
 
                 setTimeout(function () {
                     pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - modifierEvenOne
                     updatePieceOneSmooth()
-                    console.log('third update ran')
                 }, 700);
             }
         
@@ -690,7 +684,6 @@ function runGame(players) {
         } else if (pieceOne.style.gridRowStart % 2 != 0) {
             let positionOddOne = pieceOne.style.gridColumnStart
             if (parseInt(pieceOne.style.gridColumnStart) - diceNum < 0) {
-                console.log(positionOddOne)
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum
                 pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) + 10
@@ -702,19 +695,16 @@ function runGame(players) {
                 setTimeout(function () {
                     pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) + 1
                     updatePieceOneSmooth()
-                    console.log('first update ran')
                 }, 0);
 
                 setTimeout(function () {
                     pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1
                     updatePieceOneSmooth()
-                    console.log('second update ran')
                 }, 400);
 
                 setTimeout(function () {
                     pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) + modifierOddOne
                     updatePieceOneSmooth()
-                    console.log('third update ran')
                 }, 700);
 
 
@@ -725,13 +715,11 @@ function runGame(players) {
                 setTimeout(function () {
                     pieceOne.style.gridColumnStart = 1
                     updatePieceOneSmooth()
-                    console.log('first update ran')
                 }, 0);
 
                 setTimeout(function () {
                     pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1
                     updatePieceOneSmooth()
-                    console.log('second update ran')
                 }, 400);   
             } else {
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum
@@ -854,29 +842,23 @@ function runGame(players) {
                 pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - 10
                 pieceTwo.style.gridColumnStart = 11 - parseInt(pieceTwo.style.gridColumnStart)
-                console.log(PositionEvenTwo)
-                console.log(magicNumEvenTwo)
                 let modifierEvenTwo = diceNum - magicNumEvenTwo
-                console.log(modifierEvenTwo)
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) + modifierEvenTwo
                 
                 // moves piece smoothly around corners
                 setTimeout(function () {
                     pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) + 1
                     updatePieceTwoSmooth()
-                    console.log('first update ran')
                 }, 0);
 
                 setTimeout(function () {
                     pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1
                     updatePieceTwoSmooth()
-                    console.log('second update ran')
                 }, 400);
 
                 setTimeout(function () {
                     pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - modifierEvenTwo
                     updatePieceTwoSmooth()
-                    console.log('third update ran')
                 }, 700);
             }
 
@@ -885,7 +867,6 @@ function runGame(players) {
         } else if (pieceTwo.style.gridRowStart % 2 != 0) {
             let positionOddTwo = pieceTwo.style.gridColumnStart
             if (parseInt(pieceTwo.style.gridColumnStart) - diceNum < 0) {
-                console.log(positionOddTwo)
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum
                 pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) + 10
@@ -897,19 +878,16 @@ function runGame(players) {
                 setTimeout(function () {
                     pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) + 1
                     updatePieceTwoSmooth()
-                    console.log('first update ran')
                 }, 0);
 
                 setTimeout(function () {
                     pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1
                     updatePieceTwoSmooth()
-                    console.log('second update ran')
                 }, 400);
 
                 setTimeout(function () {
                     pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) + modifierOddTwo
                     updatePieceTwoSmooth()
-                    console.log('third update ran')
                 }, 700);
 
 
@@ -920,13 +898,11 @@ function runGame(players) {
                 setTimeout(function () {
                     pieceTwo.style.gridColumnStart = 1
                     updatePieceTwoSmooth()
-                    console.log('first update ran')
                 }, 0);
 
                 setTimeout(function () {
                     pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1
                     updatePieceTwoSmooth()
-                    console.log('second update ran')
                 }, 400);   
             } else {
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum
