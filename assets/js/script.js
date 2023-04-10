@@ -266,7 +266,7 @@ function winClose(winModal) {
  */
 function audioPlay() {
     let backgroundMusic = document.getElementById('background-music');
-    if (backgroundMusic.paused) { //check audio is playing
+    if (backgroundMusic.paused) { //checks if audio is playing
         backgroundMusic.play();
     }
 }
@@ -820,13 +820,11 @@ function runGame(players) {
                     gameRunning = false
                     setTimeout(function () {
                         winAlertTwo()
-                        // resetGame()
                     }, 700);
                 } else {
                     gameRunning = false
                     setTimeout(function () {
                         winAlertBot()
-                        // resetGame()
                     }, 700);
 
                 }
