@@ -229,6 +229,7 @@ You can fork this repository by using the following steps:
 | [Geeks for geeks](https://www.codingem.com/javascript-get-html-element-position/) | form buttons | How to add a pressed effect on button click in CSS |
 | [Stack Overflow](https://stackoverflow.com/questions/9437228/html5-check-if-audio-is-playing) | entire site | HTML5 how to check if audio is playing |
 | [Stack Overflow](https://stackoverflow.com/questions/12836227/change-select-box-option-background-color) | setup form | Change select box option background color|
+| [Geekyants](https://techblog.geekyants.com/some-of-the-most-popular-css-text-animations) | Win popup | CSS Text animations |
 | [Flexbox Froggy](https://flexboxfroggy.com/) | entire site | modern responsive layouts |
 | [Youtube](https://www.youtube.com/watch?v=-loiv1gU50M) | game functionality | How to Code Snakes and Ladders with Javascript |
 | [Youtube](https://www.youtube.com/watch?v=dcRqXrl5804) | game functionality | Snakes and Ladders Game |
