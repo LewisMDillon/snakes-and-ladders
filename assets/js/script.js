@@ -1125,8 +1125,6 @@ function resetGame() {
     updatePieceTwoSmooth();
 }
 
-
-
 /**
  * Disables roll and reset buttons
  */
