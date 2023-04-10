@@ -1,7 +1,7 @@
 /* jshint esversion: 11 */
 
 // this code will run upon loading of the main page
-document.addEventListener("DOMContentLoaded", pageSetup())
+document.addEventListener("DOMContentLoaded", pageSetup());
 
 /**
  * Sets up essential page elements and adds event listeners
@@ -15,7 +15,7 @@ function pageSetup() {
     document.getElementById('piece-two').style.gridColumnStart = "1";
     document.getElementById('piece-two').style.gridRowStart = "10";
 
-    let startButton = document.getElementById('start-button')
+    let startButton = document.getElementById('start-button');
 
     // start button will run game setup and play background music
     startButton.addEventListener('click', () => {
@@ -24,19 +24,19 @@ function pageSetup() {
     });
 
     // event listeners
-    let twoPlayer = document.getElementById('players')
-    twoPlayer.addEventListener('change', formExtend)
+    let twoPlayer = document.getElementById('players');
+    twoPlayer.addEventListener('change', formExtend);
 
-    let muteButton = document.getElementById('mute-button')
-    muteButton.addEventListener('click', muteToggle)
+    let muteButton = document.getElementById('mute-button');
+    muteButton.addEventListener('click', muteToggle);
 
-    let rulesButton = document.getElementById('rules-button')
-    rulesButton.addEventListener('click', rulesPopup)
+    let rulesButton = document.getElementById('rules-button');
+    rulesButton.addEventListener('click', rulesPopup);
 
-    let resetConfirm = document.getElementById('reset-confirm')
+    let resetConfirm = document.getElementById('reset-confirm');
     resetConfirm.addEventListener('click', () => {
-        resetGame()
-        resetConfirmClose()
+        resetGame();
+        resetConfirmClose();
     });
 
 }
@@ -45,25 +45,25 @@ function pageSetup() {
  */
 function rulesPopup() {
     let rulesModal = document.getElementById("rules-container");
-    rulesModal.style.display = "block"
-    rulesClose(rulesModal)
+    rulesModal.style.display = "block";
+    rulesClose(rulesModal);
 }
 
 /**
  * sets up both close button and click-outside-window to close the modal 
  */
 function rulesClose(rulesModal) {
-    let closeButton = document.getElementById("rules-closer")
+    let closeButton = document.getElementById("rules-closer");
 
     closeButton.onclick = function() {
     rulesModal.style.display = "none";
-  }
+  };
   
      window.onclick = function(event) {
     if (event.target == rulesModal) {
       rulesModal.style.display = "none";
     }
-  }
+  };
 }
 
 /**
@@ -71,24 +71,24 @@ function rulesClose(rulesModal) {
  */
 function colorPopup() {
     let colorModal = document.getElementById("color-alert-container");
-    colorModal.style.display = "block"
-    colorClose(colorModal)
+    colorModal.style.display = "block";
+    colorClose(colorModal);
 }
 
 /**
  * sets up both close button and click-outside-window to close the modal 
  */
 function colorClose(colorModal) {
-    let closeButton = document.getElementById("color-closer")
+    let closeButton = document.getElementById("color-closer");
 
     closeButton.onclick = function() {
     colorModal.style.display = "none";
-  }
+  };
      window.onclick = function(event) {
     if (event.target == colorModal) {
       colorModal.style.display = "none";
     }
-  }
+  };
 }
 
 /**
@@ -96,8 +96,8 @@ function colorClose(colorModal) {
  */
 function resetPopup() {
     let resetModal = document.getElementById("reset-alert-container");
-    resetModal.style.display = "block"
-    resetClose(resetModal)
+    resetModal.style.display = "block";
+    resetClose(resetModal);
 }
 
 /**
@@ -105,19 +105,19 @@ function resetPopup() {
  */
 function resetClose(resetModal) {
     let closeButton = document.getElementById("reset-closer");
-    let cancelButton = document.getElementById('reset-cancel')
+    let cancelButton = document.getElementById('reset-cancel');
 
     closeButton.onclick = function() {
     resetModal.style.display = "none";
-  }
+  };
     cancelButton.onclick = function() {
     resetModal.style.display = "none";
-  }
+  };
      window.onclick = function(event) {
     if (event.target == resetModal) {
         resetModal.style.display = "none";
     }
-  }
+  };
 }
 
 /**
@@ -133,7 +133,7 @@ function resetConfirmClose () {
  */
 function winAlertYou () {
     let winModal = document.getElementById("win-alert-container");
-    winModal.style.display = "block"
+    winModal.style.display = "block";
     winModal.innerHTML = 
     `
         <div id="win-alert-content">
@@ -149,8 +149,8 @@ function winAlertYou () {
                 <span>!</span>
             </h2>
         </div>
-    `
-    winClose(winModal)
+    `;
+    winClose(winModal);
 }
 
 /**
@@ -158,7 +158,7 @@ function winAlertYou () {
  */
 function winAlertOne () {
     let winModal = document.getElementById("win-alert-container");
-    winModal.style.display = "block"
+    winModal.style.display = "block";
     winModal.innerHTML = 
     `
         <div id="win-alert-content">
@@ -182,8 +182,8 @@ function winAlertOne () {
                 <span>!</span>
             </h2>
         </div>
-    `
-    winClose(winModal)
+    `;
+    winClose(winModal);
 }
 
 /**
@@ -191,7 +191,7 @@ function winAlertOne () {
  */
 function winAlertTwo () {
     let winModal = document.getElementById("win-alert-container");
-    winModal.style.display = "block"
+    winModal.style.display = "block";
     winModal.innerHTML = 
     `
         <div id="win-alert-content">
@@ -215,8 +215,8 @@ function winAlertTwo () {
                 <span>!</span>
             </h2>
         </div>
-    `
-    winClose(winModal)
+    `;
+    winClose(winModal);
 }
 
 /**
@@ -224,7 +224,7 @@ function winAlertTwo () {
  */
 function winAlertBot () {
     let winModal = document.getElementById("win-alert-container");
-    winModal.style.display = "block"
+    winModal.style.display = "block";
     winModal.innerHTML = 
     `
         <div id="win-alert-content">
@@ -239,8 +239,8 @@ function winAlertBot () {
                     </span>
             </h2>
         </div>
-    `
-    winClose(winModal)
+    `;
+    winClose(winModal);
 }
 
 /**
@@ -251,14 +251,14 @@ function winClose(winModal) {
 
     closeButton.onclick = function() {
     winModal.style.display = "none";
-    resetGame()
-  }
+    resetGame();
+  };
      window.onclick = function(event) {
     if (event.target == winModal) {
       winModal.style.display = "none";
-      resetGame()
+      resetGame();
     }
-  }
+  };
 }
 
 /**
@@ -276,24 +276,24 @@ function audioPlay() {
  */
 function muteToggle() {
     let backgroundMusic = document.getElementById('background-music');
-    let rollSound = document.getElementById('roll-sound')
-    let ladderSound = document.getElementById('ladder-sound')
-    let snakeSound = document.getElementById('snake-sound')
-    let winSound = document.getElementById('win-sound')
+    let rollSound = document.getElementById('roll-sound');
+    let ladderSound = document.getElementById('ladder-sound');
+    let snakeSound = document.getElementById('snake-sound');
+    let winSound = document.getElementById('win-sound');
     if (backgroundMusic.muted != true) {
         backgroundMusic.muted = true;
         rollSound.muted = true;
         ladderSound.muted = true;
         snakeSound.muted = true;
         winSound.muted = true;
-        document.getElementById('mute-button').innerHTML = `<i class="fa-solid fa-volume-xmark"></i>`
+        document.getElementById('mute-button').innerHTML = `<i class="fa-solid fa-volume-xmark"></i>`;
     } else {
         backgroundMusic.muted = false;
         rollSound.muted = false;
         ladderSound.muted = false;
         snakeSound.muted = false;
         winSound.muted = false;
-        document.getElementById('mute-button').innerHTML = `<i class="fa-solid fa-volume-high"></i>`
+        document.getElementById('mute-button').innerHTML = `<i class="fa-solid fa-volume-high"></i>`;
     }
 }
 
@@ -324,7 +324,7 @@ function formExtend() {
             </select>
         </div>
                         
-    `
+    `;
     } else {
         document.getElementById('color-container').innerHTML =
             `
@@ -338,7 +338,7 @@ function formExtend() {
                 <option value="green">Green</option>
             </select>
         </div>
-    `
+    `;
     }
 }
 
@@ -347,32 +347,32 @@ function formExtend() {
  * If 2-player game, runs color check function 
  */
 function gameSetup() {
-    let players = document.getElementById('players').value
-    let colorOne = document.getElementById('color-one').value
+    let players = document.getElementById('players').value;
+    let colorOne = document.getElementById('color-one').value;
     if (document.getElementById('color-two')) {
-        let colorTwo = document.getElementById('color-two').value
+        let colorTwo = document.getElementById('color-two').value;
 
-        let pieceTwo = document.getElementById('piece-two')
-        pieceTwo.style.backgroundColor = colorTwo
+        let pieceTwo = document.getElementById('piece-two');
+        pieceTwo.style.backgroundColor = colorTwo;
 
-        let pieceTwoSmooth = document.getElementById('piece-two-smooth')
-        pieceTwoSmooth.style.backgroundColor = colorTwo
+        let pieceTwoSmooth = document.getElementById('piece-two-smooth');
+        pieceTwoSmooth.style.backgroundColor = colorTwo;
     } else {}
-    let pieceOne = document.getElementById('piece-one')
-    pieceOne.style.backgroundColor = colorOne
+    let pieceOne = document.getElementById('piece-one');
+    pieceOne.style.backgroundColor = colorOne;
 
-    let pieceOneSmooth = document.getElementById('piece-one-smooth')
-    pieceOneSmooth.style.backgroundColor = colorOne
+    let pieceOneSmooth = document.getElementById('piece-one-smooth');
+    pieceOneSmooth.style.backgroundColor = colorOne;
 
     if (players == 2) {
-        colorChecker(players)
+        colorChecker(players);
     } else {
-        let computerPiece = document.getElementById('piece-two')
-        computerPiece.style.backgroundColor = 'grey'
-        let pieceTwoSmooth = document.getElementById('piece-two-smooth')
-        pieceTwoSmooth.style.backgroundColor = 'grey'
-        document.getElementById('robot-icon').style.color = 'black'
-        runGame(players)
+        let computerPiece = document.getElementById('piece-two');
+        computerPiece.style.backgroundColor = 'grey';
+        let pieceTwoSmooth = document.getElementById('piece-two-smooth');
+        pieceTwoSmooth.style.backgroundColor = 'grey';
+        document.getElementById('robot-icon').style.color = 'black';
+        runGame(players);
     }
 }
 
@@ -382,12 +382,12 @@ function gameSetup() {
  * if not, begins the run game function.
  */
 function colorChecker(players) {
-    let colorOne = document.getElementById('color-one').value
-    let colorTwo = document.getElementById('color-two').value
+    let colorOne = document.getElementById('color-one').value;
+    let colorTwo = document.getElementById('color-two').value;
     if (colorOne == colorTwo) {
-        colorPopup()
+        colorPopup();
     } else {
-        runGame(players)
+        runGame(players);
     }
 }
 
@@ -398,14 +398,14 @@ function colorChecker(players) {
  * Takes computer turns.
  */
 function runGame(players) {
-    let gameRunning = true
+    let gameRunning = true;
 
-    document.getElementById('rules-button-container').innerHTML = ``
+    document.getElementById('rules-button-container').innerHTML = ``;
 
     document.getElementById('roll-container').innerHTML =
         `
     <button id="dice-roller">Roll</button>
-    `
+    `;
     document.getElementById('dice-container').innerHTML =
         `
     <div class="dice">
@@ -416,7 +416,7 @@ function runGame(players) {
         <div class="face right"></div>
         <div class="face left"></div>
     </div>
-    `
+    `;
     document.getElementById('dice-result-container').innerHTML =
         `
     <div id="result-one">
@@ -425,15 +425,15 @@ function runGame(players) {
         <div id="result-two">
             <p></p>
         </div>
-    `
+    `;
 
-    let diceRoller = document.getElementById('dice-roller')
+    let diceRoller = document.getElementById('dice-roller');
 
-    diceRoller.addEventListener('click', rollDice)
+    diceRoller.addEventListener('click', rollDice);
 
     document.getElementById('form-container').innerHTML =
-        ``
-    document.getElementById('form-container').style.padding = 0
+        ``;
+    document.getElementById('form-container').style.padding = 0;
 
     let backgroundMusic = document.getElementById('background-music');
     if (backgroundMusic.muted != true) {
@@ -445,7 +445,7 @@ function runGame(players) {
         <div id="mute-container">
             <button id="mute-button"><i class="fa-solid fa-volume-high"></i></button>
         </div>
-        `
+        `;
     } else {
         document.getElementById('reset-mute-container').innerHTML =
             `
@@ -455,49 +455,49 @@ function runGame(players) {
         <div id="mute-container">
             <button id="mute-button"><i class="fa-solid fa-volume-xmark"></i></button>
         </div>
-        `
+        `;
     }
 
-    let resetButton = document.getElementById('reset-button')
-    resetButton.addEventListener('click', resetPopup)
+    let resetButton = document.getElementById('reset-button');
+    resetButton.addEventListener('click', resetPopup);
 
-    let muteButton = document.getElementById('mute-button')
-    muteButton.addEventListener('click', muteToggle)
+    let muteButton = document.getElementById('mute-button');
+    muteButton.addEventListener('click', muteToggle);
 
     // sound effects
-    let rollSound = document.getElementById('roll-sound')
-    let ladderSound = document.getElementById('ladder-sound')
-    let snakeSound = document.getElementById('snake-sound')
-    let winSound = document.getElementById('win-sound')
+    let rollSound = document.getElementById('roll-sound');
+    let ladderSound = document.getElementById('ladder-sound');
+    let snakeSound = document.getElementById('snake-sound');
+    let winSound = document.getElementById('win-sound');
 
-    let turn = Math.floor(Math.random() * 2) + 1
+    let turn = Math.floor(Math.random() * 2) + 1;
 
     if (players == 2) {
-        document.getElementById('game-messages').innerText = (`Player ${turn} goes first`)
+        document.getElementById('game-messages').innerText = (`Player ${turn} goes first`);
         if (turn == 1) {
-            document.getElementById('game-messages').style.color = document.getElementById('piece-one').style.backgroundColor
+            document.getElementById('game-messages').style.color = document.getElementById('piece-one').style.backgroundColor;
         } else {
-            document.getElementById('game-messages').style.color = document.getElementById('piece-two').style.backgroundColor
+            document.getElementById('game-messages').style.color = document.getElementById('piece-two').style.backgroundColor;
         }
     } else {
         if (turn == 1) {
-            document.getElementById('game-messages').innerText = (`You go first!`)
-            document.getElementById('game-messages').style.color = document.getElementById('piece-one').style.backgroundColor
+            document.getElementById('game-messages').innerText = (`You go first!`);
+            document.getElementById('game-messages').style.color = document.getElementById('piece-one').style.backgroundColor;
         } else {
             if (gameRunning === true) {
-                document.getElementById('game-messages').innerText = ('Computer goes first')
-                disableButtons()
-                document.getElementById('game-messages').style.color = document.getElementById('piece-two').style.backgroundColor
-                diceNum = Math.floor(Math.random() * 6) + 1
+                document.getElementById('game-messages').innerText = ('Computer goes first');
+                disableButtons();
+                document.getElementById('game-messages').style.color = document.getElementById('piece-two').style.backgroundColor;
+                diceNum = Math.floor(Math.random() * 6) + 1;
                 setTimeout(function () {
-                    movePieceTwo(diceNum)
+                    movePieceTwo(diceNum);
                     // diplays the computer's 'roll' to the user
-                    if (diceNum == 1) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-one"></i>`}
-                    else if (diceNum == 2) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-two"></i>`}
-                    else if (diceNum == 3) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-three"></i>`}
-                    else if (diceNum == 4) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-four"></i>`}
-                    else if (diceNum == 5) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-five"></i>`}
-                    else if (diceNum == 6) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-six"></i>`}
+                    if (diceNum == 1) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-one"></i>`;}
+                    else if (diceNum == 2) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-two"></i>`;}
+                    else if (diceNum == 3) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-three"></i>`;}
+                    else if (diceNum == 4) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-four"></i>`;}
+                    else if (diceNum == 5) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-five"></i>`;}
+                    else if (diceNum == 6) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-six"></i>`;}
                     
 
                 }, 500);
@@ -515,14 +515,14 @@ function runGame(players) {
 
         rollSound.play();
 
-        let diceNum = Math.floor(Math.random() * 6) + 1
-        disableButtons()
+        let diceNum = Math.floor(Math.random() * 6) + 1;
+        disableButtons();
 
         let dice = document.querySelector('.dice');
 
         dice.style.animation = 'rolling 2.5s';
 
-        document.getElementById('result-two').innerText = ``
+        document.getElementById('result-two').innerText = ``;
 
         setTimeout(() => {
 
@@ -562,24 +562,24 @@ function runGame(players) {
         setTimeout(function () {
             if (players == 2) {
                 if (turn == 1) {
-                    movePieceOne(diceNum)
+                    movePieceOne(diceNum);
                 } else {
-                    movePieceTwo(diceNum)
+                    movePieceTwo(diceNum);
                 }
             } else {
                 if (turn == 1) {
-                    movePieceOne(diceNum)
-                    diceNum = Math.floor(Math.random() * 6) + 1
+                    movePieceOne(diceNum);
+                    diceNum = Math.floor(Math.random() * 6) + 1;
 
                     setTimeout(function () {
                         if (gameRunning === true) {
-                            movePieceTwo(diceNum)
-                            if (diceNum == 1) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-one"></i>`}
-                            else if (diceNum == 2) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-two"></i>`}
-                            else if (diceNum == 3) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-three"></i>`}
-                            else if (diceNum == 4) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-four"></i>`}
-                            else if (diceNum == 5) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-five"></i>`}
-                            else if (diceNum == 6) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-six"></i>`}
+                            movePieceTwo(diceNum);
+                            if (diceNum == 1) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-one"></i>`;}
+                            else if (diceNum == 2) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-two"></i>`;}
+                            else if (diceNum == 3) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-three"></i>`;}
+                            else if (diceNum == 4) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-four"></i>`;}
+                            else if (diceNum == 5) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-five"></i>`;}
+                            else if (diceNum == 6) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-six"></i>`;}
                         }
                     }, 1500);
                 }
@@ -594,29 +594,29 @@ function runGame(players) {
     function switchTurn() {
         if (gameRunning === true) {
             if (turn == 1) {
-                turn = turn + 1
+                turn = turn + 1;
                 if (players == 2) {
-                    document.getElementById('game-messages').innerText = `Player ${turn}'s Turn`
-                    document.getElementById('game-messages').style.color = document.getElementById('piece-two').style.backgroundColor
-                    enableButtons()
+                    document.getElementById('game-messages').innerText = `Player ${turn}'s Turn`;
+                    document.getElementById('game-messages').style.color = document.getElementById('piece-two').style.backgroundColor;
+                    enableButtons();
 
 
                 } else {
-                    document.getElementById('game-messages').innerText = `Computer's Turn`
-                    document.getElementById('game-messages').style.color = 'grey'
+                    document.getElementById('game-messages').innerText = `Computer's Turn`;
+                    document.getElementById('game-messages').style.color = 'grey';
 
                 }
 
             } else {
-                turn = turn - 1
+                turn = turn - 1;
                 if (players == 2) {
-                    document.getElementById('game-messages').innerText = `Player ${turn}'s Turn`
-                    document.getElementById('game-messages').style.color = document.getElementById('piece-one').style.backgroundColor
-                    enableButtons()
+                    document.getElementById('game-messages').innerText = `Player ${turn}'s Turn`;
+                    document.getElementById('game-messages').style.color = document.getElementById('piece-one').style.backgroundColor;
+                    enableButtons();
                 } else {
-                    document.getElementById('game-messages').innerText = `Your Turn!`
-                    document.getElementById('game-messages').style.color = document.getElementById('piece-one').style.backgroundColor
-                    enableButtons()
+                    document.getElementById('game-messages').innerText = `Your Turn!`;
+                    document.getElementById('game-messages').style.color = document.getElementById('piece-one').style.backgroundColor;
+                    enableButtons();
                 }
 
             }
@@ -630,105 +630,105 @@ function runGame(players) {
      * as well as check if on a 'special' square
     */
     function movePieceOne(diceNum) {
-        let pieceOne = document.getElementById('piece-one')
+        let pieceOne = document.getElementById('piece-one');
         // checks if piece is within one roll of finishing
         if (parseInt(pieceOne.style.gridRowStart) === 1 && parseInt(pieceOne.style.gridColumnStart) <= 7) {
             // checks if piece has won
             if (parseInt(pieceOne.style.gridColumnStart) - diceNum == 1) {
-                pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum
+                pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum;
                 winSound.play();
-                gameRunning = false
+                gameRunning = false;
                 setTimeout(function () {
                     if (players == 2) {
-                        winAlertOne()
+                        winAlertOne();
                     } else {
-                        winAlertYou()
+                        winAlertYou();
                     }
                 }, 700);
 
 
             } else if (parseInt(pieceOne.style.gridColumnStart) - diceNum > 1) {
-                pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum
+                pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum;
             }
 
         // moves piece if on an even-numbered row
         } else if (pieceOne.style.gridRowStart % 2 === 0) {
-            let PositionEvenOne = pieceOne.style.gridColumnStart
-            let magicNumEvenOne = 11 - PositionEvenOne
-            pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) + diceNum
+            let PositionEvenOne = pieceOne.style.gridColumnStart;
+            let magicNumEvenOne = 11 - PositionEvenOne;
+            pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) + diceNum;
             if (pieceOne.style.gridColumnStart > 10) {
-                pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1
-                pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - 10
-                pieceOne.style.gridColumnStart = 11 - parseInt(pieceOne.style.gridColumnStart)
-                let modifierEvenOne = diceNum - magicNumEvenOne
-                pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) + modifierEvenOne
+                pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1;
+                pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - 10;
+                pieceOne.style.gridColumnStart = 11 - parseInt(pieceOne.style.gridColumnStart);
+                let modifierEvenOne = diceNum - magicNumEvenOne;
+                pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) + modifierEvenOne;
                 
                 // moves piece smoothly around corners
                 setTimeout(function () {
-                    pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) + 1
-                    updatePieceOneSmooth()
+                    pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) + 1;
+                    updatePieceOneSmooth();
                 }, 0);
 
                 setTimeout(function () {
-                    pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1
-                    updatePieceOneSmooth()
+                    pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1;
+                    updatePieceOneSmooth();
                 }, 400);
 
                 setTimeout(function () {
-                    pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - modifierEvenOne
-                    updatePieceOneSmooth()
+                    pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - modifierEvenOne;
+                    updatePieceOneSmooth();
                 }, 700);
             }
         
         // moves piece if on an odd-numbered row
         } else if (pieceOne.style.gridRowStart % 2 != 0) {
-            let positionOddOne = pieceOne.style.gridColumnStart
+            let positionOddOne = pieceOne.style.gridColumnStart;
             if (parseInt(pieceOne.style.gridColumnStart) - diceNum < 0) {
-                pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum
-                pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1
-                pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) + 10
-                pieceOne.style.gridColumnStart = 11 - parseInt(pieceOne.style.gridColumnStart)
-                let modifierOddOne = diceNum - positionOddOne
-                pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - modifierOddOne
+                pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum;
+                pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1;
+                pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) + 10;
+                pieceOne.style.gridColumnStart = 11 - parseInt(pieceOne.style.gridColumnStart);
+                let modifierOddOne = diceNum - positionOddOne;
+                pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - modifierOddOne;
 
                 // moves piece smoothly around corners
                 setTimeout(function () {
-                    pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) + 1
-                    updatePieceOneSmooth()
+                    pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) + 1;
+                    updatePieceOneSmooth();
                 }, 0);
 
                 setTimeout(function () {
-                    pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1
-                    updatePieceOneSmooth()
+                    pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1;
+                    updatePieceOneSmooth();
                 }, 400);
 
                 setTimeout(function () {
-                    pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) + modifierOddOne
-                    updatePieceOneSmooth()
+                    pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) + modifierOddOne;
+                    updatePieceOneSmooth();
                 }, 700);
 
 
             } else if (pieceOne.style.gridColumnStart == 1 && diceNum == 1) {
-                pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1
+                pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1;
             } else if (pieceOne.style.gridColumnStart - diceNum == 0) {
 
                 setTimeout(function () {
-                    pieceOne.style.gridColumnStart = 1
-                    updatePieceOneSmooth()
+                    pieceOne.style.gridColumnStart = 1;
+                    updatePieceOneSmooth();
                 }, 0);
 
                 setTimeout(function () {
-                    pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1
-                    updatePieceOneSmooth()
+                    pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1;
+                    updatePieceOneSmooth();
                 }, 400);   
             } else {
-                pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum
+                pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum;
             }
         }
 
-        updatePieceOneSmooth()
+        updatePieceOneSmooth();
         setTimeout(function () {
-            specialCheckOne(pieceOne)
+            specialCheckOne(pieceOne);
         }, 1000);
 
     }
@@ -744,61 +744,61 @@ function runGame(players) {
         // snake and ladder squares
         if (pieceOne.style.gridColumnStart == 4 && pieceOne.style.gridRowStart == 10) {
             ladderSound.play();
-            pieceOne.style.gridColumnStart = 5
-            pieceOne.style.gridRowStart = 8
+            pieceOne.style.gridColumnStart = 5;
+            pieceOne.style.gridRowStart = 8;
         } else if (pieceOne.style.gridColumnStart == 1 && pieceOne.style.gridRowStart == 8) {
             ladderSound.play();
-            pieceOne.style.gridColumnStart = 2
-            pieceOne.style.gridRowStart = 7
+            pieceOne.style.gridColumnStart = 2;
+            pieceOne.style.gridRowStart = 7;
         } else if (pieceOne.style.gridColumnStart == 9 && pieceOne.style.gridRowStart == 8) {
             ladderSound.play();
-            pieceOne.style.gridColumnStart = 7
-            pieceOne.style.gridRowStart = 3
+            pieceOne.style.gridColumnStart = 7;
+            pieceOne.style.gridRowStart = 3;
         } else if (pieceOne.style.gridColumnStart == 10 && pieceOne.style.gridRowStart == 8) {
             snakeSound.play();
-            pieceOne.style.gridColumnStart = 7
-            pieceOne.style.gridRowStart = 10
+            pieceOne.style.gridColumnStart = 7;
+            pieceOne.style.gridRowStart = 10;
         } else if (pieceOne.style.gridColumnStart == 3 && pieceOne.style.gridRowStart == 6) {
             ladderSound.play();
-            pieceOne.style.gridColumnStart = 5
-            pieceOne.style.gridRowStart = 3
+            pieceOne.style.gridColumnStart = 5;
+            pieceOne.style.gridRowStart = 3;
         } else if (pieceOne.style.gridColumnStart == 7 && pieceOne.style.gridRowStart == 6) {
             snakeSound.play();
-            pieceOne.style.gridColumnStart = 6
-            pieceOne.style.gridRowStart = 9
+            pieceOne.style.gridColumnStart = 6;
+            pieceOne.style.gridRowStart = 9;
         } else if (pieceOne.style.gridColumnStart == 5 && pieceOne.style.gridRowStart == 5) {
             snakeSound.play();
-            pieceOne.style.gridColumnStart = 2
-            pieceOne.style.gridRowStart = 9
+            pieceOne.style.gridColumnStart = 2;
+            pieceOne.style.gridRowStart = 9;
         } else if (pieceOne.style.gridColumnStart == 3 && pieceOne.style.gridRowStart == 4) {
             ladderSound.play();
-            pieceOne.style.gridColumnStart = 1
-            pieceOne.style.gridRowStart = 3
+            pieceOne.style.gridColumnStart = 1;
+            pieceOne.style.gridRowStart = 3;
         } else if (pieceOne.style.gridColumnStart == 10 && pieceOne.style.gridRowStart == 3) {
             ladderSound.play();
-            pieceOne.style.gridColumnStart = 9
-            pieceOne.style.gridRowStart = 2
+            pieceOne.style.gridColumnStart = 9;
+            pieceOne.style.gridRowStart = 2;
         } else if (pieceOne.style.gridColumnStart == 8 && pieceOne.style.gridRowStart == 3) {
             snakeSound.play();
-            pieceOne.style.gridColumnStart = 10
-            pieceOne.style.gridRowStart = 5
+            pieceOne.style.gridColumnStart = 10;
+            pieceOne.style.gridRowStart = 5;
         } else if (pieceOne.style.gridColumnStart == 2 && pieceOne.style.gridRowStart == 2) {
             snakeSound.play();
-            pieceOne.style.gridColumnStart = 2
-            pieceOne.style.gridRowStart = 6
+            pieceOne.style.gridColumnStart = 2;
+            pieceOne.style.gridRowStart = 6;
         } else if (pieceOne.style.gridColumnStart == 9 && pieceOne.style.gridRowStart == 1) {
             snakeSound.play();
-            pieceOne.style.gridColumnStart = 6
-            pieceOne.style.gridRowStart = 3
+            pieceOne.style.gridColumnStart = 6;
+            pieceOne.style.gridRowStart = 3;
         } else if (pieceOne.style.gridColumnStart == 3 && pieceOne.style.gridRowStart == 1) {
             snakeSound.play();
-            pieceOne.style.gridColumnStart = 6
-            pieceOne.style.gridRowStart = 5
+            pieceOne.style.gridColumnStart = 6;
+            pieceOne.style.gridRowStart = 5;
         }
-        updatePieceOneSmooth()
+        updatePieceOneSmooth();
 
         if (gameRunning === true) {
-            switchTurn()
+            switchTurn();
         }
     }
 
@@ -809,107 +809,107 @@ function runGame(players) {
      * as well as check if on a 'special' square
     */
     function movePieceTwo(diceNum) {
-        let pieceTwo = document.getElementById('piece-two')
+        let pieceTwo = document.getElementById('piece-two');
         // checks if piece is within one roll of finishing
         if (parseInt(pieceTwo.style.gridRowStart) === 1 && parseInt(pieceTwo.style.gridColumnStart) <= 7) {
             // checks if piece has won
             if (parseInt(pieceTwo.style.gridColumnStart) - diceNum == 1) {
-                pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum
+                pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum;
                 if (players == 2) {
                     winSound.play();
-                    gameRunning = false
+                    gameRunning = false;
                     setTimeout(function () {
-                        winAlertTwo()
+                        winAlertTwo();
                     }, 700);
                 } else {
-                    gameRunning = false
+                    gameRunning = false;
                     setTimeout(function () {
-                        winAlertBot()
+                        winAlertBot();
                     }, 700);
 
                 }
             } else if (parseInt(pieceTwo.style.gridColumnStart) - diceNum > 1) {
-                pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum
+                pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum;
             }
         // moves piece on even numbered rows
         } else if (pieceTwo.style.gridRowStart % 2 === 0) {
-            let PositionEvenTwo = pieceTwo.style.gridColumnStart
-            let magicNumEvenTwo = 11 - PositionEvenTwo
-            pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) + diceNum
+            let PositionEvenTwo = pieceTwo.style.gridColumnStart;
+            let magicNumEvenTwo = 11 - PositionEvenTwo;
+            pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) + diceNum;
             if (pieceTwo.style.gridColumnStart > 10) {
-                pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1
-                pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - 10
-                pieceTwo.style.gridColumnStart = 11 - parseInt(pieceTwo.style.gridColumnStart)
-                let modifierEvenTwo = diceNum - magicNumEvenTwo
-                pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) + modifierEvenTwo
+                pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1;
+                pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - 10;
+                pieceTwo.style.gridColumnStart = 11 - parseInt(pieceTwo.style.gridColumnStart);
+                let modifierEvenTwo = diceNum - magicNumEvenTwo;
+                pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) + modifierEvenTwo;
                 
                 // moves piece smoothly around corners
                 setTimeout(function () {
-                    pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) + 1
-                    updatePieceTwoSmooth()
+                    pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) + 1;
+                    updatePieceTwoSmooth();
                 }, 0);
 
                 setTimeout(function () {
-                    pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1
-                    updatePieceTwoSmooth()
+                    pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1;
+                    updatePieceTwoSmooth();
                 }, 400);
 
                 setTimeout(function () {
-                    pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - modifierEvenTwo
-                    updatePieceTwoSmooth()
+                    pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - modifierEvenTwo;
+                    updatePieceTwoSmooth();
                 }, 700);
             }
 
 
         // moves piece on odd numbered rows
         } else if (pieceTwo.style.gridRowStart % 2 != 0) {
-            let positionOddTwo = pieceTwo.style.gridColumnStart
+            let positionOddTwo = pieceTwo.style.gridColumnStart;
             if (parseInt(pieceTwo.style.gridColumnStart) - diceNum < 0) {
-                pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum
-                pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1
-                pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) + 10
-                pieceTwo.style.gridColumnStart = 11 - parseInt(pieceTwo.style.gridColumnStart)
-                let modifierOddTwo = diceNum - positionOddTwo
-                pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - modifierOddTwo
+                pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum;
+                pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1;
+                pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) + 10;
+                pieceTwo.style.gridColumnStart = 11 - parseInt(pieceTwo.style.gridColumnStart);
+                let modifierOddTwo = diceNum - positionOddTwo;
+                pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - modifierOddTwo;
 
                 // moves piece smoothly around corners
                 setTimeout(function () {
-                    pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) + 1
-                    updatePieceTwoSmooth()
+                    pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) + 1;
+                    updatePieceTwoSmooth();
                 }, 0);
 
                 setTimeout(function () {
-                    pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1
-                    updatePieceTwoSmooth()
+                    pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1;
+                    updatePieceTwoSmooth();
                 }, 400);
 
                 setTimeout(function () {
-                    pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) + modifierOddTwo
-                    updatePieceTwoSmooth()
+                    pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) + modifierOddTwo;
+                    updatePieceTwoSmooth();
                 }, 700);
 
 
             } else if (pieceTwo.style.gridColumnStart == 1 && diceNum == 1) {
-                pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1
+                pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1;
             } else if (pieceTwo.style.gridColumnStart - diceNum == 0) {
 
                 setTimeout(function () {
-                    pieceTwo.style.gridColumnStart = 1
-                    updatePieceTwoSmooth()
+                    pieceTwo.style.gridColumnStart = 1;
+                    updatePieceTwoSmooth();
                 }, 0);
 
                 setTimeout(function () {
-                    pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1
-                    updatePieceTwoSmooth()
+                    pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1;
+                    updatePieceTwoSmooth();
                 }, 400);   
             } else {
-                pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum
+                pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum;
             }
         }
 
-        updatePieceTwoSmooth()
+        updatePieceTwoSmooth();
         setTimeout(function () {
-            specialCheckTwo(pieceTwo)
+            specialCheckTwo(pieceTwo);
         }, 1000);
     }
 
@@ -924,59 +924,59 @@ function runGame(players) {
         // snake and ladder squares
         if (pieceTwo.style.gridColumnStart == 4 && pieceTwo.style.gridRowStart == 10) {
             ladderSound.play();
-            pieceTwo.style.gridColumnStart = 5
-            pieceTwo.style.gridRowStart = 8
+            pieceTwo.style.gridColumnStart = 5;
+            pieceTwo.style.gridRowStart = 8;
         } else if (pieceTwo.style.gridColumnStart == 1 && pieceTwo.style.gridRowStart == 8) {
             ladderSound.play();
-            pieceTwo.style.gridColumnStart = 2
-            pieceTwo.style.gridRowStart = 7
+            pieceTwo.style.gridColumnStart = 2;
+            pieceTwo.style.gridRowStart = 7;
         } else if (pieceTwo.style.gridColumnStart == 9 && pieceTwo.style.gridRowStart == 8) {
             ladderSound.play();
-            pieceTwo.style.gridColumnStart = 7
-            pieceTwo.style.gridRowStart = 3
+            pieceTwo.style.gridColumnStart = 7;
+            pieceTwo.style.gridRowStart = 3;
         } else if (pieceTwo.style.gridColumnStart == 10 && pieceTwo.style.gridRowStart == 8) {
             snakeSound.play();
-            pieceTwo.style.gridColumnStart = 7
-            pieceTwo.style.gridRowStart = 10
+            pieceTwo.style.gridColumnStart = 7;
+            pieceTwo.style.gridRowStart = 10;
         } else if (pieceTwo.style.gridColumnStart == 3 && pieceTwo.style.gridRowStart == 6) {
             ladderSound.play();
-            pieceTwo.style.gridColumnStart = 5
-            pieceTwo.style.gridRowStart = 3
+            pieceTwo.style.gridColumnStart = 5;
+            pieceTwo.style.gridRowStart = 3;
         } else if (pieceTwo.style.gridColumnStart == 7 && pieceTwo.style.gridRowStart == 6) {
             snakeSound.play();
-            pieceTwo.style.gridColumnStart = 6
-            pieceTwo.style.gridRowStart = 9
+            pieceTwo.style.gridColumnStart = 6;
+            pieceTwo.style.gridRowStart = 9;
         } else if (pieceTwo.style.gridColumnStart == 5 && pieceTwo.style.gridRowStart == 5) {
             snakeSound.play();
-            pieceTwo.style.gridColumnStart = 2
-            pieceTwo.style.gridRowStart = 9
+            pieceTwo.style.gridColumnStart = 2;
+            pieceTwo.style.gridRowStart = 9;
         } else if (pieceTwo.style.gridColumnStart == 3 && pieceTwo.style.gridRowStart == 4) {
             ladderSound.play();
-            pieceTwo.style.gridColumnStart = 1
-            pieceTwo.style.gridRowStart = 3
+            pieceTwo.style.gridColumnStart = 1;
+            pieceTwo.style.gridRowStart = 3;
         } else if (pieceTwo.style.gridColumnStart == 10 && pieceTwo.style.gridRowStart == 3) {
             ladderSound.play();
-            pieceTwo.style.gridColumnStart = 9
-            pieceTwo.style.gridRowStart = 2
+            pieceTwo.style.gridColumnStart = 9;
+            pieceTwo.style.gridRowStart = 2;
         } else if (pieceTwo.style.gridColumnStart == 8 && pieceTwo.style.gridRowStart == 3) {
             snakeSound.play();
-            pieceTwo.style.gridColumnStart = 10
-            pieceTwo.style.gridRowStart = 5
+            pieceTwo.style.gridColumnStart = 10;
+            pieceTwo.style.gridRowStart = 5;
         } else if (pieceTwo.style.gridColumnStart == 2 && pieceTwo.style.gridRowStart == 2) {
             snakeSound.play();
-            pieceTwo.style.gridColumnStart = 2
-            pieceTwo.style.gridRowStart = 6
+            pieceTwo.style.gridColumnStart = 2;
+            pieceTwo.style.gridRowStart = 6;
         } else if (pieceTwo.style.gridColumnStart == 9 && pieceTwo.style.gridRowStart == 1) {
             snakeSound.play();
-            pieceTwo.style.gridColumnStart = 6
-            pieceTwo.style.gridRowStart = 3
+            pieceTwo.style.gridColumnStart = 6;
+            pieceTwo.style.gridRowStart = 3;
         } else if (pieceTwo.style.gridColumnStart == 3 && pieceTwo.style.gridRowStart == 1) {
             snakeSound.play();
-            pieceTwo.style.gridColumnStart = 6
-            pieceTwo.style.gridRowStart = 5
+            pieceTwo.style.gridColumnStart = 6;
+            pieceTwo.style.gridRowStart = 5;
         }
-        updatePieceTwoSmooth()
-        switchTurn()
+        updatePieceTwoSmooth();
+        switchTurn();
     }
 }
 
@@ -986,16 +986,16 @@ function runGame(players) {
  * and moves the psudo piece to the same location.
  */
 function updatePieceOneSmooth() {
-    let pieceOneSmooth = document.getElementById('piece-one-smooth')
+    let pieceOneSmooth = document.getElementById('piece-one-smooth');
     let element = document.getElementById("piece-one");
     let leftPosition = element.offsetLeft;
-    let topPosition = element.offsetTop
+    let topPosition = element.offsetTop;
 
-    let leftPositionCorrected = leftPosition - 0
-    let topPositionCorrected = topPosition - 0
+    let leftPositionCorrected = leftPosition - 0;
+    let topPositionCorrected = topPosition - 0;
 
-    pieceOneSmooth.style.left = `${leftPositionCorrected}px`
-    pieceOneSmooth.style.top = `${topPositionCorrected}px`
+    pieceOneSmooth.style.left = `${leftPositionCorrected}px`;
+    pieceOneSmooth.style.top = `${topPositionCorrected}px`;
 }
 
 /**
@@ -1004,16 +1004,16 @@ function updatePieceOneSmooth() {
  * and moves the psudo piece to the same location.
  */
 function updatePieceTwoSmooth() {
-    let pieceTwoSmooth = document.getElementById('piece-two-smooth')
+    let pieceTwoSmooth = document.getElementById('piece-two-smooth');
     let element = document.getElementById("piece-two");
     let leftPosition = element.offsetLeft;
-    let topPosition = element.offsetTop
+    let topPosition = element.offsetTop;
 
-    let leftPositionCorrected = leftPosition - 0
-    let topPositionCorrected = topPosition - 0
+    let leftPositionCorrected = leftPosition - 0;
+    let topPositionCorrected = topPosition - 0;
 
-    pieceTwoSmooth.style.left = `${leftPositionCorrected}px`
-    pieceTwoSmooth.style.top = `${topPositionCorrected}px`
+    pieceTwoSmooth.style.left = `${leftPositionCorrected}px`;
+    pieceTwoSmooth.style.top = `${topPositionCorrected}px`;
 }
 
 /**
@@ -1022,12 +1022,12 @@ function updatePieceTwoSmooth() {
  * Re-runs the page setup function
  */
 function resetGame() {
-    gameRunning = false
+    gameRunning = false;
 
     // keeps the audio mute state in it's current state, despite game reset.
     let backgroundMusic = document.getElementById('background-music');
     if (backgroundMusic.muted != true) {
-        document.getElementById('rules-button-container').innerHTML = `<button id="rules-button">How To Play</button>`
+        document.getElementById('rules-button-container').innerHTML = `<button id="rules-button">How To Play</button>`;
         document.getElementById('form-container').innerHTML =
             ` <form class="form" action=>
                 <div id="form-title">Game Setup</div>
@@ -1059,9 +1059,9 @@ function resetGame() {
                     <button id="mute-button"><i class="fa-solid fa-volume-high"></i></button>
                 </div>
             </div>
-    `
+    `;
     } else {
-        document.getElementById('rules-button-container').innerHTML = `<button id="rules-button">How To Play</button>`
+        document.getElementById('rules-button-container').innerHTML = `<button id="rules-button">How To Play</button>`;
         document.getElementById('form-container').innerHTML =
             ` <form class="form" action=>
                 <div id="form-title">Game Setup</div>
@@ -1093,22 +1093,22 @@ function resetGame() {
                     <button id="mute-button"><i class="fa-solid fa-volume-xmark"></i></button>
                 </div>
             </div>
-    `
+    `;
     }
     // HTML elements reset
-    document.getElementById('roll-container').innerHTML = ``
-    document.getElementById('dice-container').innerHTML = ``
-    document.getElementById('reset-mute-container').innerHTML = ``
-    document.getElementById('game-messages').innerHTML = ``
-    document.getElementById('result-two').innerText = ``
-    document.getElementById('robot-icon').style.color = 'transparent'
+    document.getElementById('roll-container').innerHTML = ``;
+    document.getElementById('dice-container').innerHTML = ``;
+    document.getElementById('reset-mute-container').innerHTML = ``;
+    document.getElementById('game-messages').innerHTML = ``;
+    document.getElementById('result-two').innerText = ``;
+    document.getElementById('robot-icon').style.color = 'transparent';
     setTimeout(function () {
-        document.getElementById('result-two').innerText = ``
+        document.getElementById('result-two').innerText = ``;
     }, 2000);
 
-    pageSetup()
-    updatePieceOneSmooth()
-    updatePieceTwoSmooth()
+    pageSetup();
+    updatePieceOneSmooth();
+    updatePieceTwoSmooth();
 }
 
 
