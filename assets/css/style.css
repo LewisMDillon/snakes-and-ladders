@@ -46,7 +46,7 @@ body {
   grid-template-columns: repeat(10, 1fr);
   margin: 0px 0 0px 0;
   position: relative;
-  background-image: url(../images/gameboard2.png);
+  background-image: url(../images/gameboard.webp);
   background-size: cover;
 }
 
