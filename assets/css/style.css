@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap');
-
 * {
   margin: 0;
   padding: 0;
@@ -65,7 +63,7 @@ body {
 /* style for default font of dropdown form elements */
 form select {
   font-size: 1.3rem;
-  color: #3d999a;
+  color: #31797a;
   border: 1px solid black;
 }
 
@@ -614,8 +612,8 @@ ol {
   margin: 7px 227px 0px 0px;
   font-family: 'PT Sans';
   font-size: 0.75rem;
-  color: whitesmoke;
-  background-color: #3d999a;
+  color: white;
+  background-color: #2e7c7e;
   padding: 3px 5px;
   border-radius: 4px;
 }
