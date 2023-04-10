@@ -1,32 +1,8 @@
 # SNAKES AND LADDERS
 
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
-
-In this section, you will include a few paragraphs providing an overview of your project.
-Essentially, this part is your "sales pitch".
-
-At this stage, you should have a name for your project so use it!
-Don't introduce the project as a "portfolio project" for the diploma.
-
-In this section, describe what the project hopes to accomplish, who it is intended to target, and how it will be useful to the target audience.
-
-Consider adding a mockup image using the "Am I Responsive" website.
-Here's your deployed site as an example:
-https://ui.dev/amiresponsive?url=https://lewismdillon.github.io/snakes-and-ladders
-
-Screenshots for the README and testing should not be inside of `assets/` or `static/` image folders.
-(reminder: `assets/` and `static/` are for files used on the live site, not documentation)
-Consider adding a new folder called `documentation`, and add the amiresponsive screenshot inside of that folder.
-To add the image into your README, use this format:
-(assuming you have a new folder called `documentation` with an image called "mockup.png")
+The Snakes and Ladders website allows users to play a game of Snakes and Ladders against another player, or against a computer-controlled opponent. Using visual, audio and interactive elements, the game provides a fun and relaxed way to play the game of Snakes and Ladders.
 
 ![screenshot](documentation/mockup.png)
-
-Note: Markdown files (.md) should not contain HTML elements like `img`, `br`, `div`, `a`, etc, only Markdown formatting.
-Find out more about using Markdown elements here:
-https://pandao.github.io/editor.md/en.html
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
 
 ## UX
 The aim with the user interface in this project is to provide clear and concise options to the user. The gameboard of snakes and ladders is necessarily busy and cluttered so the other elements were kept as minimal as possible.
@@ -126,13 +102,13 @@ Google Material Symbols & Icons, as well as FontAwesome were used for icons
 
 - **Reset Game Button**
 
-    - This button allows the user to reset the game back to its original state. The user is prompted to confirm this action, to avoid accidental clicks. The pieces' location is reset to the first square on the gameboard and the setup form is once again presented to the user to setup another game if they should choose. The button is disabled during turns to avoid potential bugs caused by resetting the game while pieces are moving.
+    - This button allows the user to reset the game back to its original state. The user is prompted to confirm this action in order to avoid accidental clicks. The pieces' location is reset to the first square on the gameboard and the setup form is once again presented to the user to setup another game if they should choose. The button is disabled during turns to avoid potential bugs caused by resetting the game while pieces are moving.
 
 ![screenshot](documentation/feature09.png)
 
 - **Game Messages**
 
-    - Game messages are presented to the user to provide information and reduce potential confusion. The user will see messages informing them of the current turn, with a color matching that player's piece. If a user is playing against a computer opponent, the computer's automatically generated dice rolls will also be displayed, to help the user to visualise the computer opponent's turn, but without having to watch the computer go through their own dice roll animation.
+    - Game messages are presented to the user to provide information and reduce potential confusion. The user will see messages informing them of the current turn, with a color matching that player's piece. If a user is playing against a computer opponent, the computer's automatically generated dice rolls will also be displayed, along with a representative dice icon, to help the user to visualise the computer opponent's turn, but without having to watch the computer go through their own dice roll animation.
 
 ![screenshot](documentation/feature10.png)
 
@@ -149,6 +125,19 @@ Google Material Symbols & Icons, as well as FontAwesome were used for icons
     - This button allows the user to mute and unmute all audio from the site. Users can easily press the button at any time during all stages of the game to mute it the audio, or turn it back on. Recognisable volume and mute icons are displayed to the user, allowing them to see what state the audio mute setting is, even without using the audio itself. 
 
 ![screenshot](documentation/feature13.png)
+
+- **Rules Popup**
+
+    - Pressing the How To Play button will cause a popup of the rules to appear. This instructs the user on how to use the various elements of the site, as well as the rules of the actual Snakes and Ladders game.
+
+![screenshot](documentation/feature14.png)
+
+- **Win Message**
+
+    - Upon finishing the game, a message will pop up to inform the user that the game has been won and by which player. This gives a sense of finality to the end of the game and allows the user a moment of celebration or comiseration before resetting the game state. Animated text is used in the case of a player win to aid in the celebrations.
+
+
+![screenshot](documentation/feature15.png)
 
 
 ### Future Features
@@ -235,6 +224,7 @@ You can fork this repository by using the following steps:
 | [Markdown Builder](https://traveltimn.github.io/markdown-builder) | README and TESTING | tool to help generate the Markdown files |
 | [Chris Beams](https://chris.beams.io/posts/git-commit) | version control | "How to Write a Git Commit Message" |
 | [W3Schools](https://www.w3schools.com/tags/av_prop_muted.asp) | entire site | how to mute and unmute audio |
+| [W3Schools](https://www.w3schools.com/howto/howto_css_modals.asp) | entire site | how create a modal |
 | [Coding Gem](https://www.codingem.com/javascript-get-html-element-position/) | game board | Retrieve the position (X,Y) of an HTML element |
 | [Geeks for geeks](https://www.codingem.com/javascript-get-html-element-position/) | form buttons | How to add a pressed effect on button click in CSS |
 | [Stack Overflow](https://stackoverflow.com/questions/9437228/html5-check-if-audio-is-playing) | entire site | HTML5 how to check if audio is playing |
@@ -245,7 +235,6 @@ You can fork this repository by using the following steps:
 | [Youtube](https://www.youtube.com/watch?v=XTF5jXDr2H8) | Dice roll animation | Roll Dice Project using CSS & JavaScript |
 
 ### Media
-
 | Source | Location | Type | Notes |
 | --- | --- | --- | --- |
 | [Freepik](https://wallhere.com) | game board | image | game board image |
