@@ -3,6 +3,9 @@
 * {
   margin: 0;
   padding: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -26,23 +29,21 @@ body {
   justify-content: center;
 }
 
+/* style for grid-boxes, use width and height to change board size */
 .box {
   width: 30px;
   height: 30px;
   color: rgba(0, 0, 0, 0);
-  /* border: 0.5px solid; */
-  /* box-shadow: 0 0 0 0.5px; */
-  /* margin: 0; */
   line-height: 30px;
   text-align: center;
   position: relative;
 }
 
+/* style for full grid - width should be 10x width of .box above */
 #game-container {
   display: grid;
   width: 300px;
   grid-template-columns: repeat(10, 1fr);
-  /* gap: 0 0 0 0; */
   margin: 0px 0 0px 0;
   position: relative;
   background-image: url(../images/gameboard2.png);
@@ -61,6 +62,7 @@ body {
   padding-top: 10px;
 }
 
+/* style for default font of dropdown form elements */
 form select {
   font-size: 1.3rem;
   color: #3d999a;
@@ -124,6 +126,10 @@ select option[value='green'] {
   justify-content: center;
 }
 
+/* 
+first player piece - should not be visible to user.
+Holds the real position data in grid-row and grid-column attributes.
+*/
 #piece-one {
   width: 0px;
   height: 0px;
@@ -139,6 +145,11 @@ select option[value='green'] {
   grid-column-start: 1;
 }
 
+/* 
+First player overlay piece - visible to user. 
+This piece will follow the position of #piece-one
+using a JS function and moves smoothly from square to square.
+*/
 #piece-one-smooth {
   width: 20px;
   height: 20px;
@@ -153,6 +164,11 @@ select option[value='green'] {
   transition: all 0.75s;
 }
 
+/* 
+second player piece - should not be visible to user.
+Holds the real position data in grid-row and grid-column attributes.
+Also used as computer opponent in 1-player games
+*/
 #piece-two {
   width: 0px;
   height: 0px;
@@ -168,6 +184,11 @@ select option[value='green'] {
   grid-column-start: 1;
 }
 
+/* 
+Second player overlay piece - visible to user. 
+This piece will follow the position of #piece-two
+using a JS function and moves smoothly from square to square.
+*/
 #piece-two-smooth {
   width: 20px;
   height: 20px;
@@ -182,6 +203,7 @@ select option[value='green'] {
   transition: all 0.75s;
 }
 
+/* robot icon */
 .material-symbols-outlined {
   font-variation-settings:
     'FILL'0,
@@ -198,6 +220,7 @@ select option[value='green'] {
   color: transparent;
 }
 
+/* game messages - JS will change this color based on player color */
 #game-messages {
   color: red;
   font-size: 1.5rem;
@@ -210,17 +233,6 @@ select option[value='green'] {
   flex-direction: column;
   align-items: center;
   padding: 5px;
-}
-
-/* dice stuff */
-
-
-* {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  box-sizing: border-box;
 }
 
 #dice-full {
@@ -245,10 +257,7 @@ select option[value='green'] {
   padding: 0 0 10px 0;
 }
 
-/*
-  Dice Styles
-*/
-
+/* styling for animated dice */
 .dice {
   position: relative;
   width: 100px;
@@ -257,12 +266,14 @@ select option[value='green'] {
   transition: 0.1s linear;
 }
 
+/* rolling animation */
 @keyframes rolling {
   100% {
     transform: rotateX(1500deg) rotateY(1500deg);
   }
 }
 
+/* dice faces */
 .face {
   position: absolute;
   width: 100%;
@@ -294,6 +305,7 @@ select option[value='green'] {
   background: #131210;
 }
 
+/* rotation info for getting each dice face */
 .front {
   transform: translateZ(50px);
 }
@@ -321,7 +333,6 @@ select option[value='green'] {
 .front::after {
   width: 20px;
   height: 20px;
-  /* background: #f63330; */
   margin: -9px 0 0 -9px;
 }
 
@@ -360,10 +371,8 @@ select option[value='green'] {
     50px 50px;
 }
 
-/*
-  Roll Button styles
-*/
 
+/* style for roll button */
 #dice-roller {
   font-family: 'PT Sans';
   font-size: 2rem;
@@ -374,11 +383,13 @@ select option[value='green'] {
   border-radius: 8px;
 }
 
+/* style on mouse click, checks if button is enabled first */
 #dice-roller:active:enabled {
   transform: scale(0.98);
   box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
 }
 
+/* disabled button style */
 #dice-roller:disabled {
   color: white;
   background-color: #86a1a1;
@@ -386,6 +397,7 @@ select option[value='green'] {
   box-shadow: 0 0 0 0 white
 }
 
+/* style on mouse hover, checks if button is enabled first */
 #dice-roller:hover:enabled {
   background-color: #327e80;
 }
@@ -435,7 +447,7 @@ select option[value='green'] {
   background-color: #327e80;
 }
 
-/* Modal */
+/* General modal class styles */
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -488,6 +500,7 @@ select option[value='green'] {
   border-radius: 10px;
 }
 
+/* buttons in reset confirmation modal */
 #reset-alert-buttons {
   display: flex;
   justify-content: center;
@@ -567,6 +580,7 @@ select option[value='green'] {
   align-items: center;
 }
 
+/* robot faces in computer win message */
 span.material-symbols-outlined.botface {
   font-size: 3rem;
   padding: 0 10px;
@@ -576,7 +590,7 @@ ol {
   padding: 20px;
 }
 
-/* The Close Button */
+/* Modal 'x' close button */
 .close {
   color: #3d999a;
   float: right;
@@ -605,8 +619,8 @@ ol {
   padding: 3px 5px;
   border-radius: 4px;
 }
-/* end of modal */
 
+/* style for text animation in win message */
 .bounce {
   font-size: 2rem;
   width: 100%;
@@ -614,6 +628,8 @@ ol {
   justify-content: center;
 
 }
+
+/* bounce animation */
 .bounce span {
   display: inline-flex;
   animation: bounce 2.5s infinite;
@@ -629,6 +645,7 @@ ol {
   }
 }
 
+/* uses spans to delay each letter one by one to give 'wave' effect */
 .bouncy span:nth-of-type(1) {
   animation-delay: 0.1s;
 }
@@ -678,10 +695,13 @@ ol {
   animation-delay: 1.6s;
 }
 
+/* .space style class to make span-spacing characters invisible */
 .space {
   color: transparent;
 }
 
+/* media queries */
+/* tablet */
 @media only screen and (min-width: 600px) {
   .box {
     width: 45px;
@@ -726,6 +746,7 @@ ol {
   }
 }
 
+/* laptops & larger screens */
 @media only screen and (min-width: 1020px) {
   .box {
     width: 65px;
