@@ -1,8 +1,14 @@
 /* jshint esversion: 11 */
 
+// this code will run upon loading of the main page
 document.addEventListener("DOMContentLoaded", pageSetup())
 
+/**
+ * Sets up essential page elements and adds event listeners
+ */
 function pageSetup() {
+
+    // sets pieces to square 1
     document.getElementById('piece-one').style.gridColumnStart = "1";
     document.getElementById('piece-one').style.gridRowStart = "10";
 
@@ -11,11 +17,13 @@ function pageSetup() {
 
     let startButton = document.getElementById('start-button')
 
+    // start button will run game setup and play background music
     startButton.addEventListener('click', () => {
         gameSetup();
         audioPlay();
     });
 
+    // event listeners
     let twoPlayer = document.getElementById('players')
     twoPlayer.addEventListener('change', formExtend)
 
@@ -32,13 +40,18 @@ function pageSetup() {
     });
 
 }
-
+/**
+ * pops up the rules modal
+ */
 function rulesPopup() {
     let rulesModal = document.getElementById("rules-container");
     rulesModal.style.display = "block"
     rulesClose(rulesModal)
 }
 
+/**
+ * sets up both close button and click-outside-window to close the modal 
+ */
 function rulesClose(rulesModal) {
     let closeButton = document.getElementById("rules-closer")
 
@@ -53,12 +66,18 @@ function rulesClose(rulesModal) {
   }
 }
 
+/**
+ * pops up the color modal
+ */
 function colorPopup() {
     let colorModal = document.getElementById("color-alert-container");
     colorModal.style.display = "block"
     colorClose(colorModal)
 }
 
+/**
+ * sets up both close button and click-outside-window to close the modal 
+ */
 function colorClose(colorModal) {
     let closeButton = document.getElementById("color-closer")
 
@@ -72,12 +91,18 @@ function colorClose(colorModal) {
   }
 }
 
+/**
+ * pops up the reset modal
+ */
 function resetPopup() {
     let resetModal = document.getElementById("reset-alert-container");
     resetModal.style.display = "block"
     resetClose(resetModal)
 }
 
+/**
+ * sets up both close button and click-outside-window to close the modal 
+ */
 function resetClose(resetModal) {
     let closeButton = document.getElementById("reset-closer");
     let cancelButton = document.getElementById('reset-cancel')
@@ -95,11 +120,17 @@ function resetClose(resetModal) {
   }
 }
 
+/**
+ * closes the reset modal
+ */
 function resetConfirmClose () {
     let resetModal = document.getElementById("reset-alert-container");
     resetModal.style.display = "none";
 }
 
+/**
+ * Pops up the 'You Win' message
+ */
 function winAlertYou () {
     let winModal = document.getElementById("win-alert-container");
     winModal.style.display = "block"
@@ -122,6 +153,9 @@ function winAlertYou () {
     winClose(winModal)
 }
 
+/**
+ * Pops up the 'Player One Wins' message
+ */
 function winAlertOne () {
     let winModal = document.getElementById("win-alert-container");
     winModal.style.display = "block"
@@ -136,11 +170,11 @@ function winAlertOne () {
                 <span>y</span>
                 <span>e</span>
                 <span>r</span>
-                <span class="space">O</span>
+                <span class="space">-</span>
                 <span>O</span>
                 <span>n</span>
                 <span>e</span>
-                <span class="space">O</span>
+                <span class="space">-</span>
                 <span>W</span>
                 <span>i</span>
                 <span>n</span>
@@ -152,6 +186,9 @@ function winAlertOne () {
     winClose(winModal)
 }
 
+/**
+ * Pops up the 'Player Two Wins' message
+ */
 function winAlertTwo () {
     let winModal = document.getElementById("win-alert-container");
     winModal.style.display = "block"
@@ -166,11 +203,11 @@ function winAlertTwo () {
                 <span>y</span>
                 <span>e</span>
                 <span>r</span>
-                <span class="space">O</span>
+                <span class="space">-</span>
                 <span>T</span>
                 <span>w</span>
                 <span>o</span>
-                <span class="space">O</span>
+                <span class="space">-</span>
                 <span>W</span>
                 <span>i</span>
                 <span>n</span>
@@ -182,6 +219,9 @@ function winAlertTwo () {
     winClose(winModal)
 }
 
+/**
+ * Pops up the 'Computer Wins' message
+ */
 function winAlertBot () {
     let winModal = document.getElementById("win-alert-container");
     winModal.style.display = "block"
@@ -203,6 +243,9 @@ function winAlertBot () {
     winClose(winModal)
 }
 
+/**
+ * sets up both close button and click-outside-window to close the modal 
+ */
 function winClose(winModal) {
     let closeButton = document.getElementById("win-closer");
 
@@ -218,6 +261,9 @@ function winClose(winModal) {
   }
 }
 
+/**
+ * Starts background music upon starting the game
+ */
 function audioPlay() {
     let backgroundMusic = document.getElementById('background-music');
     if (backgroundMusic.paused) { //check audio is playing
@@ -225,6 +271,9 @@ function audioPlay() {
     }
 }
 
+/**
+ * Mutes all audio. If already muted, unmutes all audio.
+ */
 function muteToggle() {
     let backgroundMusic = document.getElementById('background-music');
     let rollSound = document.getElementById('roll-sound')
@@ -248,6 +297,10 @@ function muteToggle() {
     }
 }
 
+/**
+ * Extends the game setup form to allow player 2
+ * to pick a color, if a 2-player game is selected
+ */
 function formExtend() {
     if (document.getElementById('players').value == 2) {
         document.getElementById('color-container').innerHTML =
@@ -289,6 +342,10 @@ function formExtend() {
     }
 }
 
+/**
+ * Sets up game. logs number of players. Sets player colors.
+ * If 2-player game, runs color check function 
+ */
 function gameSetup() {
     let players = document.getElementById('players').value
     let colorOne = document.getElementById('color-one').value
@@ -319,6 +376,11 @@ function gameSetup() {
     }
 }
 
+/**
+ * Checks if the 2 players have picked the same color,
+ * if so, pops up the color alert modal.
+ * if not, begins the run game function.
+ */
 function colorChecker(players) {
     let colorOne = document.getElementById('color-one').value
     let colorTwo = document.getElementById('color-two').value
@@ -329,7 +391,12 @@ function colorChecker(players) {
     }
 }
 
-
+/**
+ * Main game run function - takes number of players as a parameter.
+ * Rewrites HTML to replace form elements with dice elements.
+ * Sets up audio elements. Picks first turn.
+ * Takes computer turns.
+ */
 function runGame(players) {
     let gameRunning = true
 
@@ -424,6 +491,7 @@ function runGame(players) {
                 diceNum = Math.floor(Math.random() * 6) + 1
                 setTimeout(function () {
                     movePieceTwo(diceNum)
+                    // diplays the computer's 'roll' to the user
                     if (diceNum == 1) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-one"></i>`}
                     else if (diceNum == 2) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-two"></i>`}
                     else if (diceNum == 3) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-three"></i>`}
@@ -438,13 +506,16 @@ function runGame(players) {
     }
 
 
-
+    /**
+     * 'Rolls' the dice. generates a random dice number.
+     * Logs it. Plays the roll animation. Triggers functions to
+     * move player pieces
+    */
     function rollDice() {
 
         rollSound.play();
 
         let diceNum = Math.floor(Math.random() * 6) + 1
-        // let diceNum = 3
         disableButtons()
 
         let dice = document.querySelector('.dice');
@@ -516,6 +587,10 @@ function runGame(players) {
         }, 1500);
     }
 
+    /**
+     * Alernates the turn state after player or
+     * computer has taken their turn.
+    */
     function switchTurn() {
         if (gameRunning === true) {
             if (turn == 1) {
@@ -548,10 +623,17 @@ function runGame(players) {
         }
     }
 
+    /**
+     * Moves player one's real (invisible) piece 
+     * along the board and checks if player has won.
+     * Calls functions to update visible player piece,
+     * as well as check if on a 'special' square
+    */
     function movePieceOne(diceNum) {
-        console.log('movepieceOne ran')
         let pieceOne = document.getElementById('piece-one')
+        // checks if piece is within one roll of finishing
         if (parseInt(pieceOne.style.gridRowStart) === 1 && parseInt(pieceOne.style.gridColumnStart) <= 7) {
+            // checks if piece has won
             if (parseInt(pieceOne.style.gridColumnStart) - diceNum == 1) {
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum
                 winSound.play();
@@ -559,10 +641,8 @@ function runGame(players) {
                 setTimeout(function () {
                     if (players == 2) {
                         winAlertOne()
-                        // resetGame()
                     } else {
                         winAlertYou()
-                        // resetGame()
                     }
                 }, 700);
 
@@ -570,6 +650,8 @@ function runGame(players) {
             } else if (parseInt(pieceOne.style.gridColumnStart) - diceNum > 1) {
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum
             }
+
+        // moves piece if on an even-numbered row
         } else if (pieceOne.style.gridRowStart % 2 === 0) {
             let PositionEvenOne = pieceOne.style.gridColumnStart
             let magicNumEvenOne = 11 - PositionEvenOne
@@ -583,7 +665,8 @@ function runGame(players) {
                 let modifierEvenOne = diceNum - magicNumEvenOne
                 console.log(modifierEvenOne)
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) + modifierEvenOne
-    
+                
+                // moves piece smoothly around corners
                 setTimeout(function () {
                     pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) + 1
                     updatePieceOneSmooth()
@@ -602,7 +685,8 @@ function runGame(players) {
                     console.log('third update ran')
                 }, 700);
             }
-            
+        
+        // moves piece if on an odd-numbered row
         } else if (pieceOne.style.gridRowStart % 2 != 0) {
             let positionOddOne = pieceOne.style.gridColumnStart
             if (parseInt(pieceOne.style.gridColumnStart) - diceNum < 0) {
@@ -614,6 +698,7 @@ function runGame(players) {
                 let modifierOddOne = diceNum - positionOddOne
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - modifierOddOne
 
+                // moves piece smoothly around corners
                 setTimeout(function () {
                     pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) + 1
                     updatePieceOneSmooth()
@@ -660,8 +745,15 @@ function runGame(players) {
 
     }
 
+    /**
+     * Checks if player one is on a snake or
+     * a ladder and, if so, moves the piece.
+     * Calls functions to update pseudo-piece and
+     * switch the turn
+    */
     function specialCheckOne(pieceOne) {
-        console.log('special check One ran')
+        
+        // snake and ladder squares
         if (pieceOne.style.gridColumnStart == 4 && pieceOne.style.gridRowStart == 10) {
             ladderSound.play();
             pieceOne.style.gridColumnStart = 5
@@ -722,9 +814,17 @@ function runGame(players) {
         }
     }
 
+    /**
+     * Moves player two's real (invisible) piece 
+     * along the board and checks if player has won.
+     * Calls functions to update visible player piece,
+     * as well as check if on a 'special' square
+    */
     function movePieceTwo(diceNum) {
         let pieceTwo = document.getElementById('piece-two')
+        // checks if piece is within one roll of finishing
         if (parseInt(pieceTwo.style.gridRowStart) === 1 && parseInt(pieceTwo.style.gridColumnStart) <= 7) {
+            // checks if piece has won
             if (parseInt(pieceTwo.style.gridColumnStart) - diceNum == 1) {
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum
                 if (players == 2) {
@@ -745,6 +845,7 @@ function runGame(players) {
             } else if (parseInt(pieceTwo.style.gridColumnStart) - diceNum > 1) {
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum
             }
+        // moves piece on even numbered rows
         } else if (pieceTwo.style.gridRowStart % 2 === 0) {
             let PositionEvenTwo = pieceTwo.style.gridColumnStart
             let magicNumEvenTwo = 11 - PositionEvenTwo
@@ -758,7 +859,8 @@ function runGame(players) {
                 let modifierEvenTwo = diceNum - magicNumEvenTwo
                 console.log(modifierEvenTwo)
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) + modifierEvenTwo
-    
+                
+                // moves piece smoothly around corners
                 setTimeout(function () {
                     pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) + 1
                     updatePieceTwoSmooth()
@@ -779,7 +881,7 @@ function runGame(players) {
             }
 
 
-
+        // moves piece on odd numbered rows
         } else if (pieceTwo.style.gridRowStart % 2 != 0) {
             let positionOddTwo = pieceTwo.style.gridColumnStart
             if (parseInt(pieceTwo.style.gridColumnStart) - diceNum < 0) {
@@ -791,6 +893,7 @@ function runGame(players) {
                 let modifierOddTwo = diceNum - positionOddTwo
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - modifierOddTwo
 
+                // moves piece smoothly around corners
                 setTimeout(function () {
                     pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) + 1
                     updatePieceTwoSmooth()
@@ -836,8 +939,15 @@ function runGame(players) {
         }, 1000);
     }
 
+    /**
+     * Checks if player two is on a snake or
+     * a ladder and, if so, moves the piece.
+     * Calls functions to update pseudo-piece and
+     * switch the turn
+    */
     function specialCheckTwo(pieceTwo) {
 
+        // snake and ladder squares
         if (pieceTwo.style.gridColumnStart == 4 && pieceTwo.style.gridRowStart == 10) {
             ladderSound.play();
             pieceTwo.style.gridColumnStart = 5
@@ -896,6 +1006,11 @@ function runGame(players) {
     }
 }
 
+/**
+ * Updates player one's pseudo (visible) piece.
+ * Gets the position of the real (invisible) piece
+ * and moves the psudo piece to the same location.
+ */
 function updatePieceOneSmooth() {
     let pieceOneSmooth = document.getElementById('piece-one-smooth')
     let element = document.getElementById("piece-one");
@@ -909,6 +1024,11 @@ function updatePieceOneSmooth() {
     pieceOneSmooth.style.top = `${topPositionCorrected}px`
 }
 
+/**
+ * Updates player two's pseudo (visible) piece.
+ * Gets the position of the real (invisible) piece
+ * and moves the psudo piece to the same location.
+ */
 function updatePieceTwoSmooth() {
     let pieceTwoSmooth = document.getElementById('piece-two-smooth')
     let element = document.getElementById("piece-two");
@@ -922,15 +1042,15 @@ function updatePieceTwoSmooth() {
     pieceTwoSmooth.style.top = `${topPositionCorrected}px`
 }
 
-// function resetConfirm() {
-//     if (confirm("Reset the game?") == true) {
-//         resetGame()
-//     } else {}
-// }
-
+/**
+ * Resets the game. Reverts HTML elements to their
+ * initial state, and moves pieces back to square 1.
+ * Re-runs the page setup function
+ */
 function resetGame() {
     gameRunning = false
 
+    // keeps the audio mute state in it's current state, despite game reset.
     let backgroundMusic = document.getElementById('background-music');
     if (backgroundMusic.muted != true) {
         document.getElementById('rules-button-container').innerHTML = `<button id="rules-button">How To Play</button>`
@@ -1001,7 +1121,7 @@ function resetGame() {
             </div>
     `
     }
-
+    // HTML elements reset
     document.getElementById('roll-container').innerHTML = ``
     document.getElementById('dice-container').innerHTML = ``
     document.getElementById('reset-mute-container').innerHTML = ``
@@ -1018,45 +1138,21 @@ function resetGame() {
 }
 
 
-//button disable
 
+/**
+ * Disables roll and reset buttons
+ */
 function disableButtons() {
 
     document.getElementById("dice-roller").disabled = true;
     document.getElementById("reset-button").disabled = true;
 }
 
+/**
+ * Enables roll and reset buttons
+ */
 function enableButtons() {
 
     document.getElementById("dice-roller").disabled = false;
     document.getElementById("reset-button").disabled = false;
 }
-
-// modal stuff
-
-// // Get the modal
-// var modal = document.getElementById("rules-container");
-
-// // Get the button that opens the modal
-// var btn = document.getElementById("rules-button");
-
-// // Get the <span> element that closes the modal
-// var span = document.getElementsByClassName("close")[0];
-
-// // When the user clicks the button, open the modal 
-// btn.onclick = function() {
-//   modal.style.display = "block";
-//   console.log('button clicked')
-// }
-
-// When the user clicks on <span> (x), close the modal
-// span.onclick = function() {
-//   modal.style.display = "none";
-// }
-
-// // When the user clicks anywhere outside of the modal, close it
-// window.onclick = function(event) {
-//   if (event.target == modal) {
-//     modal.style.display = "none";
-//   }
-// }
