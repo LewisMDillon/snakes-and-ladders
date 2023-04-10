@@ -55,15 +55,15 @@ function rulesPopup() {
 function rulesClose(rulesModal) {
     let closeButton = document.getElementById("rules-closer");
 
-    closeButton.onclick = function() {
-    rulesModal.style.display = "none";
-  };
-  
-     window.onclick = function(event) {
-    if (event.target == rulesModal) {
-      rulesModal.style.display = "none";
-    }
-  };
+    closeButton.onclick = function () {
+        rulesModal.style.display = "none";
+    };
+
+    window.onclick = function (event) {
+        if (event.target == rulesModal) {
+            rulesModal.style.display = "none";
+        }
+    };
 }
 
 /**
@@ -81,14 +81,14 @@ function colorPopup() {
 function colorClose(colorModal) {
     let closeButton = document.getElementById("color-closer");
 
-    closeButton.onclick = function() {
-    colorModal.style.display = "none";
-  };
-     window.onclick = function(event) {
-    if (event.target == colorModal) {
-      colorModal.style.display = "none";
-    }
-  };
+    closeButton.onclick = function () {
+        colorModal.style.display = "none";
+    };
+    window.onclick = function (event) {
+        if (event.target == colorModal) {
+            colorModal.style.display = "none";
+        }
+    };
 }
 
 /**
@@ -107,23 +107,23 @@ function resetClose(resetModal) {
     let closeButton = document.getElementById("reset-closer");
     let cancelButton = document.getElementById('reset-cancel');
 
-    closeButton.onclick = function() {
-    resetModal.style.display = "none";
-  };
-    cancelButton.onclick = function() {
-    resetModal.style.display = "none";
-  };
-     window.onclick = function(event) {
-    if (event.target == resetModal) {
+    closeButton.onclick = function () {
         resetModal.style.display = "none";
-    }
-  };
+    };
+    cancelButton.onclick = function () {
+        resetModal.style.display = "none";
+    };
+    window.onclick = function (event) {
+        if (event.target == resetModal) {
+            resetModal.style.display = "none";
+        }
+    };
 }
 
 /**
  * closes the reset modal
  */
-function resetConfirmClose () {
+function resetConfirmClose() {
     let resetModal = document.getElementById("reset-alert-container");
     resetModal.style.display = "none";
 }
@@ -131,11 +131,11 @@ function resetConfirmClose () {
 /**
  * Pops up the 'You Win' message
  */
-function winAlertYou () {
+function winAlertYou() {
     let winModal = document.getElementById("win-alert-container");
     winModal.style.display = "block";
-    winModal.innerHTML = 
-    `
+    winModal.innerHTML =
+        `
         <div id="win-alert-content">
             <span id="win-closer" class="close">&times;</span>
             <h2 class="bounce">
@@ -156,11 +156,11 @@ function winAlertYou () {
 /**
  * Pops up the 'Player One Wins' message
  */
-function winAlertOne () {
+function winAlertOne() {
     let winModal = document.getElementById("win-alert-container");
     winModal.style.display = "block";
-    winModal.innerHTML = 
-    `
+    winModal.innerHTML =
+        `
         <div id="win-alert-content">
             <span id="win-closer" class="close">&times;</span>
             <h2 class="bounce">
@@ -189,11 +189,11 @@ function winAlertOne () {
 /**
  * Pops up the 'Player Two Wins' message
  */
-function winAlertTwo () {
+function winAlertTwo() {
     let winModal = document.getElementById("win-alert-container");
     winModal.style.display = "block";
-    winModal.innerHTML = 
-    `
+    winModal.innerHTML =
+        `
         <div id="win-alert-content">
             <span id="win-closer" class="close">&times;</span>
             <h2 class="bounce">
@@ -222,11 +222,11 @@ function winAlertTwo () {
 /**
  * Pops up the 'Computer Wins' message
  */
-function winAlertBot () {
+function winAlertBot() {
     let winModal = document.getElementById("win-alert-container");
     winModal.style.display = "block";
-    winModal.innerHTML = 
-    `
+    winModal.innerHTML =
+        `
         <div id="win-alert-content">
             <span id="win-closer" class="close">&times;</span>
             <h2 id="computer-win-message">
@@ -249,16 +249,16 @@ function winAlertBot () {
 function winClose(winModal) {
     let closeButton = document.getElementById("win-closer");
 
-    closeButton.onclick = function() {
-    winModal.style.display = "none";
-    resetGame();
-  };
-     window.onclick = function(event) {
-    if (event.target == winModal) {
-      winModal.style.display = "none";
-      resetGame();
-    }
-  };
+    closeButton.onclick = function () {
+        winModal.style.display = "none";
+        resetGame();
+    };
+    window.onclick = function (event) {
+        if (event.target == winModal) {
+            winModal.style.display = "none";
+            resetGame();
+        }
+    };
 }
 
 /**
@@ -492,13 +492,20 @@ function runGame(players) {
                 setTimeout(function () {
                     movePieceTwo(diceNum);
                     // diplays the computer's 'roll' to the user
-                    if (diceNum == 1) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-one"></i>`;}
-                    else if (diceNum == 2) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-two"></i>`;}
-                    else if (diceNum == 3) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-three"></i>`;}
-                    else if (diceNum == 4) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-four"></i>`;}
-                    else if (diceNum == 5) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-five"></i>`;}
-                    else if (diceNum == 6) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-six"></i>`;}
-                    
+                    if (diceNum == 1) {
+                        document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-one"></i>`;
+                    } else if (diceNum == 2) {
+                        document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-two"></i>`;
+                    } else if (diceNum == 3) {
+                        document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-three"></i>`;
+                    } else if (diceNum == 4) {
+                        document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-four"></i>`;
+                    } else if (diceNum == 5) {
+                        document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-five"></i>`;
+                    } else if (diceNum == 6) {
+                        document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-six"></i>`;
+                    }
+
 
                 }, 500);
             }
@@ -510,7 +517,7 @@ function runGame(players) {
      * 'Rolls' the dice. generates a random dice number.
      * Logs it. Plays the roll animation. Triggers functions to
      * move player pieces
-    */
+     */
     function rollDice() {
 
         rollSound.play();
@@ -574,12 +581,19 @@ function runGame(players) {
                     setTimeout(function () {
                         if (gameRunning === true) {
                             movePieceTwo(diceNum);
-                            if (diceNum == 1) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-one"></i>`;}
-                            else if (diceNum == 2) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-two"></i>`;}
-                            else if (diceNum == 3) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-three"></i>`;}
-                            else if (diceNum == 4) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-four"></i>`;}
-                            else if (diceNum == 5) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-five"></i>`;}
-                            else if (diceNum == 6) {document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-six"></i>`;}
+                            if (diceNum == 1) {
+                                document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-one"></i>`;
+                            } else if (diceNum == 2) {
+                                document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-two"></i>`;
+                            } else if (diceNum == 3) {
+                                document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-three"></i>`;
+                            } else if (diceNum == 4) {
+                                document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-four"></i>`;
+                            } else if (diceNum == 5) {
+                                document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-five"></i>`;
+                            } else if (diceNum == 6) {
+                                document.getElementById('result-two').innerHTML = `The computer rolled a ${diceNum}  <i class="fa-solid fa-dice-six"></i>`;
+                            }
                         }
                     }, 1500);
                 }
@@ -590,7 +604,7 @@ function runGame(players) {
     /**
      * Alernates the turn state after player or
      * computer has taken their turn.
-    */
+     */
     function switchTurn() {
         if (gameRunning === true) {
             if (turn == 1) {
@@ -628,7 +642,7 @@ function runGame(players) {
      * along the board and checks if player has won.
      * Calls functions to update visible player piece,
      * as well as check if on a 'special' square
-    */
+     */
     function movePieceOne(diceNum) {
         let pieceOne = document.getElementById('piece-one');
         // checks if piece is within one roll of finishing
@@ -651,7 +665,7 @@ function runGame(players) {
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum;
             }
 
-        // moves piece if on an even-numbered row
+            // moves piece if on an even-numbered row
         } else if (pieceOne.style.gridRowStart % 2 === 0) {
             let PositionEvenOne = pieceOne.style.gridColumnStart;
             let magicNumEvenOne = 11 - PositionEvenOne;
@@ -662,7 +676,7 @@ function runGame(players) {
                 pieceOne.style.gridColumnStart = 11 - parseInt(pieceOne.style.gridColumnStart);
                 let modifierEvenOne = diceNum - magicNumEvenOne;
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) + modifierEvenOne;
-                
+
                 // moves piece smoothly around corners
                 setTimeout(function () {
                     pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) + 1;
@@ -679,8 +693,8 @@ function runGame(players) {
                     updatePieceOneSmooth();
                 }, 700);
             }
-        
-        // moves piece if on an odd-numbered row
+
+            // moves piece if on an odd-numbered row
         } else if (pieceOne.style.gridRowStart % 2 != 0) {
             let positionOddOne = pieceOne.style.gridColumnStart;
             if (parseInt(pieceOne.style.gridColumnStart) - diceNum < 0) {
@@ -720,7 +734,7 @@ function runGame(players) {
                 setTimeout(function () {
                     pieceOne.style.gridRowStart = parseInt(pieceOne.style.gridRowStart) - 1;
                     updatePieceOneSmooth();
-                }, 400);   
+                }, 400);
             } else {
                 pieceOne.style.gridColumnStart = parseInt(pieceOne.style.gridColumnStart) - diceNum;
             }
@@ -738,9 +752,9 @@ function runGame(players) {
      * a ladder and, if so, moves the piece.
      * Calls functions to update pseudo-piece and
      * switch the turn
-    */
+     */
     function specialCheckOne(pieceOne) {
-        
+
         // snake and ladder squares
         if (pieceOne.style.gridColumnStart == 4 && pieceOne.style.gridRowStart == 10) {
             ladderSound.play();
@@ -807,7 +821,7 @@ function runGame(players) {
      * along the board and checks if player has won.
      * Calls functions to update visible player piece,
      * as well as check if on a 'special' square
-    */
+     */
     function movePieceTwo(diceNum) {
         let pieceTwo = document.getElementById('piece-two');
         // checks if piece is within one roll of finishing
@@ -831,7 +845,7 @@ function runGame(players) {
             } else if (parseInt(pieceTwo.style.gridColumnStart) - diceNum > 1) {
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum;
             }
-        // moves piece on even numbered rows
+            // moves piece on even numbered rows
         } else if (pieceTwo.style.gridRowStart % 2 === 0) {
             let PositionEvenTwo = pieceTwo.style.gridColumnStart;
             let magicNumEvenTwo = 11 - PositionEvenTwo;
@@ -842,7 +856,7 @@ function runGame(players) {
                 pieceTwo.style.gridColumnStart = 11 - parseInt(pieceTwo.style.gridColumnStart);
                 let modifierEvenTwo = diceNum - magicNumEvenTwo;
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) + modifierEvenTwo;
-                
+
                 // moves piece smoothly around corners
                 setTimeout(function () {
                     pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) + 1;
@@ -861,7 +875,7 @@ function runGame(players) {
             }
 
 
-        // moves piece on odd numbered rows
+            // moves piece on odd numbered rows
         } else if (pieceTwo.style.gridRowStart % 2 != 0) {
             let positionOddTwo = pieceTwo.style.gridColumnStart;
             if (parseInt(pieceTwo.style.gridColumnStart) - diceNum < 0) {
@@ -901,7 +915,7 @@ function runGame(players) {
                 setTimeout(function () {
                     pieceTwo.style.gridRowStart = parseInt(pieceTwo.style.gridRowStart) - 1;
                     updatePieceTwoSmooth();
-                }, 400);   
+                }, 400);
             } else {
                 pieceTwo.style.gridColumnStart = parseInt(pieceTwo.style.gridColumnStart) - diceNum;
             }
@@ -918,7 +932,7 @@ function runGame(players) {
      * a ladder and, if so, moves the piece.
      * Calls functions to update pseudo-piece and
      * switch the turn
-    */
+     */
     function specialCheckTwo(pieceTwo) {
 
         // snake and ladder squares

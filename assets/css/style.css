@@ -447,17 +447,26 @@ using a JS function and moves smoothly from square to square.
 
 /* General modal class styles */
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 51; /* Sit on top */
-  padding-top: 75px; /* Location of the box */
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 51;
+  /* Sit on top */
+  padding-top: 75px;
+  /* Location of the box */
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
 }
 
 /* Modal Content */
@@ -632,14 +641,17 @@ ol {
   display: inline-flex;
   animation: bounce 2.5s infinite;
 }
+
 @keyframes bounce {
+
   0%,
   50%,
   100% {
-      transform: translateY(0);
+    transform: translateY(0);
   }
+
   25% {
-      transform: translateY(-20px);
+    transform: translateY(-20px);
   }
 }
 
@@ -647,48 +659,63 @@ ol {
 .bouncy span:nth-of-type(1) {
   animation-delay: 0.1s;
 }
+
 .bouncy span:nth-of-type(2) {
   animation-delay: 0.2s;
 }
+
 .bouncy span:nth-of-type(3) {
   animation-delay: 0.3s;
 }
+
 .bouncy span:nth-of-type(4) {
   animation-delay: 0.4s;
 }
+
 .bouncy span:nth-of-type(5) {
   animation-delay: 0.5s;
 }
+
 .bouncy span:nth-of-type(6) {
   animation-delay: 0.6s;
 }
+
 .bouncy span:nth-of-type(7) {
   animation-delay: 0.7s;
 }
+
 .bouncy span:nth-of-type(8) {
   animation-delay: 0.8s;
 }
+
 .bouncy span:nth-of-type(9) {
   animation-delay: 0.9s;
 }
+
 .bouncy span:nth-of-type(10) {
   animation-delay: 1s;
 }
+
 .bouncy span:nth-of-type(11) {
   animation-delay: 1.1s;
 }
+
 .bouncy span:nth-of-type(12) {
   animation-delay: 1.2s;
 }
+
 .bouncy span:nth-of-type(13) {
   animation-delay: 1.3s;
 }
+
 .bouncy span:nth-of-type(14) {
   animation-delay: 1.4s;
 }
+
 .bouncy span:nth-of-type(15) {
   animation-delay: 1.5s;
 }
+
 .bouncy span:nth-of-type(16) {
   animation-delay: 1.6s;
 }
@@ -794,7 +821,7 @@ ol {
     margin-top: 50px;
   }
 
-  #piece-one  {
+  #piece-one {
     left: 9.5px;
     top: 9.5px;
   }
