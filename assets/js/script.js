@@ -3,6 +3,8 @@
 // this code will run upon loading of the main page
 document.addEventListener("DOMContentLoaded", pageSetup());
 
+let gameRunning = false
+
 /**
  * Sets up essential page elements and adds event listeners
  */
