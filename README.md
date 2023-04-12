@@ -9,10 +9,9 @@ The aim with the user interface in this project is to provide clear and concise 
 
 The user is presented with the gameboard and the game setup in one screen to prevent having to scroll up and down to access options. HTML elements are added and removed depending on the game state so as to keep the game area clean and un-cluttered.
 
-Large buttons and fonts make it easy for the user to interact with the different elements and recieve information back from them.
+Large buttons and fonts make it easy for the user to interact with the different elements and receive information back from them.
 
 Color-dependent text is used to further clarify things such as turn states.
-
 
 ### Colour Scheme
 
@@ -26,18 +25,15 @@ The site uses bright, pastel colours for the gameboard elements with accented bl
 - `#ffcdb6` used for gameboard.
 - `#bc91d9` used for gameboard.
 
-
 I used [coolors.co](https://coolors.co/e84610-009fe3-4a4a4f-445261-d63649-e6ecf0-000000) to generate my colour palette.
 
 ![screenshot](documentation/coolors.png)
-
 
 ### Typography
 
 Google Fonts as used for all main fonts in the site
 
 Google Material Symbols & Icons, as well as FontAwesome were used for icons
-
 
 - [Yanone Kaffeesatz](https://fonts.google.com/specimen/Yanone+Kaffeesatz) was used for the primary headers and titles.
 
@@ -72,7 +68,7 @@ Google Material Symbols & Icons, as well as FontAwesome were used for icons
 - **Player Pieces**
 
     - The player pieces are large and contrasting against the gameboard, as well as their colour being customisable, allowing the user to quickly see where on the gameboard their piece is.
-    Smooth transitions were used to help the user to follow the piece along the board as it moves, as well as providing realism to the movement of the pieces. The pieces visibly climb up the ladders and slide down the snakes on the board, again hlping the user to easily visualise what is happening on the gameboard.
+    Smooth transitions were used to help the user to follow the piece along the board as it moves, as well as providing realism to the movement of the pieces. The pieces visibly climb up the ladders and slide down the snakes on the board, again helping the user to easily visualise what is happening on the gameboard.
 
 ![screenshot](documentation/feature04.png)
 
@@ -114,7 +110,7 @@ Google Material Symbols & Icons, as well as FontAwesome were used for icons
 
 - **Background Music**
 
-    - Background music begins automatically wheen the user starts the game. Music was not chosen to begin autoplaying on first loading of the site as this can be disabled by certain browsers. The music is easygoing and not too loud, to provide a simple background accompaniment which enhances the experience of playing the game.
+    - Background music begins automatically when the user starts the game. Music was not chosen to begin auto playing on first loading of the site as this can be disabled by certain browsers. The music is easy-going and not too loud, to provide a simple background accompaniment which enhances the experience of playing the game.
 
 - **Audio Effects**
 
@@ -134,11 +130,9 @@ Google Material Symbols & Icons, as well as FontAwesome were used for icons
 
 - **Win Message**
 
-    - Upon finishing the game, a message will pop up to inform the user that the game has been won and by which player. This gives a sense of finality to the end of the game and allows the user a moment of celebration or comiseration before resetting the game state. Animated text is used in the case of a player win to aid in the celebrations.
-
+    - Upon finishing the game, a message will pop up to inform the user that the game has been won and by which player. This gives a sense of finality to the end of the game and allows the user a moment of celebration or commiseration before resetting the game state. Animated text is used in the case of a player win to aid in the celebrations.
 
 ![screenshot](documentation/feature15.png)
-
 
 ### Future Features
 
@@ -196,7 +190,7 @@ You can clone the repository by following these steps:
 4. Open Git Bash or Terminal
 5. Change the current working directory to the one where you want the cloned directory
 6. In your IDE Terminal, type the following command to clone my repository:
-	- `git clone https://github.com/LewisMDillon/snakes-and-ladders.git`
+    - `git clone https://github.com/LewisMDillon/snakes-and-ladders.git`
 7. Press Enter to create your local clone.
 
 Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
