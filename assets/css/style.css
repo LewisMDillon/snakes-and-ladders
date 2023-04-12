@@ -481,6 +481,10 @@ using a JS function and moves smoothly from square to square.
   border-radius: 10px;
 }
 
+#rules-content li {
+  padding: 10px;
+}
+
 #color-alert-content {
   background-color: #fefefe;
   margin: auto;
