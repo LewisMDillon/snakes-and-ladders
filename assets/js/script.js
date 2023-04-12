@@ -3,7 +3,7 @@
 // this code will run upon loading of the main page
 document.addEventListener("DOMContentLoaded", pageSetup());
 
-let gameRunning = false
+let gameRunning = false;
 
 /**
  * Sets up essential page elements and adds event listeners
@@ -490,7 +490,7 @@ function runGame(players) {
                 document.getElementById('game-messages').innerText = ('Computer goes first');
                 disableButtons();
                 document.getElementById('game-messages').style.color = document.getElementById('piece-two').style.backgroundColor;
-                diceNum = Math.floor(Math.random() * 6) + 1;
+               let diceNum = Math.floor(Math.random() * 6) + 1;
                 setTimeout(function () {
                     movePieceTwo(diceNum);
                     // diplays the computer's 'roll' to the user
