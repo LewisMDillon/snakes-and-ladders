@@ -30,7 +30,7 @@ I have used the recommended [JShint Validator](https://jshint.com) to validate a
 
 | File | Screenshot | Notes |
 | --- | --- | --- |
-| script.js | ![screenshot](documentation/js-validation-script.png) | Two Undefined Variables |
+| script.js | ![screenshot](documentation/js-validation-script.png) | Pass: No Errors |
 
 
 ## Browser Compatibility
